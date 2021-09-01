@@ -7,6 +7,7 @@
 * Email: bruesebt@mail.uc.edu
 
 
+
 **Co-op and Other Related Experiences**
 
 * IT Test Support Technician (1 Semester)
