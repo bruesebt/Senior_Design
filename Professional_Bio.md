@@ -11,22 +11,23 @@
 
 * Cincinnati Insurance Co, IT Test Support Technician (May 2021 - Present)
 	* Used proprietary automation software to create automated test cases
-	* Piloted new automation testing for a group that previously had no automated test cases in the new automation framework, working alone on creating all the procedures that the team needed
+	* Piloted new automation testing for a group that previously had no automated test cases in the new automation framework
 	* Optimized previously made procedures by implementing new techniques for automated testing piloted by the IT Test Support team.
 	* Fixed bugs in automated test cases submitted to the test management suite
 	* Submitted various suggested improvements to the automation framework owned by the IT Test Support team
+	* Displayed independence, and project organization skills by organizing an automation project alone
 
 * Cincinnati Insurance Co, Software Release Technician (August 2020 - May 2021)
 	* Scripted an automated process to automatically house all information managers needed to approve certain builds
 	* Completed tasks involving adding and removing permissions from users across the company due to transfer or termination
-	* Learned the Groovy programming language
+	* Showcased the ability to learn quickly and adapt by learning the Groovy programming language, responsibilities of my position, and a new team dynamic all while working remotely
 
 * Cincinnati Insurance Co, QA Tester (February 2019 - August 2020)
 	* Tested multiple of the company’s software applications through regression testing, interfaces testing, and automation testing
 	* Helped pilot new proprietary automation software for our testing team
 	* Created more automation procedures than anyone else on my team in the first four sprints of new automation testing
 	* Found a new way to improve automated testing procedures, optimizing some procedures from fifteen steps to three
-
+	* Demonstrated depth of knowledge by training new interns as well as contractors in manual regression testing
 
 
 
