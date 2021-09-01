@@ -9,17 +9,17 @@
 
 **Co-op and Other Related Experiences**
 
-It Test Support Technician (1 Semester)
+1. It Test Support Technician (1 Semester)
 	* Item 1
 	* Item 2
 	* Item 3
 
-QA Tester (2 Semesters)
+2. QA Tester (2 Semesters)
 	* Item 1
 	* Item 2 
 	* Item 3
 
-Desktop Support Technician (2 semesters)
+3. Desktop Support Technician (2 semesters)
 	* Item 1
 	* Item 2
 	* Item 3
