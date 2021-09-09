@@ -1,22 +1,24 @@
-# Team: **Senior Deezign**
+# Team: Senior Deezign
 
-## Project topic area
-We aim to develop some sore of mobile application that utilizes QR Code generation for easy data sharing on a Mobile level. Thus our project topic area is mobile development and intergating with qr code generation.
+## Project Topic Area
+Our goal is to develop a mobile application that promotes effortless data sharing between two parties. 
+One technique we have considered using for sharing of data is through generated QR codes.
+Our project topic area is mobile development, and when it comes to data sharing, we will apply cryptology techniques to ensure secure communication.
 
-### Members
+## Team Members
 * Brad Bruesewitz
     * Major: Computer Science
-    * mail: bruesebt@mail.uc.edu
+    * Email: bruesebt@mail.uc.edu
 
 * Caleb Cargill
     * Major: Computer Science
-    * mail: cargilch@mail.uc.edu
+    * Email: cargilch@mail.uc.edu
 
 * Nathan Dumford
     * Major: Computer Science
-    * mail: dumfornr@mail.uc.edu
+    * Email: dumfornr@mail.uc.edu
 
 * Johnathan Lemon
     * Major: Computer Science
-    * mail: lemonjl@mail.uc.edu
+    * Email: lemonjl@mail.uc.edu
 
