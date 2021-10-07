@@ -1,24 +1,39 @@
 # Task List
 
-| Task                                                                              | Category              | Target Date   | Assigned To   | Status        |
-| :---                                                                              | :----:                | :----:        | :----:        | ---:          |
-| Decide what information the user will need to input to output activity ideas      | Business Logic        | 10/8          | Brad          | Incomplete    |
-| Research location services within a mobile application                            | Research              | 10/8          | Brad          | Incomplete    |
-| Research/Discuss possible approaches/algorithms to output activity ideas          | Research              | 10/8          | Brad, Caleb   | Incomplete    | 
-| Require code reviews for pushing to repository                                    | Project Management    | 10/15         | Brad          | Incomplete    |
-| Create wireframes to capture UI design                                            | Front-End             | 10/15         | Brad          | Incomplete    |
-| Research Restful web APIs                                                         | Research              | 10/8          | Caleb         | Incomplete    |
-| Research using Google API to search for activities in an area                     | Research              | 10/8          | Caleb         | Incomplete    |
-| Setup continuous integration for branch on GitHub                                 | Project Management    | 10/15         | Caleb         | Incomplete    |
-| Create a Restful web API to interact with database                                | Database              | 10/15         | Caleb         | Incomplete    |
-| Research mobile application development and possible implementations              | Research              | 10/8          | Johnathan     | Incomplete    |
-| Investiagte which framework works best for integration with back-end              | Research              | 10/8          | Johnathan     | Incomplete    |
-| Specify framework and coding practices                                            | Project Management    | 10/15         | Johnathan     | Incomplete    |
-| Design tables, pages, and UI via html and css                                     | Front-End             | 10/15         | Johnathan     | Incomplete    |
-| Develop method to call backend API                                                | Front-End             | 10/22         | Johnathan     | Incomplete    |
-| Develop unit tests and document how to run and implement more                     | Testing               | 10/22         | Johnathan     | Incomplete    |
-| Research how mobile applications interact with databases                          | Research              | 10/8          | Nate          | Incomplete    |
-| Research technologies for creating/managing databases                             | Research              | 10/8          | Nate          | Incomplete    |
-| Create a database that the front-end can interact with                            | Database              | 10/15         | Nate          | Incomplete    |
-| Write specifications on process of updating the database                          | Project Management    | 10/15         | Nate          | Incomplete    |
-| Create a testing plan for testing code that is released                           | Testing               | 10/22         | Nate          | Incomplete    |
+| Task                                                                              | Category              | Assigned To       | Status        |
+| :---                                                                              | :----:                | :----:            | ---:          |
+| Research economic cost and time as project constraints                            | Research              | Brad              | Incomplete    |
+| Decide what information the user will need to input to output activity ideas      | Business Logic        | Brad              | Incomplete    |
+| Create wireframes to capture UI design                                            | Front-End             | Brad              | Incomplete    |
+| Research/Discuss possible approaches/algorithms to output activity ideas          | Research              | Brad, Caleb       | Incomplete    | 
+| Research location services within a mobile application                            | Research              | Brad              | Incomplete    |
+| Require code reviews for pushing to repository                                    | Project Management    | Brad              | Incomplete    |
+| Implement algorithm for outputting activity ideas in API                          | Business Logic        | Brad              | Incomplete    |
+| Test algorithm with testing data                                                  | Testing               | Brad              | Incomplete    |
+| Research scope and professional/technical expertise as project constraints        | Research              | Caleb             | Incomplete    |
+| Research Restful web APIs                                                         | Research              | Caleb             | Incomplete    |
+| Research using Google API to search for activities in an area                     | Research              | Caleb             | Incomplete    |
+| Setup continuous integration for branch on GitHub                                 | Project Management    | Caleb             | Incomplete    |
+| Create a Restful web API to interact with database                                | Database              | Caleb             | Incomplete    |
+| Document how to interact with web API                                             | Database              | Caleb             | Incomplete    |
+| Implement CRUD operation methods on web API for 'user' object                     | Database              | Caleb             | Incomplete    |
+| Implement CRUD operation methods on web API for 'preference' object               | Database              | Caleb             | Incomplete    |
+| Test interaction between web API and database                                     | Testing               | Caleb, Nate       | Incomplete    |
+| Research ethical/legal, security, and social as project constraints               | Research              | Johnathan         | Incomplete    |
+| Research mobile application development and possible implementations              | Research              | Johnathan         | Incomplete    |
+| Investiagte which framework works best for integration with back-end              | Research              | Johnathan         | Incomplete    |
+| Specify framework and coding practices                                            | Project Management    | Johnathan         | Incomplete    |
+| Design tables, pages, and UI via html and css                                     | Front-End             | Johnathan         | Incomplete    |
+| Develop method to call backend API                                                | Front-End             | Johnathan         | Incomplete    |
+| Develop unit tests and document how to run and implement more                     | Testing               | Johnathan, Caleb  | Incomplete    |
+| Design and wire up to back-end user interface for user inputting information      | Front-End             | Johnathan         | Incomplete    |
+| Design and wire up to back-end user interface for displaying output to user       | Front-End             | Johnathan         | Incomplete    |
+| Test interaction of front-end with web API                                        | Testing               | Johnathan         | Incomplete    |
+| Research environmental, diversity and cultural impact as project constraints      | Research              | Nate              | Incomplete    |
+| Research how mobile applications interact with databases                          | Research              | Nate              | Incomplete    |
+| Research technologies for creating/managing databases                             | Research              | Nate              | Incomplete    |
+| Create a database that the front-end can interact with                            | Database              | Nate              | Incomplete    |
+| Write specifications on process of updating the database                          | Project Management    | Nate              | Incomplete    |
+| Create a testing plan for testing code that is released                           | Testing               | Nate              | Incomplete    |
+| Create table in database for storing user information                             | Database              | Nate              | Incomplete    |
+| Add testing data to database for presentation and basic testing                   | Database              | Nate              | Incomplete    |
