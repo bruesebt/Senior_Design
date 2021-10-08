@@ -2,7 +2,7 @@
 
 | Task                                                                              | Category              | Assigned To       | Status        |
 | :---                                                                              | :----:                | :----:            | ---:          |
-| Research economic cost and time as project constraints                            | Research              | Brad              | Incomplete    |
+| Research economic ethical/legal as project constraints                            | Research              | Brad              | Incomplete    |
 | Decide what information the user will need to input to output activity ideas      | Business Logic        | Brad              | Incomplete    |
 | Create wireframes to capture UI design                                            | Front-End             | Brad              | Incomplete    |
 | Research/Discuss possible approaches/algorithms to output activity ideas          | Research              | Brad, Caleb       | Incomplete    | 
@@ -10,7 +10,7 @@
 | Require code reviews for pushing to repository                                    | Project Management    | Brad              | Incomplete    |
 | Implement algorithm for outputting activity ideas in API                          | Business Logic        | Brad              | Incomplete    |
 | Test algorithm with testing data                                                  | Testing               | Brad              | Incomplete    |
-| Research scope and professional/technical expertise as project constraints        | Research              | Caleb             | Incomplete    |
+| Research social as a project constraint                                           | Research              | Caleb             | Incomplete    |
 | Research Restful web APIs                                                         | Research              | Caleb             | Incomplete    |
 | Research using Google API to search for activities in an area                     | Research              | Caleb             | Incomplete    |
 | Setup continuous integration for branch on GitHub                                 | Project Management    | Caleb             | Incomplete    |
@@ -19,7 +19,7 @@
 | Implement CRUD operation methods on web API for 'user' object                     | Database              | Caleb             | Incomplete    |
 | Implement CRUD operation methods on web API for 'preference' object               | Database              | Caleb             | Incomplete    |
 | Test interaction between web API and database                                     | Testing               | Caleb, Nate       | Incomplete    |
-| Research ethical/legal, security, and social as project constraints               | Research              | Johnathan         | Incomplete    |
+| Research professional/technical as project constraints                            | Research              | Johnathan         | Incomplete    |
 | Research mobile application development and possible implementations              | Research              | Johnathan         | Incomplete    |
 | Investiagte which framework works best for integration with back-end              | Research              | Johnathan         | Incomplete    |
 | Specify framework and coding practices                                            | Project Management    | Johnathan         | Incomplete    |
@@ -29,7 +29,7 @@
 | Design and wire up to back-end user interface for user inputting information      | Front-End             | Johnathan         | Incomplete    |
 | Design and wire up to back-end user interface for displaying output to user       | Front-End             | Johnathan         | Incomplete    |
 | Test interaction of front-end with web API                                        | Testing               | Johnathan         | Incomplete    |
-| Research environmental, diversity and cultural impact as project constraints      | Research              | Nate              | Incomplete    |
+| Research time impact as project constraints                                       | Research              | Nate              | Incomplete    |
 | Research how mobile applications interact with databases                          | Research              | Nate              | Incomplete    |
 | Research technologies for creating/managing databases                             | Research              | Nate              | Incomplete    |
 | Create a database that the front-end can interact with                            | Database              | Nate              | Incomplete    |
