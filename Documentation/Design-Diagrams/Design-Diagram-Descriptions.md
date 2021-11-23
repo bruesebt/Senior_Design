@@ -1,7 +1,7 @@
 #### Design Diagram Descriptions
 
 ###### Level 0 ([Design-Diagram-D0](Design-Diagram-D0.png))
-The level 0 diagram gives a high level view of the application and how it will operate. In its essence, the user will be able to open the application and enter some preferences that they have regarding activities. The application will then process these preferences, and then output some activity ideas to the user. The user can then view activities, and then close the application. 
+The level 0 diagram gives a high level view of the application and how it will operate. In its essence, the user will be able to open the application and enter some preferences that they have regarding activities. The application will then process these preferences and then output some possible activity ideas to the user. The user can then view activities and close the application. 
 
 ###### Level 1 ([Design-Diagram-D1](Design-Diagram-D1.png))
 The level 1 diagram builds on the level 0 diagram, adding some details about business logic and application operation. When the user opens the application, if they have previously set preferences, the application will automatically output activity ideas. This shows that the preferences input by the user previously were saved into a database, and fetched when they opened the application. The user will, of course, be able to edit preferences already set. The application outputs activity ideas, and when it does this, it rates each application based on relevance to the set preferences. The activities can then be output in order based on relevance. Once the user has viewed activities, they can close the application. 
