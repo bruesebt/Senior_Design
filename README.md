@@ -23,7 +23,7 @@ The back-end of the application will consist of a web API, containing business l
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Level 0](Planning/Design-Diagrams/Design-Diagram-D0.png)   
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Level 1](Planning/Design-Diagrams/Design-Diagram-D1.png)   
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Level 2](Planning/Design-Diagrams/Design-Diagram-D2.png)   
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; Description of the Diagrams   
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Descriptions of Diagrams](Planning/Design-Diagrams/Design-Diagram-Descriptions.md)   
 3. Project Tasks and Timeline   
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Task List](Planning/Task-List.md)   
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Timeline and Effort Matrix](Planning/Milestones.md)      
