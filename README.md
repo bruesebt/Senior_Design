@@ -12,8 +12,7 @@
 ###### Project Abstract
 "What's the Move?" is a mobile application that will equip users with ideas of activities to do at any given time.
 The user will be asked to input preferences about what they want to do, and the algorithm powering the application will use these preferences, along with other factors (such as location, time constraints, and number of people), to suggest activities to the user.
-The front-end of the application will consist of a modern UI and a local database to store user information.
-The back-end of the application will consist of a web API, containing business logic and algorithms. 
+The front-end of the application will consist of a modern UI to display and interact with results and a local database to store user information (such as preferences). The back-end of the application will consist of a web API, containing business logic and algorithms. 
 
 ###### Navigating the Project
 1. [Project Description](Project-Description.md)
