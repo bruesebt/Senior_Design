@@ -33,5 +33,5 @@ The back-end of the application will consist of a web API, containing business l
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Brad](Assignments/Individual-Capstone-Assessments/Bruesewitz-Capstone-Assessment.md), [Caleb](Assignments/Individual-Capstone-Assessments/Cargill-Capstone-Assessment.md), [Nate](Assignments/Individual-Capstone-Assessments/Dumford-Capstone-Assessment.md), [John](Assignments/Individual-Capstone-Assessments/Lemon-Capstone-Assessment.md)
 6. Professional Biographies   
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Brad](Assignments/Member-Biographies/Bruesewitz-Professional-Biography.md), [Caleb](Assignments/Member-Biographies/Cargill-Professional-Biography.md), [Nate](Assignments/Member-Biographies/Dumford-Professional-Biography.md), [John](Assignments/Member-Biographies/Lemon-Professional-Biography.md)
-7. Budget
+7. [Budget](Planning/Budget.md)
 8. Appendix
