@@ -1,0 +1,12 @@
+#### Individual Capstone Assessment
+**Nathan Dumford**
+
+###### Contact Information
+* dumfornr@mail.uc.edu
+  
+###### Assessment
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Our group is creating a project titled “What’s the Move?” We started from a problem situation. It’s about to be Friday night and you don’t want to stay in watching Netflix again, but you don’t know what to do. What’s the move? We plan to develop an app that takes in multiple inputs from a user about their situation/interests. Then, using Google Map’s API, we will display a list of possible things to do.   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An important aspect to this app is being able to connect to an API. My networking class that I took my 3rd year will help with developing this connection. Additionally, I have a lot of experience doing databases. I took a Database Principles class and am currently in a Database Theory class. This course work will help as I am likely to tackle the data storing side of our project. I am currently in a Requirements Engineering course and that will help a lot with user stories.   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I have had 3 semesters as a software develop co-op for London Computer Systems. My job involved a lot of SQL query optimizations. I feel very fit to be able to develop a good database for our project. Additionally this summer, I worked for a consulting firm. I was on a team of interns, and we were tasked to create a web tool from the ground up. This experience has prepared me to be able to develop our project from conception to implementations.   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I am very excited to be working on this project. I believe we have a great team that is capable of developing something amazing. The project is an interesting idea because I can see use of it in my own life. It feels like a unique idea that actually has a use case. I am excited because it isn’t just an idea to check some boxes, but is something that seems actually cool and that I’m interested in.   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The first step of our project is to develop some familiarity with Google Map’s API. This is the focal point of our project, and we will need to be very comfortable with it. Next there are a few components to the app. First, is taking inputs from a user. Next, is taking those inputs and putting them through a sorting algorithm. Finally, we want to cleanly display the potential activities. We will know we are finished when the problem situation from the introduction is about to be solved with our app.   
