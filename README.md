@@ -34,4 +34,4 @@ The back-end of the application will consist of a web API, containing business l
 6. Professional Biographies   
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Brad](Assignments/Member-Biographies/Bruesewitz-Professional-Biography.md), [Caleb](Assignments/Member-Biographies/Cargill-Professional-Biography.md), [Nate](Assignments/Member-Biographies/Dumford-Professional-Biography.md), [John](Assignments/Member-Biographies/Lemon-Professional-Biography.md)
 7. [Budget](Documentation/Budget.md)
-8. Appendix
+8. [Appendix](Documentation/Appendix.md)
