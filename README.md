@@ -18,20 +18,20 @@ The back-end of the application will consist of a web API, containing business l
 ###### Navigating the Project
 1. [Project Description](Project-Description.md)
 2. User Stories and Design Diagrams   
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [User Stories](Planning/User-Stories.md)   
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [User Stories](Documentation/User-Stories.md)   
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; Design Diagrams:    
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Level 0](Planning/Design-Diagrams/Design-Diagram-D0.png)   
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Level 1](Planning/Design-Diagrams/Design-Diagram-D1.png)   
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Level 2](Planning/Design-Diagrams/Design-Diagram-D2.png)   
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Descriptions of Diagrams](Planning/Design-Diagrams/Design-Diagram-Descriptions.md)   
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Level 0](Documentation/Design-Diagrams/Design-Diagram-D0.png)   
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Level 1](Documentation/Design-Diagrams/Design-Diagram-D1.png)   
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Level 2](Documentation/Design-Diagrams/Design-Diagram-D2.png)   
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Descriptions of Diagrams](Documentation/Design-Diagrams/Design-Diagram-Descriptions.md)   
 3. Project Tasks and Timeline   
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Task List](Planning/Task-List.md)   
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Timeline and Effort Matrix](Planning/Milestones.md)      
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Task List](Documentation/Task-List.md)   
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Timeline and Effort Matrix](Documentation/Milestones.md)      
 4. Powerpoint Slideshow   
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Google Drive](https://docs.google.com/presentation/d/1L_1f9lOlB5nPj0PPP4NEtKFIyT6Iy_RIXhF9OfD9IlE/edit?usp=sharing)
 5. Self-Assessment Essays   
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Brad](Assignments/Individual-Capstone-Assessments/Bruesewitz-Capstone-Assessment.md), [Caleb](Assignments/Individual-Capstone-Assessments/Cargill-Capstone-Assessment.md), [Nate](Assignments/Individual-Capstone-Assessments/Dumford-Capstone-Assessment.md), [John](Assignments/Individual-Capstone-Assessments/Lemon-Capstone-Assessment.md)
 6. Professional Biographies   
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Brad](Assignments/Member-Biographies/Bruesewitz-Professional-Biography.md), [Caleb](Assignments/Member-Biographies/Cargill-Professional-Biography.md), [Nate](Assignments/Member-Biographies/Dumford-Professional-Biography.md), [John](Assignments/Member-Biographies/Lemon-Professional-Biography.md)
-7. [Budget](Planning/Budget.md)
+7. [Budget](Documentation/Budget.md)
 8. Appendix
