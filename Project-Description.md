@@ -2,9 +2,9 @@
 
 ## Project Topic Area
 Our goal is to develop a mobile application that gives people the power to answer the question, "What's the move?"
-Conceptually, the application asks a user for specific input about what preferences they have, and will output ideas of activities for them to do on a given day.
-To begin with, the focus will be development of a mobile application that uses a simplified algorithm to determine outputs. 
-Once the application is developed, there is an opportunity to include machine learning as well.
+Conceptually, the application asks a user for specific input about what preferences they have and will then output ideas of activities for them to do on a given day.
+To begin with, the focus will be development of a mobile application that utilizes a simplified algorithm to determine outputs. 
+Once the application is developed, there is an opportunity to include machine learning as well for events such as learning popular activities.
 
 ## Team Members
 * Brad Bruesewitz
