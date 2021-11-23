@@ -19,8 +19,8 @@
 | Task                                                                              | Category              | Start Date    | Target Date   | Assigned To       | Status        |
 | :---                                                                              | :----:                | :----:        | :----:        | :----:            | ---:          |
 | Research ethical and legal as project constraints                                 | Research              | 10/01/2021    | 10/15/2021    | Brad              | Complete      |
+| Decide what information the user will need to input to output activity ideas      | Business Logic        | 12/01/2021    | 01/01/2022    | Brad              | Complete      |
 | Research/Discuss possible approaches/algorithms to output activity ideas          | Research              | 11/01/2021    | 12/01/2021    | Brad, Caleb       | Incomplete    | 
-| Decide what information the user will need to input to output activity ideas      | Business Logic        | 12/01/2021    | 01/01/2022    | Brad              | Incomplete    |
 | Create wireframes to capture UI design                                            | Front-End             | 12/01/2021    | 01/01/2022    | Brad              | Incomplete    |
 | Research location services within a mobile application                            | Research              | 12/01/2021    | 01/01/2022    | Brad              | Incomplete    |
 | Require code reviews for pushing to repository                                    | Project Management    | 01/01/2022    | 02/01/2022    | Brad              | Incomplete    |
@@ -59,7 +59,7 @@
 | Task                                                                              | Category              | Effort (hours)    | Assigned To       | Status        |
 | :---                                                                              | :----:                | :----:            | :----:            | ---:          |
 | Research ethical and legal as project constraints                                 | Research              | 1.5               | Brad              | Complete      |
-| Decide what information the user will need to input to output activity ideas      | Business Logic        | 1                 | Brad              | Incomplete    |
+| Decide what information the user will need to input to output activity ideas      | Business Logic        | 1                 | Brad              | Complete      |
 | Create wireframes to capture UI design                                            | Front-End             | 3                 | Brad              | Incomplete    |
 | Research/Discuss possible approaches/algorithms to output activity ideas          | Research              | 3                 | Brad, Caleb       | Incomplete    | 
 | Research location services within a mobile application                            | Research              | 2                 | Brad              | Incomplete    |
