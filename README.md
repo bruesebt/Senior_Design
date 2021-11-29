@@ -27,7 +27,7 @@ The front-end of the application will consist of a modern UI to display and inte
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Task List](Documentation/Task-List.md)   
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Timeline and Effort Matrix](Documentation/Milestones.md)      
 4. Powerpoint Slideshow   
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Google Drive](https://docs.google.com/presentation/d/1L_1f9lOlB5nPj0PPP4NEtKFIyT6Iy_RIXhF9OfD9IlE/edit?usp=sharing)
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Google Drive](https://docs.google.com/presentation/d/1L_1f9lOlB5nPj0PPP4NEtKFIyT6Iy_RIXhF9OfD9IlE/edit?usp=sharing)   
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [YouTube](https://youtu.be/lQ2fAUUdPx4)
 5. Self-Assessment Essays   
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Brad](Assignments/Individual-Capstone-Assessments/Bruesewitz-Capstone-Assessment.md), [Caleb](Assignments/Individual-Capstone-Assessments/Cargill-Capstone-Assessment.md), [Nate](Assignments/Individual-Capstone-Assessments/Dumford-Capstone-Assessment.md), [John](Assignments/Individual-Capstone-Assessments/Lemon-Capstone-Assessment.md)
