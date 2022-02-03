@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="WhatsTheMove.Views.LoginView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="{DynamicResource SecondaryBackgroundColor}">
+    <ContentPage.Content>
+        <StackLayout
+            HorizontalOptions="Center"
+            Orientation="Vertical"
+            VerticalOptions="Center">
+            <Frame
+                Margin="10"
+                Padding="5"
+                BackgroundColor="{DynamicResource AccentBackgroundColor}"
+                CornerRadius="10"
+                HorizontalOptions="CenterAndExpand">
+                <Image Source="WhatsTheMoveLogo.png" />
+            </Frame>
+            <StackLayout
+                Padding="25"
+                Orientation="Vertical"
+                VerticalOptions="Center">
+                <Label
+                    HorizontalTextAlignment="Center"
+                    Style="{DynamicResource TitleAccentLabelStyle}"
+                    Text="Welcome!" />
+                <Label
+                    HorizontalTextAlignment="Center"
+                    Style="{DynamicResource AccentLabelStyle}"
+                    Text="Please login to start making plans." />
+                <Entry
+                    Placeholder="Username"
+                    PlaceholderColor="#A1A5A6"
+                    TextColor="White" />
+                <Entry
+                    IsPassword="True"
+                    Placeholder="Password"
+                    PlaceholderColor="#A1A5A6"
+                    TextColor="White" />
+                <Button Style="{StaticResource PrimaryButtonStyle}" Text="Login" />
+                <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                    <Label Text="Don't have an account?" TextColor="White" />
+                    <Label
+                        Text="Sign Up"
+                        TextColor="White"
+                        TextDecorations="Underline" />
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

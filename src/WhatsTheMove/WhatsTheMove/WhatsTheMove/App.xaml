@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application
+    x:Class="WhatsTheMove.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Application.Resources>
+        <ResourceDictionary Source="Themes/LightTheme.xaml" />
+
+        <Style x:Key="PrimaryButtonStyle" TargetType="Button">
+            <Setter Property="TextColor" Value="{DynamicResource SecondaryFontColor}" />
+            <Setter Property="BackgroundColor" Value="{DynamicResource AccentBackgroundColor}" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="FontSize" Value="Medium" />
+        </Style>
+
+        <Style x:Key="AccentButtonStyle" TargetType="Button">
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryBackgroundColor}" />
+            <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryFontColor}" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="FontSize" Value="Medium" />
+        </Style>
+
+        <Style x:Key="TitlePrimaryLabelStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryFontColor}" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="FontSize" Value="Large" />
+        </Style>
+
+        <Style x:Key="TitleAccentLabelStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="{DynamicResource AccentFontColor}" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="FontSize" Value="Large" />
+        </Style>
+
+        <Style x:Key="PrimaryLabelStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryFontColor}" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="FontSize" Value="Large" />
+        </Style>
+
+        <Style x:Key="AccentLabelStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="{DynamicResource AccentFontColor}" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="FontSize" Value="Large" />
+        </Style>
+
+    </Application.Resources>
+</Application>
