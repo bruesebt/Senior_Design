@@ -36,13 +36,11 @@
 
         <Style x:Key="PrimaryLabelStyle" TargetType="Label">
             <Setter Property="TextColor" Value="{DynamicResource PrimaryFontColor}" />
-            <Setter Property="FontAttributes" Value="Bold" />
             <Setter Property="FontSize" Value="Large" />
         </Style>
 
         <Style x:Key="AccentLabelStyle" TargetType="Label">
             <Setter Property="TextColor" Value="{DynamicResource AccentFontColor}" />
-            <Setter Property="FontAttributes" Value="Bold" />
             <Setter Property="FontSize" Value="Large" />
         </Style>
 

@@ -3,40 +3,45 @@
     x:Class="WhatsTheMove.Views.LoginView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:WhatsTheMove.Core.ViewModels;assembly=WhatsTheMove.Core"
     BackgroundColor="{DynamicResource SecondaryBackgroundColor}">
     <ContentPage.Content>
         <StackLayout
             HorizontalOptions="Center"
             Orientation="Vertical"
             VerticalOptions="Center">
+
+            <!--  Logo  -->
             <Frame
                 Margin="10"
                 Padding="5"
-                BackgroundColor="{DynamicResource AccentBackgroundColor}"
+                BackgroundColor="{StaticResource AccentBackgroundColor}"
                 CornerRadius="10"
                 HorizontalOptions="CenterAndExpand">
                 <Image Source="WhatsTheMoveLogo.png" />
             </Frame>
+
+            <!--  Login  -->
             <StackLayout
                 Padding="25"
                 Orientation="Vertical"
                 VerticalOptions="Center">
                 <Label
                     HorizontalTextAlignment="Center"
-                    Style="{DynamicResource TitleAccentLabelStyle}"
+                    Style="{StaticResource TitleAccentLabelStyle}"
                     Text="Welcome!" />
                 <Label
                     HorizontalTextAlignment="Center"
-                    Style="{DynamicResource AccentLabelStyle}"
+                    Style="{StaticResource AccentLabelStyle}"
                     Text="Please login to start making plans." />
                 <Entry
                     Placeholder="Username"
-                    PlaceholderColor="#A1A5A6"
+                    PlaceholderColor="{DynamicResource TertiaryFontColor}"
                     TextColor="White" />
                 <Entry
                     IsPassword="True"
                     Placeholder="Password"
-                    PlaceholderColor="#A1A5A6"
+                    PlaceholderColor="{DynamicResource TertiaryFontColor}"
                     TextColor="White" />
                 <Button Style="{StaticResource PrimaryButtonStyle}" Text="Login" />
                 <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
