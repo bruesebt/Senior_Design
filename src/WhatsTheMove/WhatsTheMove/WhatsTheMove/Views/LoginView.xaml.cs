@@ -14,6 +14,8 @@ namespace WhatsTheMove.Views
     {
         public LoginView()
         {
+            this.BindingContext = new WhatsTheMove.Core.ViewModels.LoginViewModel();
+
             InitializeComponent();
         }
     }
