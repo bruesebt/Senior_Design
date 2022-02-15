@@ -2,13 +2,53 @@
 <ContentPage
     x:Class="WhatsTheMove.Views.SignUpView"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:WhatsTheMove.Core.ViewModels;assembly=WhatsTheMove.Core"
+    BackgroundColor="{DynamicResource SecondaryBackgroundColor}">
     <ContentPage.Content>
-        <StackLayout>
-            <Label
-                HorizontalOptions="CenterAndExpand"
-                Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" />
+        <StackLayout
+            HorizontalOptions="Center"
+            Orientation="Vertical"
+            VerticalOptions="Center">
+
+            <!--  Logo  -->
+            <Frame
+                Margin="10"
+                Padding="5"
+                BackgroundColor="{StaticResource AccentBackgroundColor}"
+                CornerRadius="10"
+                HorizontalOptions="CenterAndExpand">
+                <Image Source="WhatsTheMoveLogo.png" />
+            </Frame>
+
+            <!--  Signup  -->
+            <StackLayout
+                Padding="25"
+                Orientation="Vertical"
+                VerticalOptions="Center">
+                <Label
+                    HorizontalTextAlignment="Center"
+                    Style="{StaticResource TitleAccentLabelStyle}"
+                    Text="Sign up" />
+                <Label
+                    HorizontalTextAlignment="Center"
+                    Style="{StaticResource AccentLabelStyle}"
+                    Text="Please fill out the following fields to create an account." />
+                <Entry
+                    Placeholder="Email"
+                    PlaceholderColor="{DynamicResource TertiaryFontColor}"
+                    TextColor="White" />
+                <Entry
+                    Placeholder="Username"
+                    PlaceholderColor="{DynamicResource TertiaryFontColor}"
+                    TextColor="White" />
+                <Entry
+                    IsPassword="True"
+                    Placeholder="Password"
+                    PlaceholderColor="{DynamicResource TertiaryFontColor}"
+                    TextColor="White" />
+                <Button Style="{StaticResource PrimaryButtonStyle}" Text="Sign up" />
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
