@@ -35,6 +35,29 @@
                     Style="{StaticResource AccentLabelStyle}"
                     Text="Please fill out the following fields to create an account." />
                 <Entry
+                    Placeholder="First name"
+                    PlaceholderColor="{DynamicResource TertiaryFontColor}"
+                    TextColor="White" />
+                <Entry
+                    Placeholder="Last name"
+                    PlaceholderColor="{DynamicResource TertiaryFontColor}"
+                    TextColor="White" />
+                <StackLayout Orientation="Horizontal" Padding="5">
+                    <Label
+                    TextColor="{DynamicResource TertiaryFontColor}"
+                    Text="Date of birth:" 
+                    FontSize="Body"/>
+                    <!-- TO DO: fix small gap -->
+                    <DatePicker
+                    TextColor="White"
+                    x:Name="userAge"/>
+                </StackLayout>\
+                <!--TO DO: make dropdown-->
+                <Entry
+                    Placeholder="Gender"
+                    PlaceholderColor="{DynamicResource TertiaryFontColor}"
+                    TextColor="White" />
+                <Entry
                     Placeholder="Email"
                     PlaceholderColor="{DynamicResource TertiaryFontColor}"
                     TextColor="White" />
@@ -45,6 +68,10 @@
                 <Entry
                     IsPassword="True"
                     Placeholder="Password"
+                    PlaceholderColor="{DynamicResource TertiaryFontColor}"
+                    TextColor="White" />
+                <Entry
+                    Placeholder="Confirm Password"
                     PlaceholderColor="{DynamicResource TertiaryFontColor}"
                     TextColor="White" />
                 <Button Style="{StaticResource PrimaryButtonStyle}" Text="Sign up" />
