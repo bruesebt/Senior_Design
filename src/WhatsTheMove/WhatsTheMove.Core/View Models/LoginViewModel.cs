@@ -18,9 +18,7 @@ namespace WhatsTheMove.Core.ViewModels
 
         public Common.Command CreateNewAccountCommand => new Common.Command(CreateNewAccount);
 
-        public Common.Command ForgotUsernameCommand => new Common.Command(ForgotUsername);
-
-        public Common.Command ForgotPasswordCommand => new Common.Command(ForgotPassword);
+        public Common.Command ForgotCredentialsCommand => new Common.Command(ForgotCredentials);
 
         #endregion
 
@@ -75,14 +73,9 @@ namespace WhatsTheMove.Core.ViewModels
             OnChangeViewRequested(Enums.ViewRoute.SignUp);
         }
 
-        private void ForgotUsername(object param)
+        private void ForgotCredentials(object param)
         {
-
-        }
-
-        private void ForgotPassword(object param)
-        {
-
+            OnChangeViewRequested(Enums.ViewRoute.ForgotCredentials);
         }
 
         #endregion

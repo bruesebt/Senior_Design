@@ -70,17 +70,23 @@
                     </Label>
                 </StackLayout>
                 <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
-                    <Label Text="Forgot" TextColor="White" />
                     <Label
-                        Text="Username"
-                        TextColor="White"
-                        TextDecorations="Underline" />
-                    <Label Text="or" TextColor="White" />
+                        Margin="0"
+                        Text="Forgot"
+                        TextColor="White" />
                     <Label
-                        Text="Password"
+                        Text="Username or Password"
                         TextColor="White"
-                        TextDecorations="Underline" />
-                    <Label Text="?" TextColor="White" />
+                        TextDecorations="Underline">
+                        <!--  Add click/tap event for label  -->
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ForgotCredentialsCommand}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label
+                        Margin="0"
+                        Text="?"
+                        TextColor="White" />
                 </StackLayout>
                 <StackLayout HorizontalOptions="Center">
                     <Label

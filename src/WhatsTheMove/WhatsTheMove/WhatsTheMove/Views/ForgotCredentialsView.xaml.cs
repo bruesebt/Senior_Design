@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace WhatsTheMove.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ForgotCredentialsView : ContentView
+    public partial class ForgotCredentialsView : ContentPage
     {
         public ForgotCredentialsView()
         {

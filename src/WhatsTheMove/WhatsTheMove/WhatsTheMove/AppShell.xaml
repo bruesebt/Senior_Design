@@ -47,4 +47,8 @@
     <FlyoutItem Title="Sign Up">
         <ShellContent ContentTemplate="{DataTemplate views:SignUpView}" />
     </FlyoutItem>
+
+    <FlyoutItem Title="Forgot Credentials">
+        <ShellContent ContentTemplate="{DataTemplate views:ForgotCredentialsView}" />
+    </FlyoutItem>
 </Shell>
