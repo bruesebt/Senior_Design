@@ -53,7 +53,12 @@
                     <Label
                         Text="Sign Up"
                         TextColor="White"
-                        TextDecorations="Underline" />
+                        TextDecorations="Underline">
+                        <!--  Add click/tap event for label  -->
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding CreateNewAccountCommand}" />
+                        </Label.GestureRecognizers>
+                    </Label>
                 </StackLayout>
                 <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
                     <Label Text="Forgot" TextColor="White" />

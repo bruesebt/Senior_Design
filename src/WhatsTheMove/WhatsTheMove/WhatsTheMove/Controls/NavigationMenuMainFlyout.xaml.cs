@@ -25,7 +25,7 @@ namespace WhatsTheMove.UI.Controls
             ListView = MenuItemsListView;
         }
 
-        class NavigationMenuMainFlyoutViewModel : INotifyPropertyChanged
+        class NavigationMenuMainFlyoutViewModel : WhatsTheMove.Core.Common.ViewModelBase
         {
             public ObservableCollection<NavigationMenuMainFlyoutMenuItem> MenuItems { get; set; }
 
@@ -38,16 +38,6 @@ namespace WhatsTheMove.UI.Controls
                 });
             }
 
-            #region INotifyPropertyChanged Implementation
-            public event PropertyChangedEventHandler PropertyChanged;
-            void OnPropertyChanged([CallerMemberName] string propertyName = "")
-            {
-                if (PropertyChanged == null)
-                    return;
-
-                PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
-            }
-            #endregion
         }
     }
 }

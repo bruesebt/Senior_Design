@@ -13,13 +13,14 @@ namespace WhatsTheMove.Core.ViewModels
 
         #region Commands
 
-        public Common.Command LogUserInCommand { get; }
+        // Commands for various UI events to bind to
+        public Common.Command LogUserInCommand => new Common.Command(LogUserIn);
 
-        public Common.Command CreateNewAccountCommand { get; }
+        public Common.Command CreateNewAccountCommand => new Common.Command(CreateNewAccount);
 
-        public Common.Command ForgotUsernameCommand { get; }
+        public Common.Command ForgotUsernameCommand => new Common.Command(ForgotUsername);
 
-        public Common.Command ForgotPasswordCommand { get; }
+        public Common.Command ForgotPasswordCommand => new Common.Command(ForgotPassword);
 
         #endregion
 
@@ -27,11 +28,6 @@ namespace WhatsTheMove.Core.ViewModels
 
         public LoginViewModel()
         {
-            // Initialize Commands, must be done in the constructor
-            LogUserInCommand = new Common.Command(LogUserIn);
-            CreateNewAccountCommand = new Common.Command(CreateNewAccount);
-            ForgotUsernameCommand = new Common.Command(ForgotUsername);
-            ForgotPasswordCommand = new Common.Command(ForgotPassword);
 
             User = new UserViewModel()
             {
