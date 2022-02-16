@@ -17,7 +17,7 @@
                 BackgroundColor="{StaticResource AccentBackgroundColor}"
                 CornerRadius="10"
                 HorizontalOptions="CenterAndExpand">
-                <Image Source="WhatsTheMoveLogo.png" />
+                <Image Style="{StaticResource WTMLogoFullStyle}" />
             </Frame>
 
             <!--  Login  -->

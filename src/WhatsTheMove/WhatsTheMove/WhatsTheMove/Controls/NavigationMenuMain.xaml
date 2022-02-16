@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FlyoutPage
+    x:Class="WhatsTheMove.UI.Controls.NavigationMenuMain"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:WhatsTheMove.UI.Controls"
+    xmlns:views="clr-namespace:WhatsTheMove.Views"
+    BackgroundColor="{StaticResource SecondaryBackgroundColor}">
+    <FlyoutPage.Flyout>
+        <pages:NavigationMenuMainFlyout x:Name="FlyoutPage" />
+    </FlyoutPage.Flyout>
+    <FlyoutPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <!--  Results View  -->
+                <views:LoginView />
+            </x:Arguments>
+        </NavigationPage>
+    </FlyoutPage.Detail>
+</FlyoutPage>
