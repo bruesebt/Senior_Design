@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace WhatsTheMove.UI.Views
+namespace WhatsTheMove.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ForgotCredentialsView : ContentView

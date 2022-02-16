@@ -10,6 +10,8 @@ namespace WhatsTheMove.Core.Common
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public event Events.ChangeViewRequestEventHandler ChangeViewRequested;
+
         /// <summary>
         /// Updates the passed in field and raises property changed event
         /// Only updates field if the value passed in is different than what the field currently is
@@ -36,6 +38,15 @@ namespace WhatsTheMove.Core.Common
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             if (!string.IsNullOrEmpty(propertyName)) PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// Raises Change View Request for owning view to process
+        /// </summary>
+        /// <param name="viewRoute"></param>
+        protected void OnChangeViewRequested(Enums.ViewRoute viewRoute)
+        {
+            ChangeViewRequested?.Invoke(this, new Events.ChangeViewRequestEventArgs(viewRoute));
         }
     }
 }

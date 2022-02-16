@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell
+    x:Class="WhatsTheMove.UI.AppShell"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:WhatsTheMove.UI.Controls"
+    xmlns:views="clr-namespace:WhatsTheMove.Views"
+    BackgroundColor="{StaticResource SecondaryBackgroundColor}">
+
+    <FlyoutItem Title="Log In">
+        <ShellContent ContentTemplate="{DataTemplate views:LoginView}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Find Activities">
+        <ShellContent ContentTemplate="{DataTemplate views:ResultsView}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Edit Preferences">
+        <ShellContent ContentTemplate="{DataTemplate views:EditPreferencesView}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Sign Up">
+        <ShellContent ContentTemplate="{DataTemplate views:SignUpView}" />
+    </FlyoutItem>
+</Shell>

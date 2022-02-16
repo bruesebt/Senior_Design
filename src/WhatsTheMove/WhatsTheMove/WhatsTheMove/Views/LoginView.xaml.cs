@@ -10,11 +10,13 @@ using Xamarin.Forms.Xaml;
 namespace WhatsTheMove.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LoginView : ContentPage
+    public partial class LoginView : UI.Common.ContentPageBase
     {
         public LoginView()
         {
-            InitializeComponent();            
+            InitializeComponent();
+
+            SetContext();
         }
     }
 }

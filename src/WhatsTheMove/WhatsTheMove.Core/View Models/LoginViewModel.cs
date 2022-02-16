@@ -72,7 +72,7 @@ namespace WhatsTheMove.Core.ViewModels
 
         private void CreateNewAccount(object param)
         {
-
+            OnChangeViewRequested(Enums.ViewRoute.SignUp);
         }
 
         private void ForgotUsername(object param)
