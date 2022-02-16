@@ -49,5 +49,17 @@
             <Setter Property="Source" Value="{x:Static cnsts:Images.WTMLogoFull}" />
         </Style>
 
+        <Style x:Key="IconProfileStyle" TargetType="Image">
+            <Setter Property="Source" Value="{x:Static cnsts:Images.IconProfile}" />
+        </Style>
+
+        <Style x:Key="IconSettingsStyle" TargetType="Image">
+            <Setter Property="Source" Value="{x:Static cnsts:Images.IconSettings}" />
+        </Style>
+
+        <Style x:Key="IconEditStyle" TargetType="Image">
+            <Setter Property="Source" Value="{x:Static cnsts:Images.IconEdit}" />
+        </Style>
+
     </Application.Resources>
 </Application>

@@ -9,5 +9,11 @@ namespace WhatsTheMove.UI.Constants
         public const string WTMLogoFull = @"WhatsTheMoveLogoRounded.png";
 
         public const string WTMLogoSquare = @"WhatsTheMoveLogoSquare.png";
+
+        public const string IconProfile = @"user.png";
+
+        public const string IconSettings = @"settings.png";
+
+        public const string IconEdit = @"edition.png";
     }
 }

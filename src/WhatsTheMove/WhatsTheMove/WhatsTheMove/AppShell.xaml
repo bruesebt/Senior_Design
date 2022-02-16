@@ -3,19 +3,44 @@
     x:Class="WhatsTheMove.UI.AppShell"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cnsts="clr-namespace:WhatsTheMove.UI.Constants"
     xmlns:controls="clr-namespace:WhatsTheMove.UI.Controls"
     xmlns:views="clr-namespace:WhatsTheMove.Views"
-    BackgroundColor="{StaticResource SecondaryBackgroundColor}">
+    FlyoutBackgroundColor="{StaticResource AccentBackgroundColor}">
 
-    <FlyoutItem Title="Log In">
+    <Shell.FlyoutHeader>
+        <Grid BackgroundColor="{StaticResource SecondaryBackgroundColor}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="10" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <!--  Logo  -->
+            <Frame
+                Grid.Row="0"
+                Grid.ColumnSpan="3"
+                Margin="10"
+                Padding="5"
+                BackgroundColor="{StaticResource AccentBackgroundColor}"
+                CornerRadius="10"
+                HorizontalOptions="CenterAndExpand">
+                <Image Style="{StaticResource WTMLogoFullStyle}" />
+            </Frame>
+        </Grid>
+    </Shell.FlyoutHeader>
+
+    <FlyoutItem Title="Log In" Icon="{x:Static cnsts:Images.IconProfile}">
         <ShellContent ContentTemplate="{DataTemplate views:LoginView}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Find Activities">
+    <FlyoutItem Title="Find Activities" Icon="{x:Static cnsts:Images.IconSettings}">
         <ShellContent ContentTemplate="{DataTemplate views:ResultsView}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Edit Preferences">
+    <FlyoutItem Title="Edit Preferences" Icon="{x:Static cnsts:Images.IconEdit}">
         <ShellContent ContentTemplate="{DataTemplate views:EditPreferencesView}" />
     </FlyoutItem>
 
