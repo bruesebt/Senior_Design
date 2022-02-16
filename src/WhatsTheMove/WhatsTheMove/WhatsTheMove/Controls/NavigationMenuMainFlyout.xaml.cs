@@ -34,7 +34,8 @@ namespace WhatsTheMove.UI.Controls
                 MenuItems = new ObservableCollection<NavigationMenuMainFlyoutMenuItem>(new[]
                 {
                     new NavigationMenuMainFlyoutMenuItem { Id = 0, Title = "Find Activities", TargetType=typeof(WhatsTheMove.Views.ResultsView)},
-                    new NavigationMenuMainFlyoutMenuItem { Id = 1, Title = "Edit Preferences", TargetType=typeof(WhatsTheMove.Views.EditPreferencesView) }
+                    new NavigationMenuMainFlyoutMenuItem { Id = 1, Title = "Edit Preferences", TargetType=typeof(WhatsTheMove.Views.EditPreferencesView) },
+                    new NavigationMenuMainFlyoutMenuItem { Id = 2, Title = "Sign Up", TargetType=typeof(WhatsTheMove.Views.SignUpView) } 
                 });
             }
 

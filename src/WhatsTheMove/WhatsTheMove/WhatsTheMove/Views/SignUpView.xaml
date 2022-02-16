@@ -3,10 +3,8 @@
     x:Class="WhatsTheMove.Views.SignUpView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:vm="clr-namespace:WhatsTheMove.Core.ViewModels;assembly=WhatsTheMove.Core"
     BackgroundColor="{DynamicResource SecondaryBackgroundColor}">
     <ContentPage.Content>
-
         <StackLayout
             HorizontalOptions="Center"
             Orientation="Vertical"
@@ -19,7 +17,7 @@
                 BackgroundColor="{StaticResource AccentBackgroundColor}"
                 CornerRadius="10"
                 HorizontalOptions="CenterAndExpand">
-                <Image Source="WhatsTheMoveLogo.png" />
+                <Image Style="{StaticResource WTMLogoFullStyle}" />
             </Frame>
 
             <!--  Signup  -->
@@ -43,17 +41,16 @@
                     Placeholder="Last name"
                     PlaceholderColor="{DynamicResource TertiaryFontColor}"
                     TextColor="White" />
-                <StackLayout Orientation="Horizontal" Padding="5">
+                <StackLayout Padding="5" Orientation="Horizontal">
                     <Label
-                    TextColor="{DynamicResource TertiaryFontColor}"
-                    Text="Date of birth:" 
-                    FontSize="Body"/>
-                    <!-- TO DO: fix small gap -->
-                    <DatePicker
-                    TextColor="White"
-                    x:Name="userAge"/>
-                </StackLayout>\
-                <!--TO DO: make dropdown-->
+                        FontSize="Body"
+                        Text="Date of birth:"
+                        TextColor="{DynamicResource TertiaryFontColor}" />
+                    <!--  TO DO: fix small gap  -->
+                    <DatePicker x:Name="userAge" TextColor="White" />
+                </StackLayout>
+
+                <!--  TO DO: make dropdown  -->
                 <Entry
                     Placeholder="Gender"
                     PlaceholderColor="{DynamicResource TertiaryFontColor}"
