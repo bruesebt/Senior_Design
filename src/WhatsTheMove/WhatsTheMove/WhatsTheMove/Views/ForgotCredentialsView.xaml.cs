@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace WhatsTheMove.Views
+namespace WhatsTheMove.UI.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LoginView : ContentPage
+    public partial class ForgotCredentialsView : ContentView
     {
-        public LoginView()
+        public ForgotCredentialsView()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
     }
 }
