@@ -10,7 +10,7 @@ namespace WhatsTheMove
         {
             InitializeComponent();
 
-            MainPage = new Views.LoginView();
+            MainPage = new UI.Controls.NavigationMenuMain();
         }
 
         protected override void OnStart()

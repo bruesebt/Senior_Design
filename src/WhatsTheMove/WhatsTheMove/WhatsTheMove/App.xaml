@@ -2,7 +2,8 @@
 <Application
     x:Class="WhatsTheMove.App"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cnsts="clr-namespace:WhatsTheMove.UI.Constants">
     <Application.Resources>
         <ResourceDictionary Source="Themes/LightTheme.xaml" />
 
@@ -42,6 +43,10 @@
         <Style x:Key="AccentLabelStyle" TargetType="Label">
             <Setter Property="TextColor" Value="{DynamicResource AccentFontColor}" />
             <Setter Property="FontSize" Value="Large" />
+        </Style>
+
+        <Style x:Key="WTMLogoFullStyle" TargetType="Image">
+            <Setter Property="Source" Value="{x:Static cnsts:Images.WTMLogoFull}" />
         </Style>
 
     </Application.Resources>

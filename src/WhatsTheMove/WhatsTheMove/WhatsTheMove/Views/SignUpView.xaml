@@ -6,6 +6,7 @@
     xmlns:vm="clr-namespace:WhatsTheMove.Core.ViewModels;assembly=WhatsTheMove.Core"
     BackgroundColor="{DynamicResource SecondaryBackgroundColor}">
     <ContentPage.Content>
+
         <StackLayout
             HorizontalOptions="Center"
             Orientation="Vertical"

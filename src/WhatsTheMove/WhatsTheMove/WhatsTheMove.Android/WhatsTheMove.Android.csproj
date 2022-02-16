@@ -84,13 +84,13 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\WhatsTheMoveLogo.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\WhatsTheMove\WhatsTheMove.UI.csproj">
       <Project>{462CD9AF-2899-41F8-954C-510AB570A25E}</Project>
       <Name>WhatsTheMove.UI</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\WhatsTheMoveLogoRounded.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\WhatsTheMoveLogoSquare.png" />

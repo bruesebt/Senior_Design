@@ -11788,7 +11788,7 @@ namespace WhatsTheMove.Droid
 			public const int tooltip_frame_light = 2131165327;
 			
 			// aapt resource value: 0x7F070090
-			public const int WhatsTheMoveLogo = 2131165328;
+			public const int WhatsTheMoveLogoRounded = 2131165328;
 			
 			// aapt resource value: 0x7F070091
 			public const int WhatsTheMoveLogoSquare = 2131165329;

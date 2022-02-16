@@ -23,7 +23,7 @@ namespace WhatsTheMove.Core.Common
 
         public Command(Action<object> execute)
         {
-            if (_execute == null) throw new ArgumentNullException(nameof(execute));
+            if (execute == null) throw new ArgumentNullException(nameof(execute));
             _execute = execute;
         }
 
