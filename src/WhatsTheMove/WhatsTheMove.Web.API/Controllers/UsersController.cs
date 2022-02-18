@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WhatsTheMove.Data.Library.Models;
+using WhatsTheMove.Data.Models;
 
 namespace WhatsTheMove.Web.API.Controllers
 {
@@ -15,21 +15,21 @@ namespace WhatsTheMove.Web.API.Controllers
         [HttpGet]
         public IEnumerable<User> Get()
         {
-            return Data.Library.DummyData.TestUsers;
+            return null;
         }
 
         [HttpGet]
         [Route("{id:int}")]
         public User Get(int id)
         {
-            return Data.Library.DummyData.TestUsers.Where(u => u.ID == id).First();
+            return null;
         }
 
         [HttpGet]
         [Route("{username}")]
         public User Get(string username)
         {
-            return Data.Library.DummyData.TestUsers.Where(u => u.Username == username).First();
+            return null;
         }
     }
 }

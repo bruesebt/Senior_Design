@@ -1,30 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WhatsTheMove.Data.Library.Models
+namespace WhatsTheMove.Data.Models
 {
     public class User
     {
-        public int ID { get; set; }
+       
+        public int Id { get; set; }
 
         public string Username { get; set; }
 
         public string Email { get; set; }
 
-        public string PasswordHashed { get; set; }
-
-        public string Salt { get; set; }
-
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
 
-        public DateTime Birthdate { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        
+        public DateTime DateAdded { get; set; }
 
-        public string Gender { get; set; }
+        public List<ZipCode> ZipCodes { get; set; }
 
     }
 }
