@@ -23,9 +23,9 @@ namespace WhatsTheMove.Data.Models
 
         public DateTime DateOfBirth { get; set; }
         
-        public DateTime DateAdded { get; set; }
+        public string ZipCode { get; set; }
 
-        public List<ZipCode> ZipCodes { get; set; }
+        public DateTime DateAdded { get; set; }
 
     }
 }
