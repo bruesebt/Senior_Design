@@ -11,6 +11,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WhatsTheMove.Data.DataAccess;
+using WhatsTheMove.Data.Implementations;
+using WhatsTheMove.Data.Interfaces;
 
 namespace WhatsTheMove.Web.API
 {
@@ -31,7 +34,11 @@ namespace WhatsTheMove.Web.API
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WhatsTheMove.Web.API", Version = "v1" });
-            });
+            });            
+
+            // database access dependency injection
+            services.AddSingleton<ISqlDataAccess, SqlDataAccess>();
+            services.AddSingleton<IUserData, UserData>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

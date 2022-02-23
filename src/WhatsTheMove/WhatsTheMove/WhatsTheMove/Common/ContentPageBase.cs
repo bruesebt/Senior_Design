@@ -28,7 +28,7 @@ namespace WhatsTheMove.UI.Common
         }
 
         private async void ChangeView(string route)
-        {
+        {            
             await Shell.Current.GoToAsync(route);
         }
 

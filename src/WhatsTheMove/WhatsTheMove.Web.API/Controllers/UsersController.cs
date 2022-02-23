@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WhatsTheMove.Data.Interfaces;
 using WhatsTheMove.Data.Models;
 
 namespace WhatsTheMove.Web.API.Controllers
@@ -11,25 +12,87 @@ namespace WhatsTheMove.Web.API.Controllers
     [Route("[controller]")]
     public class UsersController : Controller
     {
+        private readonly IUserData _userData;
+
+        public UsersController(IUserData userData)
+        {
+            _userData = userData;
+        }
 
         [HttpGet]
-        public IEnumerable<User> Get()
+        public async Task<IActionResult> GetUsers()
         {
-            return null;
+            try
+            {
+                return Ok(await _userData.GetUsers());
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
 
         [HttpGet]
         [Route("{id:int}")]
-        public User Get(int id)
+        public async Task<IActionResult> GetUser(int id)
         {
-            return null;
+            try
+            {
+                return Ok(await _userData.GetUser(id));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
 
-        [HttpGet]
-        [Route("{username}")]
-        public User Get(string username)
+        //[HttpGet]
+        //[Route("{username}")]
+        //public User Get(string username)
+        //{
+        //    return null;
+        //}
+
+        [HttpPost]
+        public async Task<IActionResult> InsertUser(User user)
         {
-            return null;
+            try
+            {
+                await _userData.InsertUser(user);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateUser(User user)
+        {
+            try
+            {
+                await _userData.UpdateUser(user);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> DeleteUser(int id)
+        {
+            try
+            {
+            await _userData.DeleteUser(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
     }
 }
