@@ -34,7 +34,7 @@ jobs:
       with:
         dotnet-version: ${{ env.SWASHBUCKLE_DOTNET_CORE_VERSION }}
     - name: Restore
-      run: dotnet restore ${{ env.WORKING_DIRECTORY }} --configfile ${{ env.NUGET_CONFIG }}
+      run: dotnet restore --configfile ${{ env.NUGET_CONFIG }}
     - name: Build
       run: dotnet build ${{ env.WORKING_DIRECTORY }} --configuration ${{ env.CONFIGURATION }} --no-restore
     - name: Test
