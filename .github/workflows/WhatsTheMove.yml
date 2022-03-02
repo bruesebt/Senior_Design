@@ -10,7 +10,7 @@ env:
   WORKING_PROJECT: src/WhatsTheMove/WhatsTheMove.Web.API/WhatsTheMove.Web.API.csproj
   NUGET_CONFIG: src/WhatsTheMove/nuget.config
   CONFIGURATION: Release
-  AZURE_WEBAPP_PACKAGE_PATH: WhatsTheMove.Web.API/publish
+  AZURE_WEBAPP_PACKAGE_PATH: src/WhatsTheMove/WhatsTheMove.Web.API/publish
   AZURE_APIM_RESOURCE_PATH: /
   AZURE_APIM_RESOURCEGROUP: WhatsTheMove
   AZURE_APIM_SERVICENAME: WhatsTheMoveWebAPI
@@ -18,8 +18,8 @@ env:
   AZURE_APIM_APPSERVICEURL: https://whatsthemove.azurewebsites.net:80/
   SWASHBUCLE_ASPNET_CORE_CLI_PACKAGE_VERSION: 5.6.3
   SWASHBUCKLE_DOTNET_CORE_VERSION: 3.1.x
-  API_IMPORT_SPECIFICATION_PATH: WhatsTheMove.Web.API/publish/swagger.json
-  API_IMPORT_DLL: WhatsTheMove.Web.API/publish/WhatsTheMove.Web.API.dll
+  API_IMPORT_SPECIFICATION_PATH: src/WhatsTheMove/WhatsTheMove.Web.API/publish/swagger.json
+  API_IMPORT_DLL: src/WhatsTheMove/WhatsTheMove.Web.API/publish/WhatsTheMove.Web.API.dll
   API_IMPORT_VERSION: v1
 jobs:
   build:
