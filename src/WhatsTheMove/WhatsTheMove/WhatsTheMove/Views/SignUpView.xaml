@@ -45,12 +45,13 @@
                     <Label
                         FontSize="Body"
                         Text="Date of birth:"
-                        TextColor="{DynamicResource TertiaryFontColor}" />
-                    <!--  TO DO: fix small gap  -->
+                        TextColor="{DynamicResource TertiaryFontColor}" 
+                        VerticalTextAlignment="Center"/>
                     <DatePicker x:Name="userAge" TextColor="White" />
                 </StackLayout>
 
-                <!--  TO DO: make dropdown  -->
+                <!--  TO DO: make dropdown  
+                Apperantly this is called a picker, but idk how to use that. -Nate -->
                 <Entry
                     Placeholder="Gender"
                     PlaceholderColor="{DynamicResource TertiaryFontColor}"
@@ -58,7 +59,8 @@
                 <Entry
                     Placeholder="Email"
                     PlaceholderColor="{DynamicResource TertiaryFontColor}"
-                    TextColor="White" />
+                    TextColor="White" 
+                    Keyboard="Email"/>
                 <Entry
                     Placeholder="Username"
                     PlaceholderColor="{DynamicResource TertiaryFontColor}"
