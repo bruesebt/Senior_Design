@@ -7,7 +7,7 @@ env:
   AZURE_WEBAPP_NAME: WhatsTheMove
   DOTNET_CORE_VERSION: 5.0.x
   WORKING_DIRECTORY: WhatsTheMove.Web.API
-  NUGET_CONFIG: WhatsTheMove.Web.API/nuget.config
+  NUGET_CONFIG: nuget.config
   CONFIGURATION: Release
   AZURE_WEBAPP_PACKAGE_PATH: WhatsTheMove.Web.API/publish
   AZURE_APIM_RESOURCE_PATH: /
