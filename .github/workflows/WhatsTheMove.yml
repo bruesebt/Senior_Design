@@ -34,6 +34,8 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: ${{ env.SWASHBUCKLE_DOTNET_CORE_VERSION }}
+    - name: List
+      run: ls
     - name: Restore
       run: dotnet restore ${{ env.WORKING_PROJECT }} --configfile ${{ env.NUGET_CONFIG }}
     - name: Build
