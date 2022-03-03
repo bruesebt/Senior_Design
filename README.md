@@ -27,11 +27,14 @@ The front-end of the application will consist of a modern UI to display and inte
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Task List](Documentation/Task-List.md)   
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Timeline and Effort Matrix](Documentation/Milestones.md)      
 4. Powerpoint Slideshow   
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Google Drive](https://docs.google.com/presentation/d/1L_1f9lOlB5nPj0PPP4NEtKFIyT6Iy_RIXhF9OfD9IlE/edit?usp=sharing)   
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Google Slides](https://docs.google.com/presentation/d/1L_1f9lOlB5nPj0PPP4NEtKFIyT6Iy_RIXhF9OfD9IlE/edit?usp=sharing)   
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [YouTube](https://youtu.be/lQ2fAUUdPx4)
 5. Self-Assessment Essays   
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Brad](Assignments/Individual-Capstone-Assessments/Bruesewitz-Capstone-Assessment.md), [Caleb](Assignments/Individual-Capstone-Assessments/Cargill-Capstone-Assessment.md), [Nate](Assignments/Individual-Capstone-Assessments/Dumford-Capstone-Assessment.md), [John](Assignments/Individual-Capstone-Assessments/Lemon-Capstone-Assessment.md)
 6. Professional Biographies   
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Brad](Assignments/Member-Biographies/Bruesewitz-Professional-Biography.md), [Caleb](Assignments/Member-Biographies/Cargill-Professional-Biography.md), [Nate](Assignments/Member-Biographies/Dumford-Professional-Biography.md), [John](Assignments/Member-Biographies/Lemon-Professional-Biography.md)
 7. [Budget](Documentation/Budget.md)
-8. [Appendix](Documentation/Appendix.md)
+8. Final Presentation  
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Google Slides](https://docs.google.com/presentation/d/1MyOs55YSTDSGCRIGcMJKcp6u0-c5tJknqJls2OzLu7Y/edit?usp=sharing)
+9. [Project Poster](https://docs.google.com/presentation/d/1f3lbqAK5bJ2sxbZSiOr3dT6rVSCBIE3CiMvxItT6J2w/edit?usp=sharing)
+10. [Appendix](Documentation/Appendix.md)
