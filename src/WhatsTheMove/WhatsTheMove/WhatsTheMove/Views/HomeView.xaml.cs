@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using WhatsTheMove.UI.Common;
+
 
 namespace WhatsTheMove.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SignUpView : ContentPageBase
+    public partial class HomeView : UI.Common.ContentPageBase
     {
-        public SignUpView()
+        public HomeView()
         {
             InitializeComponent();
 

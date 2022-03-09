@@ -11,6 +11,7 @@ namespace WhatsTheMove.Core.Enums
         SignUp = 2,
         ForgotCredentials = 3,
         SetPreferences = 4,
-        Results = 5
+        Results = 5,
+        Home = 6
     }
 }

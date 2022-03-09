@@ -27,6 +27,7 @@ namespace WhatsTheMove.UI
             Routing.RegisterRoute($"{Core.Enums.ViewRoute.ForgotCredentials}", typeof(Views.ForgotCredentialsView));
             Routing.RegisterRoute($"{Core.Enums.ViewRoute.SetPreferences}", typeof(Views.EditPreferencesView));
             Routing.RegisterRoute($"{Core.Enums.ViewRoute.Results}", typeof(Views.ResultsView));
+            Routing.RegisterRoute($"{Core.Enums.ViewRoute.Home}", typeof(Views.HomeView));
         }
     }
 }
