@@ -11,11 +11,13 @@ using Xamarin.Forms.Xaml;
 namespace WhatsTheMove.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ForgotCredentialsView : ContentPageBase
+    public partial class ProfileSettingsView : ContentPageBase
     {
-        public ForgotCredentialsView()
+        public ProfileSettingsView()
         {
             InitializeComponent();
+
+            SetContext();
         }
     }
 }

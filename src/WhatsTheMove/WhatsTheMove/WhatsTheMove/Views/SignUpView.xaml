@@ -27,16 +27,12 @@
                 VerticalOptions="Center">
                 <Label
                     HorizontalTextAlignment="Center"
-                    Style="{StaticResource TitleAccentLabelStyle}"
-                    Text="Sign up" />
+                    Style="{StaticResource AccentLabelStyle}"
+                    Text="Profile Settings" />
                 <Label
                     HorizontalTextAlignment="Center"
-                    Style="{StaticResource AccentLabelStyle}"
-                    Text="Please fill out the following fields to create an account." />
-                <Entry
-                    Placeholder="First name"
-                    PlaceholderColor="{DynamicResource TertiaryFontColor}"
-                    TextColor="White" />
+                    Style="{DynamicResource TertiaryFontColor}"
+                    Text="Username" />
                 <Entry
                     Placeholder="Last name"
                     PlaceholderColor="{DynamicResource TertiaryFontColor}"
