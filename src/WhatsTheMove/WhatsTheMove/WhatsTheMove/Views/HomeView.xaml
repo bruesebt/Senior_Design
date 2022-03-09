@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<uibase:ContentPageBase
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:uibase="clr-namespace:WhatsTheMove.UI.Common"
+    xmlns:vms="clr-namespace:WhatsTheMove.Core.ViewModels;assembly=WhatsTheMove.Core"
+    x:Class="WhatsTheMove.Views.HomeView">
+
+    <!--  Set Context  -->
+    <ContentPage.BindingContext>
+        <vms:HomeViewModel />
+    </ContentPage.BindingContext>
+
+    <!--  View Content  -->
+    <ContentPage.Content>
+        <StackLayout
+            HorizontalOptions="Center"
+            Orientation="Vertical"
+            VerticalOptions="Center">
+
+            <Label
+                Text="This is the home page idiot"/>
+        </StackLayout>
+    </ContentPage.Content>
+</uibase:ContentPageBase>
