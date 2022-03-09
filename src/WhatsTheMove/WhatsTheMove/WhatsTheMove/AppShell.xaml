@@ -32,6 +32,10 @@
         </Grid>
     </Shell.FlyoutHeader>
 
+    <FlyoutItem Title="Home" Icon="{x:Static cnsts:Images.IconProfile}">
+        <ShellContent ContentTemplate="{DataTemplate views:HomeView}" />
+    </FlyoutItem>
+
     <FlyoutItem Title="Log In" Icon="{x:Static cnsts:Images.IconProfile}">
         <ShellContent ContentTemplate="{DataTemplate views:LoginView}" />
     </FlyoutItem>
