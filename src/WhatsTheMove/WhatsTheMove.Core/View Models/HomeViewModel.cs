@@ -5,8 +5,12 @@ namespace WhatsTheMove.Core.ViewModels
     {
 
 
+        public Common.Command FindTheMoveCommand => new Common.Command(FindTheMove);
 
-
+        private void FindTheMove(object obj)
+        {
+            OnChangeViewRequested(Enums.ViewRoute.SetPreferences);
+        }
 
         public HomeViewModel()
         {

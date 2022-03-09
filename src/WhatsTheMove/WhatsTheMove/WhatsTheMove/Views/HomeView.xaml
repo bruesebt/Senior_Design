@@ -13,13 +13,65 @@
 
     <!--  View Content  -->
     <ContentPage.Content>
-        <StackLayout
-            HorizontalOptions="Center"
-            Orientation="Vertical"
-            VerticalOptions="Center">
 
-            <Label
-                Text="This is the home page idiot"/>
-        </StackLayout>
+        <Grid
+            Padding="5"
+            HorizontalOptions="Center"
+            VerticalOptions="StartAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <!-- Upper Region -->
+            <StackLayout
+                Padding="5"
+                Grid.Row="0"
+                HorizontalOptions="Center"
+                Orientation="Vertical"
+                VerticalOptions="Center">
+
+                <!-- Logo -->
+                <Frame
+                    Margin="10"
+                    Padding="5"
+                    BackgroundColor="{StaticResource AccentBackgroundColor}"
+                    CornerRadius="10"
+                    HorizontalOptions="CenterAndExpand">
+                    <Image Style="{StaticResource WTMLogoFullStyle}" />
+                </Frame>
+                <!-- Text -->
+                <Label
+                HorizontalTextAlignment="Center"
+                Style="{StaticResource TitleAccentLabelStyle}"
+                Text="We make your night more fun."/>
+            </StackLayout>
+
+            
+            <!--Bottom Region-->
+            <StackLayout
+                Padding="5"
+                Grid.Row="1"
+                HorizontalOptions="Center"
+                Orientation="Vertical"
+                VerticalOptions="Center">
+                <!-- Text -->
+                <Label
+                    HorizontalTextAlignment="Center"
+                    Style="{StaticResource AccentLabelStyle}"
+                    Text="Discover something new, relive a great night, or roll the dice!"/>
+                <!--  Buttons  -->
+                <Button
+                    Command="{Binding FindTheMoveCommand}" 
+                    Style="{StaticResource PrimaryButtonStyle}"
+                    Text="Find The Move" />
+                <Button
+                    Style="{StaticResource PrimaryButtonStyle}"
+                    Text="Previous Moves" />
+                <Button
+                    Style="{StaticResource PrimaryButtonStyle}"
+                    Text="I'm Feeling Lucky" />
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </uibase:ContentPageBase>
