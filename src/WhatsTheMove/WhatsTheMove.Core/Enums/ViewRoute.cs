@@ -12,6 +12,7 @@ namespace WhatsTheMove.Core.Enums
         ForgotCredentials = 3,
         SetPreferences = 4,
         Results = 5,
-        Home = 6
+        Home = 6,
+        ProfileSettings=7
     }
 }

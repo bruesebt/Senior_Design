@@ -34,8 +34,8 @@
                 VerticalOptions="Center">
                 <Label
                     HorizontalTextAlignment="Center"
-                    Style="{StaticResource TitleAccentLabelStyle}"
-                    Text="Sign up" />
+                    Style="{StaticResource AccentLabelStyle}"
+                    Text="Profile Settings" />
                 <Label
                     HorizontalTextAlignment="Center"
                     Style="{StaticResource AccentLabelStyle}"

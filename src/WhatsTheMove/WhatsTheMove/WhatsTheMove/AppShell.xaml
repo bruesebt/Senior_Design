@@ -40,12 +40,16 @@
         <ShellContent ContentTemplate="{DataTemplate views:LoginView}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Find Activities" Icon="{x:Static cnsts:Images.IconSettings}">
-        <ShellContent ContentTemplate="{DataTemplate views:ResultsView}" />
+    <FlyoutItem Title="Profile Settings" Icon="{x:Static cnsts:Images.IconProfile}">
+        <ShellContent ContentTemplate="{DataTemplate views:ProfileSettingsView}" />
     </FlyoutItem>
 
     <FlyoutItem Title="Edit Preferences" Icon="{x:Static cnsts:Images.IconEdit}">
         <ShellContent ContentTemplate="{DataTemplate views:EditPreferencesView}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Find Activities" Icon="{x:Static cnsts:Images.IconSettings}">
+        <ShellContent ContentTemplate="{DataTemplate views:ResultsView}" />
     </FlyoutItem>
 
     <FlyoutItem Title="Sign Up">

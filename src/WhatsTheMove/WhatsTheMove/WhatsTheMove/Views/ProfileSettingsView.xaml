@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<uibase:ContentPageBase
+        x:Class="WhatsTheMove.Views.ProfileSettingsView"
+        xmlns="http://xamarin.com/schemas/2014/forms"
+        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+        xmlns:uibase="clr-namespace:WhatsTheMove.UI.Common"
+        xmlns:vms="clr-namespace:WhatsTheMove.Core.ViewModels;assembly=WhatsTheMove.Core"
+        BackgroundColor="{StaticResource SecondaryBackgroundColor}">
+
+    <ContentPage.BindingContext>
+        <vms:ProfileSettingsViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout
+            HorizontalOptions="Center"
+            Orientation="Vertical">
+
+            <!--  Logo  -->
+            <Frame
+                Margin="10"
+                Padding="5"
+                BackgroundColor="{StaticResource AccentBackgroundColor}"
+                CornerRadius="10"
+                HorizontalOptions="CenterAndExpand">
+                <Image Style="{StaticResource WTMLogoFullStyle}" />
+            </Frame>
+
+            <StackLayout
+                Padding="25"
+                Orientation="Vertical"
+                VerticalOptions="Center">
+                <Label
+                    HorizontalTextAlignment="Center"
+                    Style="{StaticResource TitleAccentLabelStyle}"
+                    Text="Profile Settings"
+                    FontSize="30"/>
+                
+                <StackLayout
+                Orientation="Horizontal">
+                    <Label Text="First Name:" Style="{StaticResource AccentLabelStyle}">
+                    </Label>
+                    <Label Text="{Binding User.FirstName}" FontSize="Large" TextColor="White"></Label>
+                </StackLayout>
+                
+                <StackLayout
+                Orientation="Horizontal">
+                    <Label Text="Last Name:" Style="{StaticResource AccentLabelStyle}">
+                    </Label>
+                    <Label Text="{Binding User.LastName}" FontSize="Large" TextColor="White"></Label>
+                </StackLayout>
+
+                <StackLayout
+                Orientation="Horizontal">
+                    <Label Text="Email:" Style="{StaticResource AccentLabelStyle}">
+                    </Label>
+                    <Label Text="{Binding User.Email}" FontSize="Large" TextColor="White"></Label>
+                </StackLayout>
+
+                <StackLayout
+                Orientation="Horizontal">
+                    <Label Text="Date of Birth:" Style="{StaticResource AccentLabelStyle}">
+                    </Label>
+                    <Label Text="{Binding User.Birthday}" FontSize="Large" TextColor="White"></Label>
+                </StackLayout>
+
+                <StackLayout
+                    Orientation="Horizontal">
+                    <Label Text="Address:" Style="{StaticResource AccentLabelStyle}">
+                    </Label>
+                    <Entry
+                        Placeholder="Address"
+                        Text="{Binding User.Address}"
+                        PlaceholderColor="{DynamicResource TertiaryFontColor}"
+                        FontSize="Large"
+                        TextColor="White">
+                    </Entry>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</uibase:ContentPageBase>
