@@ -32,6 +32,10 @@
         </Grid>
     </Shell.FlyoutHeader>
 
+    <FlyoutItem Title="Home" Icon="{x:Static cnsts:Images.IconProfile}">
+        <ShellContent ContentTemplate="{DataTemplate views:HomeView}" />
+    </FlyoutItem>
+
     <FlyoutItem Title="Log In" Icon="{x:Static cnsts:Images.IconProfile}">
         <ShellContent ContentTemplate="{DataTemplate views:LoginView}" />
     </FlyoutItem>
@@ -52,7 +56,7 @@
         <ShellContent ContentTemplate="{DataTemplate views:SignUpView}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Forgot Credentials">
+    <FlyoutItem Title="Settings">
         <ShellContent ContentTemplate="{DataTemplate views:ForgotCredentialsView}" />
     </FlyoutItem>
 </Shell>

@@ -117,41 +117,45 @@
                     Padding="5"
                     FontSize="Body"
                     Text="Time of Day:"
-                    TextColor="{DynamicResource TertiaryFontColor}" />
-                <StackLayout Padding="5" Orientation="Horizontal">
+                    TextColor="{DynamicResource TertiaryFontColor}"/>
+                <StackLayout Margin="5,0,5,0" Orientation="Horizontal">
                     <Label
+                        MinimumWidthRequest="60"
                         Margin="0,0,0,0"
-                        FontSize="Small"
+                        FontSize="12"
                         Text="Morning"
                         TextColor="White" 
                         VerticalTextAlignment="Center"/>
                     <RadioButton 
                         x:Name="timeMorning"  />
                     <Label
+                        MinimumWidthRequest="105"
                         Margin="0,0,0,0"
-                        FontSize="Small"
+                        FontSize="12"
                         Text="Afternoon"
                         TextColor="White" 
                         VerticalTextAlignment="Center"/>
                     <RadioButton x:Name="timeAfternoon"  />
                     <Label
+                        MinimumWidthRequest="60"
                         Margin="0,0,0,0"
-                        FontSize="Small"
+                        FontSize="12"
                         Text="Evening"
                         TextColor="White" 
                         VerticalTextAlignment="Center"/>
                     <RadioButton 
                         x:Name="timeEvening"  />
                     <Label
+                        MinimumWidthRequest="30"
                         Margin="0,0,0,0"
-                        FontSize="Small"
+                        FontSize="12"
                         Text="Night"
                         TextColor="White" 
                         VerticalTextAlignment="Center"/>
                     <RadioButton x:Name="timeNight"  />
                 </StackLayout>
 
-                <StackLayout Padding="5" Orientation="Horizontal">
+                <StackLayout Margin="5,15,0,10" Orientation="Horizontal">
                     <Label
                         Margin="0,0,0,0"
                         FontSize="Body"

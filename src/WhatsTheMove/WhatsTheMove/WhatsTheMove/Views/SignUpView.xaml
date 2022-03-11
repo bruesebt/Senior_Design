@@ -1,9 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage
+<uibase:ContentPageBase
     x:Class="WhatsTheMove.Views.SignUpView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:uibase="clr-namespace:WhatsTheMove.UI.Common"
+    xmlns:vms="clr-namespace:WhatsTheMove.Core.ViewModels;assembly=WhatsTheMove.Core"
     BackgroundColor="{DynamicResource SecondaryBackgroundColor}">
+
+    <ContentPage.BindingContext>
+        <vms:SignUpViewModel />
+    </ContentPage.BindingContext>
+
     <ContentPage.Content>
         <StackLayout
             HorizontalOptions="Center"
@@ -31,32 +38,30 @@
                     Text="Profile Settings" />
                 <Label
                     HorizontalTextAlignment="Center"
-                    Style="{DynamicResource TertiaryFontColor}"
-                    Text="Username" />
+                    Style="{StaticResource AccentLabelStyle}"
+                    Text="Please fill out the following fields to create an account." />
                 <Entry
-                    Placeholder="Last name"
+                    Placeholder="First Name"
+                    PlaceholderColor="{DynamicResource TertiaryFontColor}"
+                    TextColor="White" />
+                <Entry
+                    Placeholder="Last Name"
                     PlaceholderColor="{DynamicResource TertiaryFontColor}"
                     TextColor="White" />
                 <StackLayout Padding="5" Orientation="Horizontal">
                     <Label
                         FontSize="Body"
-                        Text="Date of birth:"
-                        TextColor="{DynamicResource TertiaryFontColor}" 
-                        VerticalTextAlignment="Center"/>
+                        Text="Date of Birth:"
+                        TextColor="{DynamicResource TertiaryFontColor}"
+                        VerticalTextAlignment="Center" />
                     <DatePicker x:Name="userAge" TextColor="White" />
                 </StackLayout>
 
-                <!--  TO DO: make dropdown  
-                Apperantly this is called a picker, but idk how to use that. -Nate -->
                 <Entry
-                    Placeholder="Gender"
-                    PlaceholderColor="{DynamicResource TertiaryFontColor}"
-                    TextColor="White" />
-                <Entry
+                    Keyboard="Email"
                     Placeholder="Email"
                     PlaceholderColor="{DynamicResource TertiaryFontColor}"
-                    TextColor="White" 
-                    Keyboard="Email"/>
+                    TextColor="White" />
                 <Entry
                     Placeholder="Username"
                     PlaceholderColor="{DynamicResource TertiaryFontColor}"
@@ -74,4 +79,4 @@
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
-</ContentPage>
+</uibase:ContentPageBase>
