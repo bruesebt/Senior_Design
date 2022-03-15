@@ -13,17 +13,17 @@ namespace WhatsTheMove.Data.DataAccess
 
         public SqlDataAccess(IConfiguration config)
         {            
-            _config = config;            
+            _config = config;  
         }
 
-        public async Task<IEnumerable<T>> LoadData<T, U>(string storedProcedure, U parameters, string connId = "Default")
+        public async Task<IEnumerable<T>> LoadData<T, U>(string storedProcedure, U parameters, string connId = "WTM-DB-ConnectionString")
         {
             using IDbConnection connection = new SqlConnection(_config.GetConnectionString(connId));
 
             return await connection.QueryAsync<T>(storedProcedure, parameters, commandType: CommandType.StoredProcedure);
         }
 
-        public async Task SaveData<T>(string storedProcedure, T parameters, string connId = "Default")
+        public async Task SaveData<T>(string storedProcedure, T parameters, string connId = "WTM-DB-ConnectionString")
         {
             using IDbConnection connection = new SqlConnection(_config.GetConnectionString(connId));
 
