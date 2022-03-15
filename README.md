@@ -35,6 +35,7 @@ The front-end of the application will consist of a modern UI to display and inte
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Brad](Assignments/Member-Biographies/Bruesewitz-Professional-Biography.md), [Caleb](Assignments/Member-Biographies/Cargill-Professional-Biography.md), [Nate](Assignments/Member-Biographies/Dumford-Professional-Biography.md), [John](Assignments/Member-Biographies/Lemon-Professional-Biography.md)
 7. [Budget](Documentation/Budget.md)
 8. Final Presentation  
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Google Slides](https://docs.google.com/presentation/d/1MyOs55YSTDSGCRIGcMJKcp6u0-c5tJknqJls2OzLu7Y/edit?usp=sharing)
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Google Slides](https://docs.google.com/presentation/d/1MyOs55YSTDSGCRIGcMJKcp6u0-c5tJknqJls2OzLu7Y/edit?usp=sharing)   
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; YouTube   
 9. [Project Poster](https://docs.google.com/presentation/d/1f3lbqAK5bJ2sxbZSiOr3dT6rVSCBIE3CiMvxItT6J2w/edit?usp=sharing)
 10. [Appendix](Documentation/Appendix.md)
