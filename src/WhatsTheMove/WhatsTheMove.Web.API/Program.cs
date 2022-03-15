@@ -37,16 +37,6 @@ namespace WhatsTheMove.Web.API
                                     azureServiceTokenProvider.KeyVaultTokenCallback));
                             config.AddAzureKeyVault(keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
                         }
-                        //var settings = config.Build();
-
-                        //config.AddAzureAppConfiguration(options =>
-                        //{
-                        //    options.Connect(settings["WTM-DB-ConnectionString"])
-                        //        .ConfigureKeyVault(kv =>
-                        //        {
-                        //            kv.SetCredential(new DefaultAzureCredential());
-                        //        });
-                        //});
                     })
                     .UseStartup<Startup>());
 
