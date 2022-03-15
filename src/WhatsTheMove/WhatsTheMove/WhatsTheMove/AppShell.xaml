@@ -57,6 +57,6 @@
     </FlyoutItem>
 
     <FlyoutItem Title="Settings">
-        <ShellContent ContentTemplate="{DataTemplate views:ForgotCredentialsView}" />
+        <ShellContent ContentTemplate="{DataTemplate views:AppSettingsView}" />
     </FlyoutItem>
 </Shell>
