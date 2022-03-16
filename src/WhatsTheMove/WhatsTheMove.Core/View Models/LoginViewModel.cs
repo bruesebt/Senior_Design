@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -67,8 +68,7 @@ namespace WhatsTheMove.Core.ViewModels
             User.Password = string.Empty;
             UserActionResponse = "Functionality not implemented yet!";
 
-            IEnumerable<WhatsTheMove.Data.Models.User> users = await WhatsTheMove.Core.API.UserProcessor.LoadUsers();
-        }
+            }
 
         private void CreateNewAccount(object param)
         {

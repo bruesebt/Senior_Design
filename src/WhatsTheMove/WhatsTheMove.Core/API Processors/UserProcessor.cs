@@ -11,6 +11,10 @@ namespace WhatsTheMove.Core.API
     public static class UserProcessor
     {
 
+        /// <summary>
+        /// Calls api to get all users
+        /// </summary>
+        /// <returns></returns>
         public static async Task<IEnumerable<User>> LoadUsers()
         {
             using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync("Users"))
@@ -20,6 +24,92 @@ namespace WhatsTheMove.Core.API
                     IEnumerable<User> users = await response.Content.ReadAsAsync<IEnumerable<User>>();
 
                     return users;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Calls api to get user of specific id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static async Task<User> LoadUser(int id)
+        {
+            using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync($"Users/{id}"))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    User user = await response.Content.ReadAsAsync<User>();
+
+                    return user;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Calls api to create new user, returns the created user
+        /// </summary>
+        /// <param name="newUser"></param>
+        /// <returns></returns>
+        public static async Task<User> CreateUser(User newUser)
+        {
+            using (HttpResponseMessage response = await ApiHelper.ApiClient.PostAsJsonAsync<User>($"Users", newUser))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    User user = await LoadUser(4);
+
+                    return user;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Calls api to update the passed in user. Returns updated user
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public static async Task<User> UpdateUser(User user)
+        {
+            using (HttpResponseMessage response = await ApiHelper.ApiClient.PutAsJsonAsync<User>("Users", user))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    user = await LoadUser(1);
+
+                    return user;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Calls api to delete the user of the passed in id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static async Task DeleteUser(int id)
+        {
+            using (HttpResponseMessage response = await ApiHelper.ApiClient.DeleteAsync($"Users?id={id}"))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    return;
                 }
                 else
                 {
