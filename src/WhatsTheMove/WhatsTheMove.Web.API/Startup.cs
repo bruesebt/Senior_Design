@@ -39,6 +39,7 @@ namespace WhatsTheMove.Web.API
             // database access dependency injection
             services.AddSingleton<ISqlDataAccess, SqlDataAccess>();
             services.AddSingleton<IUserData, UserData>();
+            services.AddAzureAppConfiguration();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +53,7 @@ namespace WhatsTheMove.Web.API
             }
 
             app.UseHttpsRedirection();
+            app.UseAzureAppConfiguration();
 
             app.UseRouting();
 
