@@ -7,7 +7,7 @@ namespace WhatsTheMove.Core.ViewModels
     public class ProfileSettingsViewModel : Common.ViewModelBase
     {
 
-        #region constructors
+        #region Constructors
 
         public ProfileSettingsViewModel()
         {
@@ -21,7 +21,7 @@ namespace WhatsTheMove.Core.ViewModels
 
         #endregion
 
-        #region properties
+        #region Properties
 
         public UserViewModel User
         {
@@ -31,7 +31,10 @@ namespace WhatsTheMove.Core.ViewModels
         private UserViewModel _user = new UserViewModel();
         #endregion
 
-        #region methods
+        #region Methods
+
+
+
         #endregion
     }
 }
