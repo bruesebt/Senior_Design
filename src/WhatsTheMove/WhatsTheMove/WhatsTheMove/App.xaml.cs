@@ -10,6 +10,9 @@ namespace WhatsTheMove
         {
             InitializeComponent();
 
+            // Initialize the API Helper
+            WhatsTheMove.Core.Common.ApiHelper.InitializeClient();
+
             MainPage = new UI.AppShell();
         }
 

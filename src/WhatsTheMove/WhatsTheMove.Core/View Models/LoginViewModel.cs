@@ -62,10 +62,12 @@ namespace WhatsTheMove.Core.ViewModels
 
         #region Methods
 
-        private void LogUserIn(object param)
+        private async void LogUserIn(object param)
         {
             User.Password = string.Empty;
             UserActionResponse = "Functionality not implemented yet!";
+
+            IEnumerable<WhatsTheMove.Data.Models.User> users = await WhatsTheMove.Core.API.UserProcessor.LoadUsers();
         }
 
         private void CreateNewAccount(object param)
