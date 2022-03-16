@@ -4,10 +4,8 @@ using System.Text;
 
 namespace WhatsTheMove.Data.Models
 {
-    public class ActivityHours
+    public class OpeningHours
     {
-
-        public bool Open_Now { get; set; }
-
+        public bool open_now { get; set; }
     }
 }

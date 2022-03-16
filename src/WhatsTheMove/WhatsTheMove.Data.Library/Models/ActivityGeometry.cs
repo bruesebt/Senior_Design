@@ -6,8 +6,7 @@ namespace WhatsTheMove.Data.Models
 {
     public class ActivityGeometry
     {
-
-        public ActivityLocation Location { get; set; }
-
+        public Location location { get; set; }
+        public Viewport viewport { get; set; }
     }
 }

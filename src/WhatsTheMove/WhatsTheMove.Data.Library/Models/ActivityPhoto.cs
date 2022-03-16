@@ -6,12 +6,9 @@ namespace WhatsTheMove.Data.Models
 {
     public class ActivityPhoto
     {
-        public string Html_Attributions { get; set; }
-
-        public int Height { get; set; }
-
-        public int Width { get; set; }
-
-        public string Photo_Reference { get; set; }
+        public int height { get; set; }
+        public List<string> html_attributions { get; set; }
+        public string photo_reference { get; set; }
+        public int width { get; set; }
     }
 }
