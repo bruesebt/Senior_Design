@@ -20,7 +20,7 @@ namespace WhatsTheMove.Web.API.Controllers
         }
 
         [HttpGet]
-        [Route("User/{userId:int}")]
+        [Route("UserId/{userId:int}")]
         public async Task<IActionResult> GetSavedActivities(int userId)
         {
             try

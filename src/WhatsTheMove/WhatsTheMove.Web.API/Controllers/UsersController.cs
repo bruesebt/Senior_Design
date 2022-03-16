@@ -33,7 +33,7 @@ namespace WhatsTheMove.Web.API.Controllers
         }
 
         [HttpGet]
-        [Route("{id:int}")]
+        [Route("UserId/{id:int}")]
         public async Task<IActionResult> GetUser(int id)
         {
             try
@@ -48,7 +48,7 @@ namespace WhatsTheMove.Web.API.Controllers
 
         [HttpGet]
         [Route("Username/{username}")]
-        public async Task<IActionResult> GetUser(string username)
+        public async Task<IActionResult> GetUser_FromUserName(string username)
         {
             try
             {
