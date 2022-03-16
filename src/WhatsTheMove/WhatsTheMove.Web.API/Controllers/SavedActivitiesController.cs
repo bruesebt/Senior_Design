@@ -10,21 +10,22 @@ namespace WhatsTheMove.Web.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class UsersController : Controller
+    public class SavedActivitiesController : Controller
     {
-        private readonly IUserData _userData;
+        private readonly ISavedActivityData _savedActivityData;
 
-        public UsersController(IUserData userData)
+        public SavedActivitiesController(ISavedActivityData savedActivityData)
         {
-            _userData = userData;
+            _savedActivityData = savedActivityData;
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetUsers()
+        [Route("User/{userId:int}")]
+        public async Task<IActionResult> GetSavedActivities(int userId)
         {
             try
             {
-                return Ok(await _userData.GetUsers());
+                return Ok(await _savedActivityData.GetActivities_FromUserId(userId));
             }
             catch (Exception ex)
             {
@@ -34,25 +35,11 @@ namespace WhatsTheMove.Web.API.Controllers
 
         [HttpGet]
         [Route("{id:int}")]
-        public async Task<IActionResult> GetUser(int id)
+        public async Task<IActionResult> GetSavedActivity(int id)
         {
             try
             {
-                return Ok(await _userData.GetUser(id));
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, ex.Message);
-            }
-        }
-
-        [HttpGet]
-        [Route("{username}")]
-        public async Task<IActionResult> GetUser(string username)
-        {
-            try
-            {
-                return Ok(await _userData.GetUser_FromUsername(username));
+                return Ok(await _savedActivityData.GetActivity(id));
             }
             catch (Exception ex)
             {
@@ -61,11 +48,11 @@ namespace WhatsTheMove.Web.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> InsertUser(User user)
+        public async Task<IActionResult> InsertSavedActivity(SavedActivity activity)
         {
             try
             {
-                await _userData.InsertUser(user);
+                await _savedActivityData.InsertActivity(activity);
                 return Ok();
             }
             catch (Exception ex)
@@ -75,11 +62,11 @@ namespace WhatsTheMove.Web.API.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateUser(User user)
+        public async Task<IActionResult> UpdateSavedActivity(SavedActivity activity)
         {
             try
             {
-                await _userData.UpdateUser(user);
+                await _savedActivityData.UpdateActivity(activity);
                 return Ok();
             }
             catch (Exception ex)
@@ -89,11 +76,11 @@ namespace WhatsTheMove.Web.API.Controllers
         }
 
         [HttpDelete]
-        public async Task<IActionResult> DeleteUser(int id)
+        public async Task<IActionResult> DeleteSavedActivity(int id)
         {
             try
             {
-            await _userData.DeleteUser(id);
+                await _savedActivityData.DeleteActivity(id);
                 return Ok();
             }
             catch (Exception ex)

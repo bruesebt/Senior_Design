@@ -39,6 +39,8 @@ namespace WhatsTheMove.Web.API
             // database access dependency injection
             services.AddSingleton<ISqlDataAccess, SqlDataAccess>();
             services.AddSingleton<IUserData, UserData>();
+            services.AddSingleton<IPreferenceData, PreferenceData>();
+            services.AddSingleton<ISavedActivityData, SavedActivityData>();
             services.AddAzureAppConfiguration();
         }
 

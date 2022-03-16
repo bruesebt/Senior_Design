@@ -32,6 +32,14 @@ namespace WhatsTheMove.Data.Implementations
             return results.FirstOrDefault();
         }
 
+        public async Task<User?> GetUser_FromUsername(string username)
+        {
+            var results = await _db.LoadData<User, dynamic>(storedProcedure: $"{Prefix}{nameof(User)}{Get}_FromUsername",
+                                                                parameters: new { Username = username });
+
+            return results.FirstOrDefault();
+        }
+
         public Task InsertUser(User user) =>
             _db.SaveData(storedProcedure: $"{Prefix}{nameof(User)}{Insert}",
                             parameters: new { user.Username, user.Email, user.FirstName, user.LastName, user.DateOfBirth, user.ZipCode, user.DateAdded });

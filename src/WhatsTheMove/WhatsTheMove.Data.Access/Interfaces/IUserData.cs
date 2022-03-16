@@ -8,6 +8,7 @@ namespace WhatsTheMove.Data.Interfaces
     {
         Task DeleteUser(int id);
         Task<User> GetUser(int id);
+        Task<User> GetUser_FromUsername(string username);
         Task<IEnumerable<User>> GetUsers();
         Task InsertUser(User user);
         Task UpdateUser(User user);
