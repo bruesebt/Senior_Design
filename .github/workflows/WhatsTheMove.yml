@@ -15,7 +15,7 @@ env:
   AZURE_APIM_RESOURCEGROUP: WhatsTheMove
   AZURE_APIM_SERVICENAME: WhatsTheMoveWebAPI
   AZURE_APIM_API_ID: WhatsTheMoveWebAPI
-  AZURE_APIM_APPSERVICEURL: https://whatsthemove.azurewebsites.net:80/
+  AZURE_APIM_APPSERVICEURL: https://whatsthemove.azurewebsites.net:443/
   SWASHBUCLE_ASPNET_CORE_CLI_PACKAGE_VERSION: 5.6.3
   SWASHBUCKLE_DOTNET_CORE_VERSION: 3.1.x
   API_IMPORT_SPECIFICATION_PATH: src/WhatsTheMove/WhatsTheMove.Web.API/publish/swagger.json
