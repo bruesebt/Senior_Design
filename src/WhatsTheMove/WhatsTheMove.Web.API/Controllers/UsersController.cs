@@ -47,7 +47,7 @@ namespace WhatsTheMove.Web.API.Controllers
         }
 
         [HttpGet]
-        [Route("{username}")]
+        [Route("Username/{username}")]
         public async Task<IActionResult> GetUser(string username)
         {
             try
