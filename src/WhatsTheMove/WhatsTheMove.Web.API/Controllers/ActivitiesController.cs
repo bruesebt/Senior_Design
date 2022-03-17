@@ -57,21 +57,28 @@ namespace WhatsTheMove.Web.API.Controllers
         
         private async Task<Location> GetLocation(string zipCode)
         {
-            using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync($"geocode/json?address={zipCode}&key={_placesAccess.AccessKey}"))
+            try
             {
-                if (response.IsSuccessStatusCode)
+                using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync($"geocode/json?address={zipCode}&key={_placesAccess.AccessKey}"))
                 {
-                    string results = await response.Content.ReadAsStringAsync();
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string results = await response.Content.ReadAsStringAsync();
 
-                    GeoApiResultsRoot root = JsonConvert.DeserializeObject<GeoApiResultsRoot>(results);
+                        GeoApiResultsRoot root = JsonConvert.DeserializeObject<GeoApiResultsRoot>(results);
 
-                    return root.Results.First().Geometry.Location;
-                }
-                else
-                {
-                    throw new Exception($"Exception when getting latitude and longitude. Reason: {response.ReasonPhrase}");
+                        return root.Results.First().Geometry.Location;
+                    }
+                    else
+                    {
+                        throw new Exception($"Exception when getting latitude and longitude. Reason: {response.ReasonPhrase}");
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                throw new Exception($"Exception when getting latitude and longitude. Error message: {ex.Message}");
+            }            
         }
 
         private async Task<string> SearchString(string zipCode,
