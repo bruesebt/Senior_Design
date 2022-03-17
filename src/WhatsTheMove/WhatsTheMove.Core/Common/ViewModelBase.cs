@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using WhatsTheMove.Data.Models;
 
 namespace WhatsTheMove.Core.Common
 {
@@ -11,6 +12,18 @@ namespace WhatsTheMove.Core.Common
         public event PropertyChangedEventHandler PropertyChanged;
 
         public event Events.ChangeViewRequestEventHandler ChangeViewRequested;
+
+        public event Events.LoggedInUserChangeEventHandler UserChanged;
+
+        /// <summary>
+        /// The user that is currently using the application
+        /// </summary>
+        public User LoggedInUser
+        {
+            get => _loggedInUser;
+            set => UpdateOnPropertyChanged(ref _loggedInUser, value);
+        }
+        private User _loggedInUser = null;
 
         /// <summary>
         /// Updates the passed in field and raises property changed event
@@ -47,6 +60,15 @@ namespace WhatsTheMove.Core.Common
         protected void OnChangeViewRequested(Enums.ViewRoute viewRoute)
         {
             ChangeViewRequested?.Invoke(this, new Events.ChangeViewRequestEventArgs(viewRoute));
+        }
+
+        /// <summary>
+        /// Changes the logged in user. Pass in null to log the user out
+        /// </summary>
+        /// <param name="user"></param>
+        protected void LoggedInUserChanged(User user)
+        {
+            UserChanged?.Invoke(this, new Core.Events.LoggedInUserChangeEventArgs(user));
         }
     }
 }

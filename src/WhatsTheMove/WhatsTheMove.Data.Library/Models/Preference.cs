@@ -11,19 +11,23 @@ namespace WhatsTheMove.Data.Models
 
         public int UserId { get; set; }
         
-        public int GroupSize { get; set; }
+        public string ZipCode { get; set; }
+        
+        public int? GroupSize { get; set; }
 
-        public bool IsFoodRequested { get; set; }
+        public bool? IsFoodRequested { get; set; }
 
-        public bool IsDrinksRequested { get; set; }
+        public bool? IsDrinksRequested { get; set; }
 
-        public int EnergyLevel { get; set; }
+        public int? EnergyLevel { get; set; }
 
-        public int Budget { get; set; }
+        public int? Budget { get; set; }
 
-        public int TimeOfDay { get; set; }
+        public int? TimeOfDay { get; set; }
 
-        public int DressCode { get; set; }
+        public int? DressCode { get; set; }
+
+        public int? Distance { get; set; }
        
     }
 }

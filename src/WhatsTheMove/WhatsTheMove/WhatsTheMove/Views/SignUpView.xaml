@@ -40,42 +40,64 @@
                     HorizontalTextAlignment="Center"
                     Style="{StaticResource AccentLabelStyle}"
                     Text="Please fill out the following fields to create an account." />
-                <Entry
-                    Placeholder="First Name"
-                    PlaceholderColor="{DynamicResource TertiaryFontColor}"
-                    TextColor="White" />
-                <Entry
-                    Placeholder="Last Name"
-                    PlaceholderColor="{DynamicResource TertiaryFontColor}"
-                    TextColor="White" />
-                <StackLayout Padding="5" Orientation="Horizontal">
-                    <Label
-                        FontSize="Body"
-                        Text="Date of Birth:"
-                        TextColor="{DynamicResource TertiaryFontColor}"
-                        VerticalTextAlignment="Center" />
-                    <DatePicker x:Name="userAge" TextColor="White" />
-                </StackLayout>
-
-                <Entry
-                    Keyboard="Email"
-                    Placeholder="Email"
-                    PlaceholderColor="{DynamicResource TertiaryFontColor}"
-                    TextColor="White" />
-                <Entry
-                    Placeholder="Username"
-                    PlaceholderColor="{DynamicResource TertiaryFontColor}"
-                    TextColor="White" />
-                <Entry
-                    IsPassword="True"
-                    Placeholder="Password"
-                    PlaceholderColor="{DynamicResource TertiaryFontColor}"
-                    TextColor="White" />
-                <Entry
-                    Placeholder="Confirm Password"
-                    PlaceholderColor="{DynamicResource TertiaryFontColor}"
-                    TextColor="White" />
-                <Button Style="{StaticResource PrimaryButtonStyle}" Text="Sign up" />
+                <ScrollView>
+                    <StackLayout Orientation="Vertical">
+                        <Entry
+                            Placeholder="First Name"
+                            PlaceholderColor="{DynamicResource TertiaryFontColor}"
+                            Text="{Binding User.FirstName}"
+                            TextColor="White" />
+                        <Entry
+                            Placeholder="Last Name"
+                            PlaceholderColor="{DynamicResource TertiaryFontColor}"
+                            Text="{Binding User.LastName}"
+                            TextColor="White" />
+                        <StackLayout Orientation="Vertical">
+                            <Label
+                                Margin="5,0"
+                                FontSize="Medium"
+                                Text="Date of Birth:"
+                                TextColor="{DynamicResource TertiaryFontColor}"
+                                VerticalTextAlignment="Center" />
+                            <DatePicker
+                                x:Name="userAge"
+                                BindingContext="{Binding User.DateOfBirth}"
+                                TextColor="White" />
+                        </StackLayout>
+                        <Entry
+                            Placeholder="ZIP Code"
+                            PlaceholderColor="{DynamicResource TertiaryFontColor}"
+                            Text="{Binding User.ZipCode}"
+                            TextColor="White" />
+                        <Entry
+                            Keyboard="Email"
+                            Placeholder="Email"
+                            PlaceholderColor="{DynamicResource TertiaryFontColor}"
+                            Text="{Binding User.Email}"
+                            TextColor="White" />
+                        <Entry
+                            Placeholder="Username"
+                            PlaceholderColor="{DynamicResource TertiaryFontColor}"
+                            Text="{Binding User.Username}"
+                            TextColor="White" />
+                        <Entry
+                            IsPassword="True"
+                            Placeholder="Password"
+                            PlaceholderColor="{DynamicResource TertiaryFontColor}"
+                            Text="{Binding User.Password}"
+                            TextColor="White" />
+                        <Entry
+                            IsPassword="True"
+                            Placeholder="Confirm Password"
+                            PlaceholderColor="{DynamicResource TertiaryFontColor}"
+                            Text="{Binding User.PasswordConfirmed}"
+                            TextColor="White" />
+                        <Button
+                            Command="{Binding SignUpCommand}"
+                            Style="{StaticResource PrimaryButtonStyle}"
+                            Text="Sign up" />
+                    </StackLayout>
+                </ScrollView>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

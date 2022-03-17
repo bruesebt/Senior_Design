@@ -16,6 +16,8 @@ namespace WhatsTheMove.Views
         public EditPreferencesView()
         {
             InitializeComponent();
+
+            SetContext();
         }
     }
 }

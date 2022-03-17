@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using WhatsTheMove.Data.Models;
 
 namespace WhatsTheMove.Core.ViewModels
 {
@@ -11,24 +12,13 @@ namespace WhatsTheMove.Core.ViewModels
 
         public ProfileSettingsViewModel()
         {
-            User = new UserViewModel();
-            User.FirstName = "test";
-            User.LastName = "dummy data";
-            User.Address = "1234 test ave";
-            User.Email = "test@test.test";
-            User.Birthday = "1/1/15";
+
         }
 
         #endregion
 
         #region Properties
 
-        public UserViewModel User
-        {
-            get => _user;
-            set => UpdateOnPropertyChanged(ref _user, value);
-        }
-        private UserViewModel _user = new UserViewModel();
         #endregion
 
         #region Methods
