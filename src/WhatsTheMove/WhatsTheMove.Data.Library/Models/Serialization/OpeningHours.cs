@@ -6,6 +6,6 @@ namespace WhatsTheMove.Data.Models
 {
     public class OpeningHours
     {
-        public bool open_now { get; set; }
+        public bool Open_Now { get; set; }
     }
 }

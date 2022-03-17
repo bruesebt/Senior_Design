@@ -6,7 +6,7 @@ namespace WhatsTheMove.Data.Models
 {
     public class ActivityCode
     {
-        public string compound_code { get; set; }
-        public string global_code { get; set; }
+        public string Compound_Code { get; set; }
+        public string Global_Code { get; set; }
     }
 }

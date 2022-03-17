@@ -24,19 +24,24 @@ namespace WhatsTheMove.Web.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetActivities(double lat, double lon, int radius, string types, string name)
+        [Route("Nearby/")]
+        public async Task<IActionResult> GetActivities_Nearby(string zipCode, 
+                                                                int? radius = null, 
+                                                                string keyword = null, 
+                                                                string type = null,
+                                                                int? budget = null)
         {
             try
             {
-                using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync($"nearbysearch/json?location={lat},{lon}&radius={radius}&types={types}&name={name}&key={_placesAccess.AccessKey}"))
+                using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(await SearchString(zipCode, radius, keyword, type, budget)))
                 {
                     if (response.IsSuccessStatusCode)
                     {
                         string results = await response.Content.ReadAsStringAsync();
 
-                        PlacesApiResultsRoot myDeserializedClass = JsonConvert.DeserializeObject<PlacesApiResultsRoot>(results);
+                        PlacesApiResultsRoot root = JsonConvert.DeserializeObject<PlacesApiResultsRoot>(results);
 
-                        return Ok(myDeserializedClass.Results);
+                        return Ok(root.Results);
                     }
                     else
                     {
@@ -48,6 +53,44 @@ namespace WhatsTheMove.Web.API.Controllers
             {
                 return StatusCode(500, ex.Message);
             }
+        }
+        
+        private async Task<Location> GetLocation(string zipCode)
+        {
+            using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync($"geocode/json?address={zipCode}&key={_placesAccess.AccessKey}"))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    string results = await response.Content.ReadAsStringAsync();
+
+                    GeoApiResultsRoot root = JsonConvert.DeserializeObject<GeoApiResultsRoot>(results);
+
+                    return root.Results.First().Geometry.Location;
+                }
+                else
+                {
+                    throw new Exception($"Exception when getting latitude and longitude. Reason: {response.ReasonPhrase}");
+                }
+            }
+        }
+
+        private async Task<string> SearchString(string zipCode,
+                                    int? radius = null,
+                                    string keyword = null,
+                                    string type = null,
+                                    int? budget = null)
+        {
+            Location loc = await GetLocation(zipCode);
+
+            string searchString = $"place/{Places.SearchType.NearbySearch.ToString().ToLower()}/json?";
+            searchString += keyword == null ? string.Empty : $"keyword={keyword}&";
+            searchString += $"location={loc.Lat}%2C{loc.Lng}";
+            searchString += radius == null ? $"&rankby=distance" : $"&radius={radius}";
+            searchString += type == null ? string.Empty : $"&type={type}";
+            searchString += budget == null ? string.Empty : $"&minprice={budget}";
+            searchString += $"&key={_placesAccess.AccessKey}";
+
+            return searchString;
         }
     }
 }
