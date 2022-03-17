@@ -11,32 +11,47 @@ namespace WhatsTheMove.Core.API
 {
     public static class ActivityProcessor
     {
-        public static async Task<IEnumerable<Activity>> PerformNearbySearch(User user, Preference preference)
+        public static async Task<IEnumerable<Activity>> PerformNearbySearch(Preference preference)
         {
-            using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync($"Activities/Nearby?{SearchString(preference)}"))
+            try
             {
-                if (response.IsSuccessStatusCode)
+                using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync($"Activities/Nearby?{SearchString(preference)}"))
                 {
-                    IEnumerable<Activity> activities = await response.Content.ReadAsAsync<IEnumerable<Activity>>();
+                    if (response.IsSuccessStatusCode)
+                    {
+                        IEnumerable<Activity> activities = await response.Content.ReadAsAsync<IEnumerable<Activity>>();
 
-                    return activities;
-                }
-                else
-                {
-                    throw new Exception(response.ReasonPhrase);
+                        return activities;
+                    }
+                    else
+                    {
+                        throw new Exception(response.ReasonPhrase);
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
 
         public static string SearchString(Preference preference)
         {
             string searchString = $"zipCode={preference.ZipCode}";
-            searchString += preference.Distance == null ? string.Empty : $"&radius={preference.Distance}";
+            searchString += preference.Distance == null ? string.Empty : $"&radius={((int)preference.Distance).ToMeters()}";
             searchString += preference.IsFoodRequested != null && (bool)preference.IsFoodRequested ? $"&keyword=food" : string.Empty;
             searchString += preference.IsDrinksRequested != null && (bool)preference.IsDrinksRequested ? $"&type=bar" : string.Empty;
             searchString += preference.Budget == null ? string.Empty : $"&budget={preference.Budget}";
 
             return searchString;
         }
+
+        /// <summary>
+        /// An approximate conversion of miles to meters
+        /// </summary>
+        /// <param name="miles"></param>
+        /// <returns></returns>
+        private static int ToMeters(this int miles) => miles * 1609;
     }
 }

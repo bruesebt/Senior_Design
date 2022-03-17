@@ -3,9 +3,17 @@
     x:Class="WhatsTheMove.Views.EditPreferencesView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:comm="clr-namespace:WhatsTheMove.UI.Common"
+    xmlns:enums="clr-namespace:WhatsTheMove.Core.Enums;assembly=WhatsTheMove.Core"
     xmlns:uibase="clr-namespace:WhatsTheMove.UI.Common"
     xmlns:vms="clr-namespace:WhatsTheMove.Core.ViewModels;assembly=WhatsTheMove.Core"
     BackgroundColor="{StaticResource SecondaryBackgroundColor}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <comm:ComparisonConverter x:Key="ComparisonConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <!--  Set Context  -->
     <ContentPage.BindingContext>
@@ -15,169 +23,238 @@
     <!--  View Content  -->
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout
-                Padding="25"
-                Orientation="Vertical"
-                VerticalOptions="StartAndExpand">
-                <Label
-                    HorizontalTextAlignment="Center"
-                    Style="{StaticResource TitleAccentLabelStyle}"
-                    Text="What's tonight's move?" />
+            <Label
+                Margin="10"
+                HorizontalTextAlignment="Center"
+                Style="{StaticResource TitleAccentLabelStyle}"
+                Text="What's The Move?" />
 
-                <Entry
-                    Keyboard="Numeric"
-                    Placeholder="Group Size"
-                    PlaceholderColor="{DynamicResource TertiaryFontColor}"
-                    TextColor="White" />
+            <ScrollView>
+                <StackLayout
+                    Padding="25"
+                    Orientation="Vertical"
+                    VerticalOptions="StartAndExpand">
 
-                <StackLayout Padding="5" Orientation="Horizontal">
+                    <!--  Location  -->
                     <Label
                         FontSize="Body"
-                        Text="Food?"
-                        TextColor="{DynamicResource TertiaryFontColor}"
-                        VerticalTextAlignment="Center" />
+                        Style="{StaticResource AccentLabelStyle}"
+                        Text="Location" />
+                    <!--  Zip Code  -->
+                    <Entry
+                        Keyboard="Numeric"
+                        Placeholder="ZIP Code"
+                        PlaceholderColor="{DynamicResource TertiaryFontColor}"
+                        Text="{Binding Preference.ZipCode}"
+                        TextColor="White" />
+
+                    <!--  Distance Radius  -->
+                    <Entry
+                        Keyboard="Numeric"
+                        Placeholder="Distance (Miles)"
+                        PlaceholderColor="{DynamicResource TertiaryFontColor}"
+                        Text="{Binding Preference.Distance}"
+                        TextColor="White" />
+
+                    <!--  Group Size  -->
                     <Label
-                        Margin="24,0,0,0"
-                        FontSize="Small"
-                        Text="Yes"
-                        TextColor="White"
-                        VerticalTextAlignment="Center" />
-                    <RadioButton x:Name="foodYes" />
+                        FontSize="Body"
+                        Style="{StaticResource AccentLabelStyle}"
+                        Text="Group Size" />
+                    <Entry
+                        Keyboard="Numeric"
+                        Placeholder="Group Size"
+                        PlaceholderColor="{DynamicResource TertiaryFontColor}"
+                        Text="{Binding Preference.GroupSize}"
+                        TextColor="White" />
+
+                    <!--  Food Requested?  -->
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            FontSize="Body"
+                            Text="Food?"
+                            TextColor="{DynamicResource AccentFontColor}"
+                            VerticalTextAlignment="Center" />
+                        <CheckBox
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            IsChecked="{Binding Preference.IsFoodRequested}"
+                            Color="White" />
+                    </Grid>
+
+                    <!--  Drinks Requested?  -->
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Label
+                            Grid.Column="0"
+                            FontSize="Body"
+                            Text="Drinks?"
+                            TextColor="{DynamicResource AccentFontColor}"
+                            VerticalTextAlignment="Center" />
+                        <CheckBox
+                            Grid.Column="1"
+                            IsChecked="{Binding Preference.IsDrinksRequested}"
+                            Color="White" />
+                    </Grid>
+
+                    <!--  Energy Level  -->
                     <Label
-                        Margin="10,0,0,0"
-                        FontSize="Small"
-                        Text="No"
-                        TextColor="White"
-                        VerticalTextAlignment="Center" />
-                    <RadioButton x:Name="foodNo" />
+                        FontSize="Body"
+                        Style="{StaticResource AccentLabelStyle}"
+                        Text="Energy Level" />
+                    <StackLayout Orientation="Horizontal">
+                        <RadioButton
+                            Content="None"
+                            FontSize="Body"
+                            IsChecked="{Binding Preference.EnergyLevel, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:EnergyLevel.None}}"
+                            TextColor="White" />
+                        <RadioButton
+                            Content="Low"
+                            FontSize="Body"
+                            IsChecked="{Binding Preference.EnergyLevel, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:EnergyLevel.Low}}"
+                            TextColor="White" />
+                        <RadioButton
+                            Content="Medium"
+                            FontSize="Body"
+                            IsChecked="{Binding Preference.EnergyLevel, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:EnergyLevel.Medium}}"
+                            TextColor="White" />
+                        <RadioButton
+                            Content="High"
+                            FontSize="Body"
+                            IsChecked="{Binding Preference.EnergyLevel, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:EnergyLevel.High}}"
+                            TextColor="White" />
+                    </StackLayout>
+
+                    <!--  Budget  -->
+                    <Label
+                        FontSize="Body"
+                        Style="{StaticResource AccentLabelStyle}"
+                        Text="Budget" />
+                    <StackLayout Orientation="Horizontal">
+                        <RadioButton
+                            Content="Free"
+                            FontSize="Body"
+                            IsChecked="{Binding Preference.Budget, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:Budget.Free}}"
+                            TextColor="White" />
+                        <RadioButton
+                            Content="$"
+                            FontSize="Body"
+                            IsChecked="{Binding Preference.Budget, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:Budget.Cheap}}"
+                            TextColor="White" />
+                        <RadioButton
+                            Content="$$"
+                            FontSize="Body"
+                            IsChecked="{Binding Preference.Budget, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:Budget.Cheaper}}"
+                            TextColor="White" />
+                        <RadioButton
+                            Content="$$$"
+                            FontSize="Body"
+                            IsChecked="{Binding Preference.Budget, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:Budget.Expensive}}"
+                            TextColor="White" />
+                        <RadioButton
+                            Content="$$$$"
+                            FontSize="Body"
+                            IsChecked="{Binding Preference.Budget, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:Budget.MostExpensive}}"
+                            TextColor="White" />
+                    </StackLayout>
+
+                    <!--  Time of Day  -->
+                    <Label
+                        FontSize="Body"
+                        Style="{StaticResource AccentLabelStyle}"
+                        Text="Time of Day" />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <RadioButton
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Content="Morning"
+                            FontSize="Body"
+                            IsChecked="{Binding Preference.TimeOfDay, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:TimeOfDay.Morning}}"
+                            TextColor="White" />
+                        <RadioButton
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Content="Midday"
+                            FontSize="Body"
+                            IsChecked="{Binding Preference.TimeOfDay, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:TimeOfDay.Midday}}"
+                            TextColor="White" />
+                        <RadioButton
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Content="Afternoon"
+                            FontSize="Body"
+                            IsChecked="{Binding Preference.TimeOfDay, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:TimeOfDay.Afternoon}}"
+                            TextColor="White" />
+                        <RadioButton
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Content="Evening"
+                            FontSize="Body"
+                            IsChecked="{Binding Preference.TimeOfDay, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:TimeOfDay.Evening}}"
+                            TextColor="White" />
+                        <RadioButton
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Content="Night"
+                            FontSize="Body"
+                            IsChecked="{Binding Preference.TimeOfDay, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:TimeOfDay.Night}}"
+                            TextColor="White" />
+                    </Grid>
+
+                    <!--  Dress Code  -->
+                    <Label
+                        FontSize="Body"
+                        Style="{StaticResource AccentLabelStyle}"
+                        Text="Dress Code" />
+                    <StackLayout Orientation="Horizontal">
+                        <RadioButton
+                            Content="None"
+                            FontSize="Body"
+                            IsChecked="{Binding Preference.DressCode, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:DressCode.None}}"
+                            TextColor="White" />
+                        <RadioButton
+                            Content="Casual"
+                            FontSize="Body"
+                            IsChecked="{Binding Preference.DressCode, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:DressCode.Casual}}"
+                            TextColor="White" />
+                        <RadioButton
+                            Content="Formal"
+                            FontSize="Body"
+                            IsChecked="{Binding Preference.DressCode, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:DressCode.Formal}}"
+                            TextColor="White" />
+                    </StackLayout>
+
+
                 </StackLayout>
-                <StackLayout Padding="5" Orientation="Horizontal">
-                    <Label
-                        FontSize="Body"
-                        Text="Drinks?"
-                        TextColor="{DynamicResource TertiaryFontColor}"
-                        VerticalTextAlignment="Center" />
-                    <Label
-                        Margin="15,0,0,0"
-                        FontSize="Small"
-                        Text="Yes"
-                        TextColor="White"
-                        VerticalTextAlignment="Center" />
-                    <RadioButton x:Name="drinkYes" />
-                    <Label
-                        Margin="10,0,0,0"
-                        FontSize="Small"
-                        Text="No"
-                        TextColor="White"
-                        VerticalTextAlignment="Center" />
-                    <RadioButton x:Name="drinkNo" />
-                </StackLayout>
+            </ScrollView>
 
-                <Entry
-                    Keyboard="Numeric"
-                    Placeholder="Energy Level (1-10)"
-                    PlaceholderColor="{DynamicResource TertiaryFontColor}"
-                    TextColor="White" />
-
-                <StackLayout Padding="5" Orientation="Horizontal">
-                    <Label
-                        FontSize="Body"
-                        MinimumWidthRequest="60"
-                        Text="Budget"
-                        TextColor="{DynamicResource TertiaryFontColor}"
-                        VerticalTextAlignment="Center" />
-                    <Label
-                        Margin="15,0,0,0"
-                        FontSize="Body"
-                        Text="$"
-                        TextColor="White"
-                        VerticalTextAlignment="Center" />
-                    <RadioButton x:Name="budget0" />
-                    <Label
-                        Margin="10,0,0,0"
-                        FontSize="Body"
-                        Text="$$"
-                        TextColor="White"
-                        VerticalTextAlignment="Center" />
-                    <RadioButton x:Name="Budget1" />
-                    <Label
-                        Margin="10,0,0,0"
-                        FontSize="Small"
-                        Text="$$$"
-                        TextColor="White"
-                        VerticalTextAlignment="Center" />
-                    <RadioButton x:Name="Budget2" />
-                    <Label
-                        Margin="10,0,0,0"
-                        FontSize="Small"
-                        Text="$$$$"
-                        TextColor="White"
-                        VerticalTextAlignment="Center" />
-                    <RadioButton x:Name="Budget3" />
-                </StackLayout>
-
-                <!--  Ideally we make this into a picker, but I can't figure this out  -->
-                <Label
-                    Padding="5"
-                    FontSize="Body"
-                    Text="Time of Day:"
-                    TextColor="{DynamicResource TertiaryFontColor}" />
-                <StackLayout Margin="5,0,5,0" Orientation="Horizontal">
-                    <Label
-                        Margin="0,0,0,0"
-                        FontSize="12"
-                        MinimumWidthRequest="60"
-                        Text="Morning"
-                        TextColor="White"
-                        VerticalTextAlignment="Center" />
-                    <RadioButton x:Name="timeMorning" />
-                    <Label
-                        Margin="0,0,0,0"
-                        FontSize="12"
-                        MinimumWidthRequest="105"
-                        Text="Afternoon"
-                        TextColor="White"
-                        VerticalTextAlignment="Center" />
-                    <RadioButton x:Name="timeAfternoon" />
-                    <Label
-                        Margin="0,0,0,0"
-                        FontSize="12"
-                        MinimumWidthRequest="60"
-                        Text="Evening"
-                        TextColor="White"
-                        VerticalTextAlignment="Center" />
-                    <RadioButton x:Name="timeEvening" />
-                    <Label
-                        Margin="0,0,0,0"
-                        FontSize="12"
-                        MinimumWidthRequest="30"
-                        Text="Night"
-                        TextColor="White"
-                        VerticalTextAlignment="Center" />
-                    <RadioButton x:Name="timeNight" />
-                </StackLayout>
-
-                <StackLayout Margin="5,15,0,10" Orientation="Horizontal">
-                    <Label
-                        Margin="0,0,0,0"
-                        FontSize="Body"
-                        Text="Casual"
-                        TextColor="White"
-                        VerticalTextAlignment="Center" />
-                    <RadioButton x:Name="casual" />
-                    <Label
-                        Margin="10,0,0,0"
-                        FontSize="Body"
-                        Text="Fancy"
-                        TextColor="White"
-                        VerticalTextAlignment="Center" />
-                    <RadioButton x:Name="fancy" />
-                </StackLayout>
-                <Button
-                    Command="{Binding WhatsTheMoveCommand}"
-                    Style="{StaticResource PrimaryButtonStyle}"
-                    Text="What's the Move?" />
-            </StackLayout>
+            <!--  Find Moves  -->
+            <Button
+                Margin="10"
+                Command="{Binding WhatsTheMoveCommand}"
+                Style="{StaticResource PrimaryButtonStyle}"
+                Text="What's the Move?" />
         </StackLayout>
     </ContentPage.Content>
 </uibase:ContentPageBase>
