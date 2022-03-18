@@ -22,11 +22,11 @@ namespace WhatsTheMove.Data.Models
         public string Name { get => _name; set => UpdateOnPropertyChanged(ref _name, value); }
         private string _name;
 
-        public DateTime DateAdded { get => _dateAdded; set => UpdateOnPropertyChanged(ref _dateAdded, value); }
-        private DateTime _dateAdded;
-
         public int? Rating { get => _rating; set => UpdateOnPropertyChanged(ref _rating, value); }
         private int? _rating;
+
+        public DateTime DateAdded { get => _dateAdded; set => UpdateOnPropertyChanged(ref _dateAdded, value); }
+        private DateTime _dateAdded;
 
     }
 }

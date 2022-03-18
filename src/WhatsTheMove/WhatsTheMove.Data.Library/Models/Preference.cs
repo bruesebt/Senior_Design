@@ -16,6 +16,9 @@ namespace WhatsTheMove.Data.Models
 
         public string ZipCode { get => _zipCode; set => UpdateOnPropertyChanged(ref _zipCode, value); }
         private string _zipCode;
+
+        public int? Distance { get => _distance; set => UpdateOnPropertyChanged(ref _distance, value); }
+        private int? _distance;
         
         public int? GroupSize { get => _groupSize; set => UpdateOnPropertyChanged(ref _groupSize, value); }
         private int? _groupSize;
@@ -38,8 +41,8 @@ namespace WhatsTheMove.Data.Models
         public int? DressCode { get => _dressCode; set => UpdateOnPropertyChanged(ref _dressCode, value); }
         private int? _dressCode;
 
-        public int? Distance { get => _distance; set => UpdateOnPropertyChanged(ref _distance, value); }
-        private int? _distance;
-       
+        public DateTime DateAdded { get => _dateAdded; set => UpdateOnPropertyChanged(ref _dateAdded, value); }
+        private DateTime _dateAdded;
+
     }
 }
