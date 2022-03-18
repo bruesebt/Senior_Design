@@ -36,6 +36,30 @@ namespace WhatsTheMove.Core.API
 
         }
 
+        public static async Task<string> PerformLocationSearch(string zipCode)
+        {
+            try
+            {
+                using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync($"Activities/?zipCode={zipCode}"))
+                {
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string results = await response.Content.ReadAsAsync<string>();
+
+                        return results;
+                    }
+                    else
+                    {
+                        throw new Exception(response.ReasonPhrase);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public static string SearchString(Preference preference)
         {
             string searchString = $"zipCode={preference.ZipCode}";

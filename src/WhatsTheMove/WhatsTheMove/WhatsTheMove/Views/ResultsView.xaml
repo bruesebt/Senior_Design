@@ -3,6 +3,7 @@
     x:Class="WhatsTheMove.Views.ResultsView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cntrls="clr-namespace:WhatsTheMove.UI.Controls"
     xmlns:uibase="clr-namespace:WhatsTheMove.UI.Common"
     xmlns:vms="clr-namespace:WhatsTheMove.Core.ViewModels;assembly=WhatsTheMove.Core">
 
@@ -27,7 +28,59 @@
                 RemainingItemsThreshold="1"
                 RemainingItemsThresholdReachedCommand="{Binding DelayLoadMoreCommand}"
                 SelectedItem="{Binding SelectedActivity, Mode=TwoWay}"
-                SelectionMode="Single" />
+                SelectionMode="Single">
+                <CollectionView.EmptyView>
+                    <StackLayout Padding="12">
+                        <Label
+                            HorizontalOptions="Center"
+                            Style="{StaticResource AccentLabelStyle}"
+                            Text="No Activities" />
+                    </StackLayout>
+                </CollectionView.EmptyView>
+                <CollectionView.GroupHeaderTemplate>
+                    <DataTemplate x:DataType="{x:Null}">
+                        <StackLayout Padding="12">
+                            <Label Style="{StaticResource AccentLabelStyle}" Text="{Binding Key}" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.GroupHeaderTemplate>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <SwipeView>
+                            <SwipeView.RightItems>
+                                <SwipeItems>
+                                    <SwipeItem
+                                        BackgroundColor="Green"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type vms:ResultsViewModel}}, Path=FavoriteCommand}"
+                                        CommandParameter="{Binding .}"
+                                        Text="Favorite" />
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+                            <cntrls:ActivityCard />
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                <CollectionView.Header>
+                    <StackLayout Orientation="Horizontal">
+                        <Label
+                            HorizontalOptions="Center"
+                            Style="{StaticResource TitleAccentLabelStyle}"
+                            Text="Choose Your Move" />
+                    </StackLayout>
+                </CollectionView.Header>
+                <CollectionView.Footer>
+                    <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                        <Button
+                            Command="{Binding LoadMoreCommand}"
+                            Style="{StaticResource AccentButtonStyle}"
+                            Text="Load More" />
+                        <Button
+                            Command="{Binding ClearCommand}"
+                            Style="{StaticResource AccentButtonStyle}"
+                            Text="Clear" />
+                    </StackLayout>
+                </CollectionView.Footer>
+            </CollectionView>
         </RefreshView>
     </ContentPage.Content>
 </uibase:ContentPageBase>

@@ -45,8 +45,10 @@ namespace WhatsTheMove.Core.ViewModels
 
         private async void FindMoves(object param)
         {
-            IEnumerable<Activity> activities = await API.ActivityProcessor.PerformNearbySearch(Preference);
-            Activity activity = activities.FirstOrDefault();
+            string results = await API.ActivityProcessor.PerformLocationSearch(Preference.ZipCode);
+
+            //IEnumerable<Activity> activities = await API.ActivityProcessor.PerformNearbySearch(Preference);
+            //Activity activity = activities.FirstOrDefault();
         }
 
         #endregion

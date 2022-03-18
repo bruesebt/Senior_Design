@@ -17,6 +17,12 @@ namespace WhatsTheMove.Core.ViewModels
 
         public Command DelayLoadMoreCommand => new Command(DelayLoadMore);
 
+        public Command FavoriteCommand => new Command(Favorite);
+
+        public Command LoadMoreCommand => new Command(LoadMore);
+
+        public Command ClearCommand => new Command(Clear);
+
         #endregion
 
         #region Constructors
@@ -50,13 +56,25 @@ namespace WhatsTheMove.Core.ViewModels
 
         }
 
-        void DelayLoadMore(object param)
+        public void DelayLoadMore(object param)
         {
             // TODO: Update this
             if (ActivityGroups.Count <= 10)
                 return;
 
             LoadMore(param);
+        }
+
+        public void Clear(object param)
+        {
+
+        }
+
+        public void Favorite(object activity)
+        {
+            if (activity == null) return;
+
+            // todo
         }
 
         #endregion

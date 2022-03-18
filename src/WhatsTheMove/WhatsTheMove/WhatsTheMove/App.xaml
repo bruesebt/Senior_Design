@@ -11,6 +11,12 @@
             <Setter Property="RefreshColor" Value="{DynamicResource SystemBlueColor}" />
         </Style>
 
+        <Style x:Key="ActivityCard" TargetType="Frame">
+            <Setter Property="HasShadow" Value="{OnPlatform Android=true, iOS=false, Default=true}" />
+            <Setter Property="CornerRadius" Value="20" />
+            <Setter Property="BackgroundColor" Value="{StaticResource SecondaryBackgroundColor}" />
+        </Style>
+
         <Style x:Key="PrimaryButtonStyle" TargetType="Button">
             <Setter Property="TextColor" Value="{DynamicResource SecondaryFontColor}" />
             <Setter Property="BackgroundColor" Value="{DynamicResource AccentBackgroundColor}" />

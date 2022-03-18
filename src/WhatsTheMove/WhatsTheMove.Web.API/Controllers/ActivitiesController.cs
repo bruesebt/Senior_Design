@@ -56,7 +56,7 @@ namespace WhatsTheMove.Web.API.Controllers
         }
         
         [HttpGet]
-        public async Task<string> GetLocation(string zipCode)
+        public async Task<GeoApiResultsRoot> GetLocation(string zipCode)
         {
             try
             {
@@ -66,11 +66,9 @@ namespace WhatsTheMove.Web.API.Controllers
                     {
                         string results = await response.Content.ReadAsStringAsync();
 
-                        return results;
+                        GeoApiResultsRoot root = JsonConvert.DeserializeObject<GeoApiResultsRoot>(results);
 
-                        //GeoApiResultsRoot root = JsonConvert.DeserializeObject<GeoApiResultsRoot>(results);
-
-                       // return root.Results.First().Geometry.Location;
+                        return root;
                     }
                     else
                     {
@@ -90,8 +88,10 @@ namespace WhatsTheMove.Web.API.Controllers
                                     string type = null,
                                     int? budget = null)
         {
-            //Location loc = await GetLocation(zipCode);
-            Location loc = new Location();
+            GeoApiResultsRoot result = await GetLocation(zipCode);
+
+            Location loc = result.Results.First().Geometry.Location;
+
             string searchString = $"place/{Places.SearchType.NearbySearch.ToString().ToLower()}/json?";
             searchString += keyword == null ? string.Empty : $"keyword={keyword}&";
             searchString += $"location={loc.Lat}%2C{loc.Lng}";
