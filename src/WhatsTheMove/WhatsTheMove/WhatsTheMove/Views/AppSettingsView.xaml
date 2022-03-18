@@ -24,8 +24,8 @@
                     <Switch
                         x:Name="darkMode"
                         IsToggled="True"
-                        OnColor="GreenYellow"
-                        ThumbColor="Green" />
+                        OnColor="LightGray"
+                        ThumbColor="White" />
                 </StackLayout>
             </StackLayout>
         </StackLayout>
