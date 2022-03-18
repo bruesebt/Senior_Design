@@ -3,15 +3,41 @@ using System.Collections.Generic;
 using System.Text;
 using WhatsTheMove.Data.Models;
 
+using System.Threading.Tasks;
+
 namespace WhatsTheMove.Core.Services
 {
     public interface IUserService
     {
-        User LoggedInUser { get; set; }
+        bool IsUserLoggedIn { get; }
 
-        List<Preference> UserPreferences { get; set; }
+        User LoggedInUser { get; }
 
-        Preference ActivePreference { get; set; }
+        IEnumerable<Preference> UserPreferences { get; }
+
+        Preference ActivePreference { get; }
+
+        IEnumerable<SavedActivity> SavedActivities { get; }
+
+        Task SignUp(User user);
+
+        void LogIn(User user);
+
+        void LogOut();
+
+        Task SetActivePreference(Preference preference);
+
+        Task<Preference> AddPreference(Preference preference);
+
+        Task AddSavedActivity(SavedActivity savedActivity);
+
+        Task Save();
+
+        Task SaveUser();
+
+        Task SavePreference();        
+
+        Task Refresh();
 
     }
 }

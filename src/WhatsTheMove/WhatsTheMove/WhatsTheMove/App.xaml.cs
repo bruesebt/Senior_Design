@@ -9,7 +9,7 @@ namespace WhatsTheMove
 {
     public partial class App : Application
     {
-        public event Core.Events.LoggedInUserChangeEventHandler UserChanged;
+        private IUserService _userService;
 
         public App()
         {
@@ -19,6 +19,7 @@ namespace WhatsTheMove
 
             // Service Dependency Injection
             DependencyService.Register<IUserService, UserService>();
+            _userService = DependencyService.Get<IUserService>();
 
             // Initialize the API Helper
             ApiHelper.InitializeClient();
@@ -28,7 +29,7 @@ namespace WhatsTheMove
 
         protected override void OnStart()
         {
-            // log user in if already logged in? 
+                        
         }
 
         protected override void OnSleep()
