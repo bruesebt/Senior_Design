@@ -4,12 +4,15 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using WhatsTheMove.Data.Models;
+using WhatsTheMove.Core.Services;
 
 namespace WhatsTheMove.Core.ViewModels
 {
     public class PreferencesViewModel : Common.ViewModelBase
     {
         #region Fields
+
+        private IUserService _userService;
 
         #endregion
 
@@ -22,8 +25,10 @@ namespace WhatsTheMove.Core.ViewModels
 
         #region Constructors
 
-        public PreferencesViewModel()
+        public PreferencesViewModel(IUserService userService)
         {
+            _userService = userService;
+
             // Set default zip code
             Preference.ZipCode = LoggedInUser?.ZipCode;
         }

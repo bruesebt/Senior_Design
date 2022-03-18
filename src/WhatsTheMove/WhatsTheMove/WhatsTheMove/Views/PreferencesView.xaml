@@ -6,7 +6,6 @@
     xmlns:comm="clr-namespace:WhatsTheMove.UI.Common"
     xmlns:enums="clr-namespace:WhatsTheMove.Core.Enums;assembly=WhatsTheMove.Core"
     xmlns:uibase="clr-namespace:WhatsTheMove.UI.Common"
-    xmlns:vms="clr-namespace:WhatsTheMove.Core.ViewModels;assembly=WhatsTheMove.Core"
     BackgroundColor="{StaticResource SecondaryBackgroundColor}">
 
     <ContentPage.Resources>
@@ -14,11 +13,6 @@
             <comm:ComparisonConverter x:Key="ComparisonConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
-
-    <!--  Set Context  -->
-    <ContentPage.BindingContext>
-        <vms:PreferencesViewModel />
-    </ContentPage.BindingContext>
 
     <!--  View Content  -->
     <ContentPage.Content>

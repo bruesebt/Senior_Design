@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using WhatsTheMove.Core.Services;
 
 namespace WhatsTheMove.Core.ViewModels
 {
@@ -9,6 +10,8 @@ namespace WhatsTheMove.Core.ViewModels
     {
 
         #region Fields
+
+        private IUserService _userService;
 
         #endregion
 
@@ -25,7 +28,7 @@ namespace WhatsTheMove.Core.ViewModels
 
         #region Constructors
 
-        public LoginViewModel()
+        public LoginViewModel(IUserService userService)
         {
 
             User = new UserViewModel()
@@ -33,6 +36,8 @@ namespace WhatsTheMove.Core.ViewModels
                 Username = "Test Username",
                 Password = "Test Password",
             };
+
+            _userService = userService;
         }
 
         #endregion
@@ -65,10 +70,9 @@ namespace WhatsTheMove.Core.ViewModels
 
         private async void LogUserIn(object param)
         {
-            User.Password = string.Empty;
-            UserActionResponse = "Functionality not implemented yet!";
-
-            }
+            _userService.LoggedInUser.Username = User.Username;
+            OnChangeViewRequested(Enums.ViewRoute.SignUp);
+        }
 
         private void CreateNewAccount(object param)
         {

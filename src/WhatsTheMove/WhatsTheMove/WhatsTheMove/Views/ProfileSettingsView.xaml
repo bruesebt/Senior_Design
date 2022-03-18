@@ -4,12 +4,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:uibase="clr-namespace:WhatsTheMove.UI.Common"
-    xmlns:vms="clr-namespace:WhatsTheMove.Core.ViewModels;assembly=WhatsTheMove.Core"
     BackgroundColor="{StaticResource SecondaryBackgroundColor}">
-
-    <ContentPage.BindingContext>
-        <vms:ProfileSettingsViewModel />
-    </ContentPage.BindingContext>
 
     <ContentPage.Content>
         <StackLayout HorizontalOptions="Center" Orientation="Vertical">

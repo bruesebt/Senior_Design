@@ -1,37 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using WhatsTheMove.Data.Models;
+using WhatsTheMove.Core.Common;
 using WhatsTheMove.Core.Services;
 
 namespace WhatsTheMove.Core.ViewModels
 {
-    public class ProfileSettingsViewModel : Common.ViewModelBase
+    public class AppSettingsViewModel : ViewModelBase
     {
-
         #region Fields
 
         private IUserService _userService;
 
         #endregion
 
-        #region Constructors
+        #region Commands
 
-        public ProfileSettingsViewModel(IUserService userService)
+        #endregion
+
+        #region Constructors 
+
+        public AppSettingsViewModel(IUserService userService)
         {
             _userService = userService;
         }
 
         #endregion
 
-        #region Properties
-
-        #endregion
-
-        #region Methods
-
-
-
-        #endregion
     }
 }

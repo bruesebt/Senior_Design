@@ -25,11 +25,6 @@
         </Style>
     </ContentPage.Resources>
 
-    <!--  Data Context  -->
-    <ContentPage.BindingContext>
-        <vms:ResultsViewModel />
-    </ContentPage.BindingContext>
-
     <!--  View Content  -->
     <ContentPage.Content>
         <RefreshView

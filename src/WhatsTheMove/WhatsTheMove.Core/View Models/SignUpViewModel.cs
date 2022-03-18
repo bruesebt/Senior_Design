@@ -2,11 +2,19 @@
 using System.Collections.Generic;
 using System.Text;
 using WhatsTheMove.Data.Models;
+using WhatsTheMove.Core.Services;
 
 namespace WhatsTheMove.Core.ViewModels
 {
     public class SignUpViewModel : Common.ViewModelBase
     {
+
+        #region Fields
+
+        private IUserService _userService;
+
+        #endregion
+
         #region Commands
 
         public Common.Command SignUpCommand => new Common.Command(SignUp);
@@ -15,9 +23,9 @@ namespace WhatsTheMove.Core.ViewModels
 
         #region Constructors
 
-        public SignUpViewModel()
+        public SignUpViewModel(IUserService userService)
         {
-
+            _userService = userService;
         }
 
         #endregion
@@ -37,6 +45,7 @@ namespace WhatsTheMove.Core.ViewModels
 
         private void SignUp(object param)
         {
+            _userService.LoggedInUser = User;
             LoggedInUserChanged(User);
         }
 

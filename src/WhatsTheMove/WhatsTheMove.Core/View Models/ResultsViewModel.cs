@@ -5,11 +5,18 @@ using System.Linq;
 using System.Text;
 using WhatsTheMove.Core.Common;
 using WhatsTheMove.Data.Models;
+using WhatsTheMove.Core.Services;
 
 namespace WhatsTheMove.Core.ViewModels
 {
     public class ResultsViewModel : ViewModelBase
     {
+
+        #region Fields
+
+        private IUserService _userService;
+
+        #endregion
 
         #region Commands
 
@@ -27,8 +34,10 @@ namespace WhatsTheMove.Core.ViewModels
 
         #region Constructors
 
-        public ResultsViewModel()
+        public ResultsViewModel(IUserService userService)
         {
+            _userService = userService;
+
             IsBusy = false;
             List<Activity> acts = new List<Activity>();
             acts.Add(new Activity()

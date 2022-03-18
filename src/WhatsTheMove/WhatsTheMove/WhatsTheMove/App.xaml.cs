@@ -1,6 +1,8 @@
 ﻿using System;
 using Xamarin.Forms;
 using WhatsTheMove.Data.Models;
+using WhatsTheMove.Core.Services;
+using WhatsTheMove.Core.Common;
 using Xamarin.Forms.Xaml;
 
 namespace WhatsTheMove
@@ -15,8 +17,11 @@ namespace WhatsTheMove
 
             App.Current = this;
 
+            // Service Dependency Injection
+            DependencyService.Register<IUserService, UserService>();
+
             // Initialize the API Helper
-            WhatsTheMove.Core.Common.ApiHelper.InitializeClient();
+            ApiHelper.InitializeClient();
 
             MainPage = new UI.AppShell();
         }
