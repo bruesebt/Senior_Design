@@ -39,13 +39,13 @@
                 <Entry
                     Placeholder="Username"
                     PlaceholderColor="{DynamicResource TertiaryFontColor}"
-                    Text="{Binding User.Username}"
+                    Text="{Binding UserService.LoggedInUser.Username}"
                     TextColor="White" />
                 <Entry
                     IsPassword="True"
                     Placeholder="Password"
                     PlaceholderColor="{DynamicResource TertiaryFontColor}"
-                    Text="{Binding User.Password}"
+                    Text="{Binding UserService.LoggedInUser.Password}"
                     TextColor="White" />
                 <Button
                     Command="{Binding LogUserInCommand}"

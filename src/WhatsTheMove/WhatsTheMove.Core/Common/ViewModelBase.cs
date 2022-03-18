@@ -4,54 +4,19 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using WhatsTheMove.Data.Models;
+using WhatsTheMove.Core.Services;
+using WhatsTheMove.Data.Common;
 
 namespace WhatsTheMove.Core.Common
 {
-    public class ViewModelBase : INotifyPropertyChanged
+    public class ViewModelBase : NotifyPropertyChangedBase
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         public event Events.ChangeViewRequestEventHandler ChangeViewRequested;
 
-        public event Events.LoggedInUserChangeEventHandler UserChanged;
-
         /// <summary>
-        /// The user that is currently using the application
+        /// The service shared between view models by dependency injection holding the active user's information
         /// </summary>
-        public User LoggedInUser
-        {
-            get => _loggedInUser;
-            set => UpdateOnPropertyChanged(ref _loggedInUser, value);
-        }
-        private User _loggedInUser = null;
-
-        /// <summary>
-        /// Updates the passed in field and raises property changed event
-        /// Only updates field if the value passed in is different than what the field currently is
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="field"></param>
-        /// <param name="value"></param>
-        /// <param name="propertyName"></param>
-        /// <returns></returns>
-        protected bool UpdateOnPropertyChanged<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
-        {
-            if (EqualityComparer<T>.Default.Equals(field, value)) return false;
-
-            field = value;
-            OnPropertyChanged(propertyName);
-
-            return true;
-        } 
-
-        /// <summary>
-        /// Raises property changed event for the specified property
-        /// </summary>
-        /// <param name="propertyName"></param>
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            if (!string.IsNullOrEmpty(propertyName)) PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        public virtual IUserService UserService { get; }        
 
         /// <summary>
         /// Raises Change View Request for owning view to process
@@ -60,15 +25,6 @@ namespace WhatsTheMove.Core.Common
         protected void OnChangeViewRequested(Enums.ViewRoute viewRoute)
         {
             ChangeViewRequested?.Invoke(this, new Events.ChangeViewRequestEventArgs(viewRoute));
-        }
-
-        /// <summary>
-        /// Changes the logged in user. Pass in null to log the user out
-        /// </summary>
-        /// <param name="user"></param>
-        protected void LoggedInUserChanged(User user)
-        {
-            UserChanged?.Invoke(this, new Core.Events.LoggedInUserChangeEventArgs(user));
         }
     }
 }

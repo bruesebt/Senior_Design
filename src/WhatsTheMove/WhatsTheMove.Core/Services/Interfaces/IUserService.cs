@@ -8,5 +8,10 @@ namespace WhatsTheMove.Core.Services
     public interface IUserService
     {
         User LoggedInUser { get; set; }
+
+        List<Preference> UserPreferences { get; set; }
+
+        Preference ActivePreference { get; set; }
+
     }
 }

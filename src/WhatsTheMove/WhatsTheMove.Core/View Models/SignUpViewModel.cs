@@ -11,6 +11,7 @@ namespace WhatsTheMove.Core.ViewModels
 
         #region Fields
 
+        public override IUserService UserService { get => _userService; }
         private IUserService _userService;
 
         #endregion
@@ -32,21 +33,13 @@ namespace WhatsTheMove.Core.ViewModels
 
         #region Properties
 
-        public User User
-        {
-            get => _user;
-            set => UpdateOnPropertyChanged(ref _user, value);
-        }
-        private User _user = new User();
-
         #endregion
 
         #region Methods
 
         private void SignUp(object param)
         {
-            _userService.LoggedInUser = User;
-            LoggedInUserChanged(User);
+            OnChangeViewRequested(Enums.ViewRoute.Home);
         }
 
         #endregion

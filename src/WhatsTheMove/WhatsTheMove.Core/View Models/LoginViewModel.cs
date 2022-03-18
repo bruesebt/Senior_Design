@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using WhatsTheMove.Core.Services;
+using WhatsTheMove.Data.Models;
 
 namespace WhatsTheMove.Core.ViewModels
 {
@@ -11,6 +12,7 @@ namespace WhatsTheMove.Core.ViewModels
 
         #region Fields
 
+        public override IUserService UserService { get => _userService; }
         private IUserService _userService;
 
         #endregion
@@ -30,29 +32,12 @@ namespace WhatsTheMove.Core.ViewModels
 
         public LoginViewModel(IUserService userService)
         {
-
-            User = new UserViewModel()
-            {
-                Username = "Test Username",
-                Password = "Test Password",
-            };
-
             _userService = userService;
         }
 
         #endregion
 
         #region Properties
-
-        /// <summary>
-        /// User property to store input from user 
-        /// </summary>
-        public UserViewModel User
-        {
-            get => _tempUser;
-            set => UpdateOnPropertyChanged(ref _tempUser, value);
-        }
-        private UserViewModel _tempUser = new UserViewModel();
 
         /// <summary>
         /// Message to display to the user under certain conditions
@@ -68,9 +53,8 @@ namespace WhatsTheMove.Core.ViewModels
 
         #region Methods
 
-        private async void LogUserIn(object param)
-        {
-            _userService.LoggedInUser.Username = User.Username;
+        private void LogUserIn(object param)
+        {            
             OnChangeViewRequested(Enums.ViewRoute.SignUp);
         }
 

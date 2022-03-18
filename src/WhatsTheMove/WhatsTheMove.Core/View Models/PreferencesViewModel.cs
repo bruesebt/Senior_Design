@@ -12,6 +12,7 @@ namespace WhatsTheMove.Core.ViewModels
     {
         #region Fields
 
+        public override IUserService UserService { get => _userService; }
         private IUserService _userService;
 
         #endregion
@@ -30,7 +31,7 @@ namespace WhatsTheMove.Core.ViewModels
             _userService = userService;
 
             // Set default zip code
-            Preference.ZipCode = LoggedInUser?.ZipCode;
+            Preference.ZipCode = UserService.LoggedInUser?.ZipCode;
         }
 
         #endregion
@@ -50,9 +51,10 @@ namespace WhatsTheMove.Core.ViewModels
 
         private async void FindMoves(object param)
         {
+            UserService.ActivePreference = Preference;
             OnChangeViewRequested(Enums.ViewRoute.Results);
-            IEnumerable<Activity> activities = await API.ActivityProcessor.PerformNearbySearch(Preference);
-            Activity activity = activities.FirstOrDefault();
+            //IEnumerable<Activity> activities = await API.ActivityProcessor.PerformNearbySearch(Preference);
+            //Activity activity = activities.FirstOrDefault();
         }
 
         #endregion

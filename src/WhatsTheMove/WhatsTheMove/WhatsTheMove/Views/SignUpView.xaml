@@ -40,12 +40,12 @@
                         <Entry
                             Placeholder="First Name"
                             PlaceholderColor="{DynamicResource TertiaryFontColor}"
-                            Text="{Binding User.FirstName}"
+                            Text="{Binding UserService.LoggedInUser.FirstName}"
                             TextColor="White" />
                         <Entry
                             Placeholder="Last Name"
                             PlaceholderColor="{DynamicResource TertiaryFontColor}"
-                            Text="{Binding User.LastName}"
+                            Text="{Binding UserService.LoggedInUser.LastName}"
                             TextColor="White" />
                         <StackLayout Orientation="Vertical">
                             <Label
@@ -56,36 +56,36 @@
                                 VerticalTextAlignment="Center" />
                             <DatePicker
                                 x:Name="userAge"
-                                BindingContext="{Binding User.DateOfBirth}"
+                                BindingContext="{Binding UserService.LoggedInUser.DateOfBirth}"
                                 TextColor="White" />
                         </StackLayout>
                         <Entry
                             Placeholder="ZIP Code"
                             PlaceholderColor="{DynamicResource TertiaryFontColor}"
-                            Text="{Binding User.ZipCode}"
+                            Text="{Binding UserService.LoggedInUser.ZipCode}"
                             TextColor="White" />
                         <Entry
                             Keyboard="Email"
                             Placeholder="Email"
                             PlaceholderColor="{DynamicResource TertiaryFontColor}"
-                            Text="{Binding User.Email}"
+                            Text="{Binding UserService.LoggedInUser.Email}"
                             TextColor="White" />
                         <Entry
                             Placeholder="Username"
                             PlaceholderColor="{DynamicResource TertiaryFontColor}"
-                            Text="{Binding User.Username}"
+                            Text="{Binding UserService.LoggedInUser.Username}"
                             TextColor="White" />
                         <Entry
                             IsPassword="True"
                             Placeholder="Password"
                             PlaceholderColor="{DynamicResource TertiaryFontColor}"
-                            Text="{Binding User.Password}"
+                            Text="{Binding UserService.LoggedInUser.Password}"
                             TextColor="White" />
                         <Entry
                             IsPassword="True"
                             Placeholder="Confirm Password"
                             PlaceholderColor="{DynamicResource TertiaryFontColor}"
-                            Text="{Binding User.PasswordConfirmed}"
+                            Text="{Binding UserService.LoggedInUser.PasswordConfirmed}"
                             TextColor="White" />
                         <Button
                             Command="{Binding SignUpCommand}"

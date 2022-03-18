@@ -8,6 +8,7 @@ namespace WhatsTheMove.Core.ViewModels
     {
         #region Fields
 
+        public override IUserService UserService { get => _userService;  }
         private IUserService _userService;
 
         #endregion

@@ -24,20 +24,7 @@ namespace WhatsTheMove
             ApiHelper.InitializeClient();
 
             MainPage = new UI.AppShell();
-        }
-
-        public User LoggedInUser
-        {
-            get => _loggedInUser;
-            set => _loggedInUser = value;
-        }
-        private User _loggedInUser = null;
-
-        public void LoggedInUserChanged(User user)
-        {
-            LoggedInUser = user;
-            UserChanged?.Invoke(this, new Core.Events.LoggedInUserChangeEventArgs(user));
-        }
+        }        
 
         protected override void OnStart()
         {
