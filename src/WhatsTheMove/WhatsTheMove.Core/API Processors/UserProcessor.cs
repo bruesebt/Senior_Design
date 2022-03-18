@@ -83,19 +83,27 @@ namespace WhatsTheMove.Core.API
         /// <returns></returns>
         public static async Task<User> CreateUser(User newUser)
         {
-            using (HttpResponseMessage response = await ApiHelper.ApiClient.PostAsJsonAsync<User>($"Users", newUser))
+            try
             {
-                if (response.IsSuccessStatusCode)
+                using (HttpResponseMessage response = await ApiHelper.ApiClient.PostAsJsonAsync<User>($"Users", newUser))
                 {
-                    User user = await LoadUser(4);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        User user = await LoadUser(2);
 
-                    return user;
-                }
-                else
-                {
-                    throw new Exception(response.ReasonPhrase);
+                        return user;
+                    }
+                    else
+                    {
+                        throw new Exception(response.ReasonPhrase);
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            
         }
 
         /// <summary>

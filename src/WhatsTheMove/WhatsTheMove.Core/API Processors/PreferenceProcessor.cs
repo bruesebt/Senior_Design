@@ -7,7 +7,7 @@ using WhatsTheMove.Core.Common;
 using WhatsTheMove.Data.Models;
 using System.Linq;
 
-namespace WhatsTheMove.Core.API_Processors
+namespace WhatsTheMove.Core.API
 {
     public static class PreferenceProcessor
     {
