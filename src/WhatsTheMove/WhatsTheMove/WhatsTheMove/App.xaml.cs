@@ -20,12 +20,30 @@ namespace WhatsTheMove
             // Service Dependency Injection
             DependencyService.Register<IUserService, UserService>();
             _userService = DependencyService.Get<IUserService>();
+            _userService.LoggedInUserChanged += UserService_LoggedInUserChanged;
 
             // Initialize the API Helper
             ApiHelper.InitializeClient();
 
-            MainPage = new UI.AppShell();
-        }        
+            if (_userService.IsUserLoggedIn)
+                MainPage = new UI.AppShell();
+            else
+                MainPage = new Views.LoginView();
+        }
+
+        private void UserService_LoggedInUserChanged(object sender, Core.Events.LoggedInUserChangeEventArgs e)
+        {
+            if (_userService.IsUserLoggedIn)
+                MainPage = new UI.AppShell();
+            else
+            {
+                if (MainPage is Views.LoginView)
+                    return;
+                else
+                    MainPage = new Views.LoginView();
+            }
+               
+        }
 
         protected override void OnStart()
         {

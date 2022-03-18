@@ -9,15 +9,37 @@ namespace WhatsTheMove.Core.Services
 {
     public class UserService : NotifyPropertyChangedBase, IUserService
     {
+
+        #region Events
+
+        public event Events.LoggedInUserChangeEventHandler LoggedInUserChanged;
+
+        #endregion
+
+        #region Constructors
+
         public UserService()
         {
 
         }
 
-        public bool IsUserLoggedIn => LoggedInUser != null;
+        #endregion
 
-        public User LoggedInUser { get => _loggedInUser; private set => UpdateOnPropertyChanged(ref _loggedInUser, value); }
-        private User _loggedInUser = new User();
+        #region Properties
+
+        public bool IsUserLoggedIn => LoggedInUser != null;        
+
+        public User LoggedInUser
+        {
+            get => _loggedInUser;
+            private set
+            {
+                UpdateOnPropertyChanged(ref _loggedInUser, value);
+                OnLoggedInUserChanged(this, new Events.LoggedInUserChangeEventArgs(_loggedInUser));
+            }
+        }
+
+        private User _loggedInUser;
 
         public IEnumerable<Preference> UserPreferences { get => _userPreferences; private set => UpdateOnPropertyChanged(ref _userPreferences, value); }
         private IEnumerable<Preference> _userPreferences;
@@ -28,20 +50,34 @@ namespace WhatsTheMove.Core.Services
         public IEnumerable<SavedActivity> SavedActivities { get => _savedActivities; set => UpdateOnPropertyChanged(ref _savedActivities, value); }
         private IEnumerable<SavedActivity> _savedActivities;
 
-        public async Task SignUp(User user)
+        #endregion
+
+        #region Methods
+
+        public async Task<bool> SignUp(User user)
         {
             bool userExists = (await API.UserProcessor.LoadUser(user.Username)) != null;
 
             if (!userExists)
-                LogIn(await API.UserProcessor.CreateUser(user));
+                await LogIn(await API.UserProcessor.CreateUser(user));
             else
-                throw new Exception(message: $"A user with username {user.Username} already exists.");
+                return false;
+
+            return true;
         }
 
-        public void LogIn(User user)
+        public async Task<bool> LogIn(User user)
         {
-            LoggedInUser = user;
+            User thisUser = await API.UserProcessor.LoadUser(user.Username);
+            bool isValidUser = thisUser != null;
+
+            if (!isValidUser)
+                return false;
+
+            LoggedInUser = thisUser;
             OnPropertyChanged(nameof(IsUserLoggedIn));
+
+            return true;
         }
 
         public void LogOut()
@@ -101,5 +137,13 @@ namespace WhatsTheMove.Core.Services
             UserPreferences = await API.PreferenceProcessor.LoadPreferences(LoggedInUser.Id);
             SavedActivities = await API.SavedActivityProcessor.LoadSavedActivities(LoggedInUser.Id);
         }
+
+        public void OnLoggedInUserChanged(object sender, Events.LoggedInUserChangeEventArgs e)
+        {
+            LoggedInUserChanged?.Invoke(sender, e);
+        }
+
+        #endregion
+
     }
 }

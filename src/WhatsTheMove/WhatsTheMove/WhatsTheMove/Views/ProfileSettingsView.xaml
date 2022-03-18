@@ -19,57 +19,141 @@
                 <Image Style="{StaticResource WTMLogoFullStyle}" />
             </Frame>
 
-            <StackLayout
-                Padding="25"
-                Orientation="Vertical"
-                VerticalOptions="Center">
-                <Label
-                    FontSize="30"
-                    HorizontalTextAlignment="Center"
-                    Style="{StaticResource TitleAccentLabelStyle}"
-                    Text="Profile Settings" />
+            <StackLayout>
+                <Grid
+                    Padding="25"
+                    ColumnSpacing="0"
+                    RowSpacing="0"
+                    VerticalOptions="StartAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
 
-                <StackLayout Orientation="Horizontal">
-                    <Label Style="{StaticResource AccentLabelStyle}" Text="First Name:" />
+                    <!--  Title  -->
                     <Label
-                        FontSize="Large"
-                        Text="{Binding LoggedInUser.FirstName}"
-                        TextColor="White" />
-                </StackLayout>
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3"
+                        FontSize="30"
+                        HorizontalTextAlignment="Center"
+                        Style="{StaticResource TitleAccentLabelStyle}"
+                        Text="Profile Settings" />
 
-                <StackLayout Orientation="Horizontal">
-                    <Label Style="{StaticResource AccentLabelStyle}" Text="Last Name:" />
+                    <!--  First Name  -->
                     <Label
-                        FontSize="Large"
-                        Text="{Binding LoggedInUser.LastName}"
-                        TextColor="White" />
-                </StackLayout>
-
-                <StackLayout Orientation="Horizontal">
-                    <Label Style="{StaticResource AccentLabelStyle}" Text="Email:" />
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Margin="0"
+                        Padding="0"
+                        Style="{StaticResource AccentLabelStyle}"
+                        Text="First:" />
                     <Label
-                        FontSize="Large"
-                        Text="{Binding LoggedInUser.Email}"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        Margin="0"
+                        Padding="0"
+                        Style="{StaticResource AccentLabelStyle}"
+                        Text="{Binding UserService.LoggedInUser.FirstName}"
                         TextColor="White" />
-                </StackLayout>
 
-                <StackLayout Orientation="Horizontal">
-                    <Label Style="{StaticResource AccentLabelStyle}" Text="Date of Birth:" />
+                    <!--  Last Name  -->
                     <Label
-                        FontSize="Large"
-                        Text="{Binding LoggedInUser.DateOfBirth}"
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Margin="0"
+                        Padding="0"
+                        Style="{StaticResource AccentLabelStyle}"
+                        Text="Last:" />
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        Margin="0"
+                        Padding="0"
+                        Style="{StaticResource AccentLabelStyle}"
+                        Text="{Binding UserService.LoggedInUser.LastName}"
                         TextColor="White" />
-                </StackLayout>
 
-                <StackLayout Orientation="Horizontal">
-                    <Label Style="{StaticResource AccentLabelStyle}" Text="ZIP Code:" />
+                    <!--  Email  -->
+                    <Label
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        Margin="0"
+                        Padding="0"
+                        Style="{StaticResource AccentLabelStyle}"
+                        Text="Email:" />
+                    <Label
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        Margin="0"
+                        Padding="0"
+                        Style="{StaticResource AccentLabelStyle}"
+                        Text="{Binding UserService.LoggedInUser.Email}"
+                        TextColor="White" />
+
+                    <!--  Date of Birth  -->
+                    <Label
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        Margin="0"
+                        Padding="0"
+                        Style="{StaticResource AccentLabelStyle}"
+                        Text="Birthday:" />
+                    <Label
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        Margin="0"
+                        Padding="0"
+                        Style="{StaticResource AccentLabelStyle}"
+                        Text="{Binding UserService.LoggedInUser.DateOfBirth, StringFormat='{}{0:MM/dd/yyy}'}"
+                        TextColor="White" />
+
+                    <!--  ZIP Code  -->
+                    <Label
+                        Grid.Row="5"
+                        Grid.Column="0"
+                        Margin="0"
+                        Padding="0"
+                        Style="{StaticResource AccentLabelStyle}"
+                        Text="ZIP Code:"
+                        VerticalOptions="Center" />
                     <Entry
-                        FontSize="Large"
+                        Grid.Row="5"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        Margin="0"
                         Placeholder="ZipCode"
                         PlaceholderColor="{DynamicResource TertiaryFontColor}"
-                        Text="{Binding LoggedInUser.ZipCode}"
-                        TextColor="White" />
-                </StackLayout>
+                        Style="{StaticResource AccentLabelStyle}"
+                        Text="{Binding UserService.LoggedInUser.ZipCode}"
+                        TextColor="White"
+                        VerticalOptions="Start" />
+
+                    <!--  Log Out  -->
+                    <Button
+                        Grid.Row="6"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3"
+                        Margin="0"
+                        Padding="0"
+                        Command="{Binding LogOutCommand}"
+                        Style="{StaticResource PrimaryButtonStyle}"
+                        Text="Log Out" />
+                </Grid>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

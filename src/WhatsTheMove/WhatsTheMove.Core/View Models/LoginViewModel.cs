@@ -40,6 +40,16 @@ namespace WhatsTheMove.Core.ViewModels
         #region Properties
 
         /// <summary>
+        /// User property to bind to as the user attempts to log in
+        /// </summary>
+        public User User
+        {
+            get => _user;
+            set => UpdateOnPropertyChanged(ref _user, value);
+        }
+        private User _user = new User();
+
+        /// <summary>
         /// Message to display to the user under certain conditions
         /// </summary>
         public string UserActionResponse
@@ -53,9 +63,12 @@ namespace WhatsTheMove.Core.ViewModels
 
         #region Methods
 
-        private void LogUserIn(object param)
-        {            
-            OnChangeViewRequested(Enums.ViewRoute.SignUp);
+        private async void LogUserIn(object param)
+        {
+            bool success = await UserService.LogIn(User);
+
+            if (!success)
+                UserActionResponse = "Login Failed. Please Try Again or Create an Account to Continue.";
         }
 
         private void CreateNewAccount(object param)

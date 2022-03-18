@@ -11802,6 +11802,9 @@ namespace WhatsTheMove.Droid
 			// aapt resource value: 0x7F070094
 			public const int WhatsTheMoveLogoSquare = 2131165332;
 			
+			// aapt resource value: 0x7F070095
+			public const int WhatsTheMoveLogoSquareBlackOrng = 2131165333;
+			
 			static Drawable()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();

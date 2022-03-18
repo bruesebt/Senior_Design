@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using WhatsTheMove.Data.Models;
 using WhatsTheMove.Core.Services;
+using WhatsTheMove.Core.Common;
 
 namespace WhatsTheMove.Core.ViewModels
 {
@@ -13,6 +14,12 @@ namespace WhatsTheMove.Core.ViewModels
 
         public override IUserService UserService { get => _userService; }
         private IUserService _userService;
+
+        #endregion
+
+        #region Commands
+
+        public Command LogOutCommand => new Command(LogOut);
 
         #endregion
 
@@ -31,7 +38,10 @@ namespace WhatsTheMove.Core.ViewModels
 
         #region Methods
 
-
+        private void LogOut(object param)
+        {
+            UserService.LogOut();
+        }
 
         #endregion
     }

@@ -36,27 +36,19 @@
         <ShellContent ContentTemplate="{DataTemplate views:HomeView}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Log In" Icon="{x:Static cnsts:Images.IconProfile}">
-        <ShellContent ContentTemplate="{DataTemplate views:LoginView}" />
-    </FlyoutItem>
-
-    <FlyoutItem Title="Profile Settings" Icon="{x:Static cnsts:Images.IconProfile}">
-        <ShellContent ContentTemplate="{DataTemplate views:ProfileSettingsView}" />
-    </FlyoutItem>
-
-    <FlyoutItem Title="Edit Preferences" Icon="{x:Static cnsts:Images.IconEdit}">
+    <FlyoutItem Title="Find Moves" Icon="{x:Static cnsts:Images.IconEdit}">
         <ShellContent ContentTemplate="{DataTemplate views:EditPreferencesView}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Find Activities" Icon="{x:Static cnsts:Images.IconSettings}">
+    <FlyoutItem Title="Moves" Icon="{x:Static cnsts:Images.WTMLogoSquareBlackOrng}">
         <ShellContent ContentTemplate="{DataTemplate views:ResultsView}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Sign Up">
-        <ShellContent ContentTemplate="{DataTemplate views:SignUpView}" />
+    <FlyoutItem Title="Profile" Icon="{x:Static cnsts:Images.IconProfile}">
+        <ShellContent ContentTemplate="{DataTemplate views:ProfileSettingsView}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Settings">
+    <FlyoutItem Title="Settings" Icon="{x:Static cnsts:Images.IconSettings}">
         <ShellContent ContentTemplate="{DataTemplate views:AppSettingsView}" />
     </FlyoutItem>
 </Shell>

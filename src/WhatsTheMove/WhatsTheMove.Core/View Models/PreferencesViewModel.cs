@@ -51,7 +51,7 @@ namespace WhatsTheMove.Core.ViewModels
 
         private async void FindMoves(object param)
         {
-            UserService.ActivePreference = Preference;
+            await UserService.SetActivePreference(Preference);
             OnChangeViewRequested(Enums.ViewRoute.Results);
             //IEnumerable<Activity> activities = await API.ActivityProcessor.PerformNearbySearch(Preference);
             //Activity activity = activities.FirstOrDefault();

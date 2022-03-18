@@ -9,6 +9,8 @@ namespace WhatsTheMove.Core.Services
 {
     public interface IUserService
     {
+        event Events.LoggedInUserChangeEventHandler LoggedInUserChanged;
+
         bool IsUserLoggedIn { get; }
 
         User LoggedInUser { get; }
@@ -19,9 +21,9 @@ namespace WhatsTheMove.Core.Services
 
         IEnumerable<SavedActivity> SavedActivities { get; }
 
-        Task SignUp(User user);
+        Task<bool> SignUp(User user);
 
-        void LogIn(User user);
+        Task<bool> LogIn(User user);
 
         void LogOut();
 
@@ -38,6 +40,8 @@ namespace WhatsTheMove.Core.Services
         Task SavePreference();        
 
         Task Refresh();
+
+        void OnLoggedInUserChanged(object sender, Events.LoggedInUserChangeEventArgs e);
 
     }
 }

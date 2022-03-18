@@ -39,13 +39,13 @@
                 <Entry
                     Placeholder="Username"
                     PlaceholderColor="{DynamicResource TertiaryFontColor}"
-                    Text="{Binding UserService.LoggedInUser.Username}"
+                    Text="{Binding User.Username}"
                     TextColor="White" />
                 <Entry
                     IsPassword="True"
                     Placeholder="Password"
                     PlaceholderColor="{DynamicResource TertiaryFontColor}"
-                    Text="{Binding UserService.LoggedInUser.Password}"
+                    Text="{Binding User.Password}"
                     TextColor="White" />
                 <Button
                     Command="{Binding LogUserInCommand}"
@@ -82,9 +82,11 @@
                         Text="?"
                         TextColor="White" />
                 </StackLayout>
-                <StackLayout HorizontalOptions="Center">
+                <StackLayout HorizontalOptions="CenterAndExpand">
                     <Label
                         FontAttributes="Bold"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"
                         Text="{Binding UserActionResponse}"
                         TextColor="Red" />
                 </StackLayout>

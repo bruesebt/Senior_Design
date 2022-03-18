@@ -33,12 +33,20 @@ namespace WhatsTheMove.Core.ViewModels
 
         #region Properties
 
+        public User User
+        {
+            get => _user;
+            set => UpdateOnPropertyChanged(ref _user, value);
+        }
+        private User _user = new User();
+
         #endregion
 
         #region Methods
 
-        private void SignUp(object param)
+        private async void SignUp(object param)
         {
+            await UserService.SignUp(User);
             OnChangeViewRequested(Enums.ViewRoute.Home);
         }
 

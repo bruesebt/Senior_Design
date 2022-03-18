@@ -18,15 +18,15 @@
 
                 <StackLayout Padding="5" Orientation="Horizontal">
                     <Label
-                        FontSize="Body"
+                        Style="{StaticResource AccentLabelStyle}"
                         Text="Dark Mode"
-                        TextColor="{DynamicResource TertiaryFontColor}"
-                        VerticalTextAlignment="Center" />
+                        VerticalOptions="Center" />
                     <Switch
                         x:Name="darkMode"
-                        IsToggled="True"
+                        IsToggled="{Binding UserService.LoggedInUser.IsDarkModePreferred}"
                         OnColor="LightGray"
-                        ThumbColor="White" />
+                        ThumbColor="White"
+                        VerticalOptions="Center" />
                 </StackLayout>
             </StackLayout>
         </StackLayout>
