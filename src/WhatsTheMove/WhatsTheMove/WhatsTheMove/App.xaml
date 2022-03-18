@@ -13,7 +13,7 @@
 
         <Style x:Key="ActivityCard" TargetType="Frame">
             <Setter Property="HasShadow" Value="{OnPlatform Android=true, iOS=false, Default=true}" />
-            <Setter Property="CornerRadius" Value="20" />
+            <Setter Property="CornerRadius" Value="10" />
             <Setter Property="BackgroundColor" Value="{StaticResource SecondaryBackgroundColor}" />
         </Style>
 

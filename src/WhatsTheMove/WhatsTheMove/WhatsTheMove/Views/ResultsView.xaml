@@ -4,8 +4,26 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:cntrls="clr-namespace:WhatsTheMove.UI.Controls"
+    xmlns:models="clr-namespace:WhatsTheMove.Data.Models;assembly=WhatsTheMove.Data.Library"
     xmlns:uibase="clr-namespace:WhatsTheMove.UI.Common"
     xmlns:vms="clr-namespace:WhatsTheMove.Core.ViewModels;assembly=WhatsTheMove.Core">
+
+    <ContentPage.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="{StaticResource AccentBackgroundColor}" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
 
     <!--  Data Context  -->
     <ContentPage.BindingContext>
@@ -21,10 +39,9 @@
 
             <CollectionView
                 BackgroundColor="Transparent"
-                IsGrouped="True"
                 ItemSizingStrategy="MeasureAllItems"
                 ItemsLayout="VerticalList"
-                ItemsSource="{Binding ActivityGroups}"
+                ItemsSource="{Binding Activities}"
                 RemainingItemsThreshold="1"
                 RemainingItemsThresholdReachedCommand="{Binding DelayLoadMoreCommand}"
                 SelectedItem="{Binding SelectedActivity, Mode=TwoWay}"
@@ -37,47 +54,41 @@
                             Text="No Activities" />
                     </StackLayout>
                 </CollectionView.EmptyView>
-                <CollectionView.GroupHeaderTemplate>
-                    <DataTemplate x:DataType="{x:Null}">
-                        <StackLayout Padding="12">
-                            <Label Style="{StaticResource AccentLabelStyle}" Text="{Binding Key}" />
-                        </StackLayout>
-                    </DataTemplate>
-                </CollectionView.GroupHeaderTemplate>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <SwipeView>
-                            <SwipeView.RightItems>
-                                <SwipeItems>
-                                    <SwipeItem
-                                        BackgroundColor="Green"
-                                        Command="{Binding Source={RelativeSource AncestorType={x:Type vms:ResultsViewModel}}, Path=FavoriteCommand}"
-                                        CommandParameter="{Binding .}"
-                                        Text="Favorite" />
-                                </SwipeItems>
-                            </SwipeView.RightItems>
-                            <cntrls:ActivityCard />
-                        </SwipeView>
+                        <Grid>
+                            <SwipeView Margin="0" Padding="0">
+                                <SwipeView.RightItems>
+                                    <SwipeItems>
+                                        <SwipeItem
+                                            BackgroundColor="Green"
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type vms:ResultsViewModel}}, Path=FavoriteCommand}"
+                                            CommandParameter="{Binding .}"
+                                            Text="Favorite" />
+                                    </SwipeItems>
+                                </SwipeView.RightItems>
+                                <cntrls:ActivityCard />
+                            </SwipeView>
+                        </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
                 <CollectionView.Header>
-                    <StackLayout Orientation="Horizontal">
+                    <StackLayout Padding="12" HorizontalOptions="Center">
                         <Label
                             HorizontalOptions="Center"
+                            HorizontalTextAlignment="Center"
                             Style="{StaticResource TitleAccentLabelStyle}"
                             Text="Choose Your Move" />
                     </StackLayout>
                 </CollectionView.Header>
                 <CollectionView.Footer>
-                    <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                    <StackLayout HorizontalOptions="Center">
                         <Button
+                            Margin="5"
                             Command="{Binding LoadMoreCommand}"
+                            HorizontalOptions="Center"
                             Style="{StaticResource AccentButtonStyle}"
                             Text="Load More" />
-                        <Button
-                            Command="{Binding ClearCommand}"
-                            Style="{StaticResource AccentButtonStyle}"
-                            Text="Clear" />
                     </StackLayout>
                 </CollectionView.Footer>
             </CollectionView>

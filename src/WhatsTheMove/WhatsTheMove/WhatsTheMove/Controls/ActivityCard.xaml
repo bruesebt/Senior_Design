@@ -4,14 +4,13 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:WhatsTheMove.Data.Models;assembly=WhatsTheMove.Data.Library"
-    Padding="10"
     x:DataType="models:Activity">
-    <Frame Style="{StaticResource ActivityCard}">
+    <Frame Margin="8" Style="{StaticResource ActivityCard}">
         <StackLayout Orientation="Horizontal">
-            <Image Source="{Binding Icon}" WidthRequest="66" />
+            <Image Source="{Binding Icon_Mask_Base_Uri}" />
             <StackLayout VerticalOptions="Center">
                 <Label
-                    Style="{StaticResource PrimaryLabelStyle}"
+                    Style="{StaticResource TitleAccentLabelStyle}"
                     Text="{Binding Name}"
                     VerticalOptions="Center" />
                 <Label

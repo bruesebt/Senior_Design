@@ -29,7 +29,21 @@ namespace WhatsTheMove.Core.ViewModels
 
         public ResultsViewModel()
         {
-
+            IsBusy = false;
+            List<Activity> acts = new List<Activity>();
+            acts.Add(new Activity()
+            {
+                Name = "Test Activity",
+                Icon_Mask_Base_Uri = @"https://www.google.com/imgres?imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fen%2Fthumb%2F3%2F32%2FWendy%2527s_full_logo_2012.svg%2F800px-Wendy%2527s_full_logo_2012.svg.png&imgrefurl=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FWendy%2527s&tbnid=cQlCa-xo5V87VM&vet=12ahUKEwj4wOeCuM72AhUnQ0IHHRukDfkQMygAegUIARDbAQ..i&docid=ZfHJwCaHgJcLIM&w=800&h=674&q=wendy%27s&ved=2ahUKEwj4wOeCuM72AhUnQ0IHHRukDfkQMygAegUIARDbAQ",
+                User_Ratings_Total = 40
+            });
+            acts.Add(new Activity()
+            {
+                Name = "Test Activity 2",
+                Icon_Mask_Base_Uri = @"https://www.google.com/imgres?imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fen%2Fthumb%2F3%2F32%2FWendy%2527s_full_logo_2012.svg%2F800px-Wendy%2527s_full_logo_2012.svg.png&imgrefurl=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FWendy%2527s&tbnid=cQlCa-xo5V87VM&vet=12ahUKEwj4wOeCuM72AhUnQ0IHHRukDfkQMygAegUIARDbAQ..i&docid=ZfHJwCaHgJcLIM&w=800&h=674&q=wendy%27s&ved=2ahUKEwj4wOeCuM72AhUnQ0IHHRukDfkQMygAegUIARDbAQ",
+                User_Ratings_Total = 30
+            });
+            Activities = new ObservableCollection<Activity>(acts);
         }
 
         #endregion
@@ -38,7 +52,12 @@ namespace WhatsTheMove.Core.ViewModels
 
         public bool IsBusy { get; set; }
 
-        public ObservableCollection<IGrouping<string, Activity>> ActivityGroups { get; }
+        public ObservableCollection<Activity> Activities 
+        { 
+            get => _activities; 
+            set => UpdateOnPropertyChanged(ref _activities, value); 
+        }
+        private ObservableCollection<Activity> _activities;
 
         public Activity SelectedActivity { get; set; }
 
@@ -59,7 +78,7 @@ namespace WhatsTheMove.Core.ViewModels
         public void DelayLoadMore(object param)
         {
             // TODO: Update this
-            if (ActivityGroups.Count <= 10)
+            if (Activities.Count <= 10)
                 return;
 
             LoadMore(param);
