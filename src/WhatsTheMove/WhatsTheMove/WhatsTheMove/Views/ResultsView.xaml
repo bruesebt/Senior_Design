@@ -1,14 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage
+<uibase:ContentPageBase
     x:Class="WhatsTheMove.Views.ResultsView"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:uibase="clr-namespace:WhatsTheMove.UI.Common"
+    xmlns:vms="clr-namespace:WhatsTheMove.Core.ViewModels;assembly=WhatsTheMove.Core">
+
+    <!--  Data Context  -->
+    <ContentPage.BindingContext>
+        <vms:ResultsViewModel />
+    </ContentPage.BindingContext>
+
+    <!--  View Content  -->
     <ContentPage.Content>
-        <StackLayout>
-            <Label
-                HorizontalOptions="CenterAndExpand"
-                Text="This is the Results View!"
-                VerticalOptions="CenterAndExpand" />
-        </StackLayout>
+        <RefreshView
+            Command="{Binding RefreshCommand}"
+            IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+            Style="{StaticResource BaseRefreshView}">
+
+            <CollectionView
+                BackgroundColor="Transparent"
+                IsGrouped="True"
+                ItemSizingStrategy="MeasureAllItems"
+                ItemsLayout="VerticalList"
+                ItemsSource="{Binding ActivityGroups}"
+                RemainingItemsThreshold="1"
+                RemainingItemsThresholdReachedCommand="{Binding DelayLoadMoreCommand}"
+                SelectedItem="{Binding SelectedActivity, Mode=TwoWay}"
+                SelectionMode="Single" />
+        </RefreshView>
     </ContentPage.Content>
-</ContentPage>
+</uibase:ContentPageBase>

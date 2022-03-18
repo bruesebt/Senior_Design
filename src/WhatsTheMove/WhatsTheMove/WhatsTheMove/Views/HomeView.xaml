@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <uibase:ContentPageBase
+    x:Class="WhatsTheMove.Views.HomeView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:uibase="clr-namespace:WhatsTheMove.UI.Common"
     xmlns:vms="clr-namespace:WhatsTheMove.Core.ViewModels;assembly=WhatsTheMove.Core"
-    x:Class="WhatsTheMove.Views.HomeView">
+    BackgroundColor="{DynamicResource SecondaryBackgroundColor}">
 
     <!--  Set Context  -->
     <ContentPage.BindingContext>
@@ -16,22 +17,27 @@
 
         <Grid
             Padding="5"
-            HorizontalOptions="Center"
+            HorizontalOptions="CenterAndExpand"
+            MinimumWidthRequest="300"
             VerticalOptions="StartAndExpand">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
             </Grid.RowDefinitions>
 
-            <!-- Upper Region -->
+            <!--  Upper Region  -->
             <StackLayout
-                Padding="5"
                 Grid.Row="0"
-                HorizontalOptions="Center"
+                Padding="5"
+                HorizontalOptions="CenterAndExpand"
                 Orientation="Vertical"
                 VerticalOptions="Center">
 
-                <!-- Logo -->
+                <!--  Logo  -->
                 <Frame
                     Margin="10"
                     Padding="5"
@@ -40,37 +46,35 @@
                     HorizontalOptions="CenterAndExpand">
                     <Image Style="{StaticResource WTMLogoFullStyle}" />
                 </Frame>
-                <!-- Text -->
-                <Label
-                HorizontalTextAlignment="Center"
-                Style="{StaticResource TitleAccentLabelStyle}"
-                Text="We make your night more fun."/>
+
             </StackLayout>
 
-            
-            <!--Bottom Region-->
+
+            <!--  Bottom Region  -->
             <StackLayout
-                Padding="5"
                 Grid.Row="1"
-                HorizontalOptions="Center"
+                Padding="5"
+                HorizontalOptions="CenterAndExpand"
                 Orientation="Vertical"
-                VerticalOptions="Center">
-                <!-- Text -->
+                VerticalOptions="StartAndExpand">
+                <!--  Text  -->
                 <Label
                     HorizontalTextAlignment="Center"
+                    Style="{StaticResource TitleAccentLabelStyle}"
+                    Text="We make your night more fun." />
+                <Label
+                    Margin="10"
+                    HorizontalTextAlignment="Center"
                     Style="{StaticResource AccentLabelStyle}"
-                    Text="Discover something new, relive a great night, or roll the dice!"/>
+                    Text="Discover something new, relive a great night, or roll the dice!" />
+
                 <!--  Buttons  -->
                 <Button
-                    Command="{Binding FindTheMoveCommand}" 
+                    Command="{Binding FindTheMoveCommand}"
                     Style="{StaticResource PrimaryButtonStyle}"
                     Text="Find The Move" />
-                <Button
-                    Style="{StaticResource PrimaryButtonStyle}"
-                    Text="Previous Moves" />
-                <Button
-                    Style="{StaticResource PrimaryButtonStyle}"
-                    Text="I'm Feeling Lucky" />
+                <Button Style="{StaticResource PrimaryButtonStyle}" Text="Previous Moves" />
+                <Button Style="{StaticResource PrimaryButtonStyle}" Text="I'm Feeling Lucky" />
             </StackLayout>
         </Grid>
     </ContentPage.Content>

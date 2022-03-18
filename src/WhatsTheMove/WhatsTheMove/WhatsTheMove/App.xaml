@@ -7,6 +7,10 @@
     <Application.Resources>
         <ResourceDictionary Source="Themes/LightTheme.xaml" />
 
+        <Style x:Key="BaseRefreshView" TargetType="RefreshView">
+            <Setter Property="RefreshColor" Value="{DynamicResource SystemBlueColor}" />
+        </Style>
+
         <Style x:Key="PrimaryButtonStyle" TargetType="Button">
             <Setter Property="TextColor" Value="{DynamicResource SecondaryFontColor}" />
             <Setter Property="BackgroundColor" Value="{DynamicResource AccentBackgroundColor}" />

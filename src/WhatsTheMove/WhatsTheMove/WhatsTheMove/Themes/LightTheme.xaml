@@ -11,4 +11,5 @@
     <Color x:Key="AccentFontColor">#F2B138</Color>
     <Color x:Key="TertiaryFontColor">#A1A5A6</Color>
     <Color x:Key="TransparentColor">Transparent</Color>
+    <Color x:Key="SystemBlueColor">#007AFF</Color>
 </ResourceDictionary>
