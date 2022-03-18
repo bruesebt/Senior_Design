@@ -19,7 +19,7 @@ namespace WhatsTheMove.Core.API
         /// <returns></returns>
         public static async Task<IEnumerable<Preference>> LoadPreferences(int userId)
         {
-            using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync($"Preferences/UserId/{userId}"))
+            using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync($"Preferences/{userId}"))
             {
                 if (response.IsSuccessStatusCode)
                 {
@@ -47,7 +47,7 @@ namespace WhatsTheMove.Core.API
                 {
                     IEnumerable<Preference> preferences = await LoadPreferences(newPreference.UserId);
 
-                    return preferences.Where(p => p.Id == newPreference.Id).FirstOrDefault();
+                    return preferences.OrderByDescending(p => p.DateAdded).FirstOrDefault();
                 }
                 else
                 {

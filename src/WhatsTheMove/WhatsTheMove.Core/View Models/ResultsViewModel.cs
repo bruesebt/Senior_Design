@@ -38,29 +38,16 @@ namespace WhatsTheMove.Core.ViewModels
         public ResultsViewModel(IUserService userService)
         {
             _userService = userService;
-
-            IsBusy = false;
-            List<Activity> acts = new List<Activity>();
-            acts.Add(new Activity()
-            {
-                Name = "Test Activity",
-                Icon_Mask_Base_Uri = @"https://www.google.com/imgres?imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fen%2Fthumb%2F3%2F32%2FWendy%2527s_full_logo_2012.svg%2F800px-Wendy%2527s_full_logo_2012.svg.png&imgrefurl=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FWendy%2527s&tbnid=cQlCa-xo5V87VM&vet=12ahUKEwj4wOeCuM72AhUnQ0IHHRukDfkQMygAegUIARDbAQ..i&docid=ZfHJwCaHgJcLIM&w=800&h=674&q=wendy%27s&ved=2ahUKEwj4wOeCuM72AhUnQ0IHHRukDfkQMygAegUIARDbAQ",
-                User_Ratings_Total = 40
-            });
-            acts.Add(new Activity()
-            {
-                Name = "Test Activity 2",
-                Icon_Mask_Base_Uri = @"https://www.google.com/imgres?imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fen%2Fthumb%2F3%2F32%2FWendy%2527s_full_logo_2012.svg%2F800px-Wendy%2527s_full_logo_2012.svg.png&imgrefurl=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FWendy%2527s&tbnid=cQlCa-xo5V87VM&vet=12ahUKEwj4wOeCuM72AhUnQ0IHHRukDfkQMygAegUIARDbAQ..i&docid=ZfHJwCaHgJcLIM&w=800&h=674&q=wendy%27s&ved=2ahUKEwj4wOeCuM72AhUnQ0IHHRukDfkQMygAegUIARDbAQ",
-                User_Ratings_Total = 30
-            });
-            Activities = new ObservableCollection<Activity>(acts);
+            _userService.ActivePreferenceChanged += UserService_ActivePreferenceChanged;
+            this.Refresh(null);
         }
 
         #endregion
 
         #region Properties
 
-        public bool IsBusy { get; set; }
+        public bool IsBusy { get => _isBusy; set => UpdateOnPropertyChanged(ref _isBusy, value); }
+        private bool _isBusy = false;
 
         public ObservableCollection<Activity> Activities 
         { 
@@ -75,9 +62,20 @@ namespace WhatsTheMove.Core.ViewModels
 
         #region Methods
 
-        private void Refresh(object param)
+        private async void Refresh(object param)
         {
+            if (_userService.ActivePreference == null || _userService.ActivePreference.ZipCode == string.Empty)
+            {
+                this.Activities = new ObservableCollection<Activity>();
+                return;
+            }
 
+            IsBusy = true;
+
+            IEnumerable<Activity> acts = await API.ActivityProcessor.PerformNearbySearch(_userService.ActivePreference);
+            this.Activities = new ObservableCollection<Activity>(acts);
+
+            IsBusy = false;
         }
 
         void LoadMore(object param)
@@ -104,6 +102,18 @@ namespace WhatsTheMove.Core.ViewModels
             if (activity == null) return;
 
             // todo
+        }
+
+        private void UserService_ActivePreferenceChanged(object sender, Events.PreferenceChangedEventArgs e)
+        {
+            try
+            {
+                this.Refresh(e.Preference);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         #endregion

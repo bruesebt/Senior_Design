@@ -7,15 +7,29 @@
     x:DataType="models:Activity">
     <Frame Margin="8" Style="{StaticResource ActivityCard}">
         <StackLayout Orientation="Horizontal">
-            <Image Source="{Binding Icon_Mask_Base_Uri}" />
+            <Image
+                x:Name="backgroundImage"
+                Margin="10"
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                Aspect="AspectFill"
+                HorizontalOptions="Start"
+                Source="{Binding Icon}"
+                VerticalOptions="FillAndExpand" />
             <StackLayout VerticalOptions="Center">
                 <Label
                     Style="{StaticResource TitleAccentLabelStyle}"
                     Text="{Binding Name}"
                     VerticalOptions="Center" />
                 <Label
+                    FontSize="Small"
                     Style="{StaticResource AccentLabelStyle}"
-                    Text="{Binding User_Ratings_Total}"
+                    Text="{Binding Rating, StringFormat='Rating: {0:F1}'}"
+                    VerticalOptions="Center" />
+                <Label
+                    FontSize="Small"
+                    Style="{StaticResource AccentLabelStyle}"
+                    Text="{Binding User_Ratings_Total, StringFormat='Total Reviews: {0:F0}'}"
                     VerticalOptions="Center" />
             </StackLayout>
         </StackLayout>

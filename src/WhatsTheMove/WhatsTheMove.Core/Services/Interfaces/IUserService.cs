@@ -11,6 +11,8 @@ namespace WhatsTheMove.Core.Services
     {
         event Events.LoggedInUserChangeEventHandler LoggedInUserChanged;
 
+        event Events.PreferenceChangedEventHandler ActivePreferenceChanged;
+
         bool IsUserLoggedIn { get; }
 
         User LoggedInUser { get; }
@@ -42,6 +44,8 @@ namespace WhatsTheMove.Core.Services
         Task Refresh();
 
         void OnLoggedInUserChanged(object sender, Events.LoggedInUserChangeEventArgs e);
+
+        void OnActivePreferenceChanged(object sender, Events.PreferenceChangedEventArgs e);
 
     }
 }

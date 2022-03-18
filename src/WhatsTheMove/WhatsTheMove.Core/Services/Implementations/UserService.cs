@@ -14,6 +14,8 @@ namespace WhatsTheMove.Core.Services
 
         public event Events.LoggedInUserChangeEventHandler LoggedInUserChanged;
 
+        public event Events.PreferenceChangedEventHandler ActivePreferenceChanged;
+
         #endregion
 
         #region Constructors
@@ -44,7 +46,15 @@ namespace WhatsTheMove.Core.Services
         public IEnumerable<Preference> UserPreferences { get => _userPreferences; private set => UpdateOnPropertyChanged(ref _userPreferences, value); }
         private IEnumerable<Preference> _userPreferences;
 
-        public Preference ActivePreference { get => _activePreference; private set => UpdateOnPropertyChanged(ref _activePreference, value); }
+        public Preference ActivePreference 
+        { 
+            get => _activePreference;
+            private set
+            {
+                UpdateOnPropertyChanged(ref _activePreference, value);
+                OnActivePreferenceChanged(this, new Events.PreferenceChangedEventArgs(_activePreference));
+            }
+        }
         private Preference _activePreference = new Preference();
 
         public IEnumerable<SavedActivity> SavedActivities { get => _savedActivities; set => UpdateOnPropertyChanged(ref _savedActivities, value); }
@@ -97,6 +107,8 @@ namespace WhatsTheMove.Core.Services
         {
             if (!IsUserLoggedIn || preference == null) return null;
 
+            preference.UserId = LoggedInUser.Id;
+
             preference =  await API.PreferenceProcessor.CreatePreference(preference);
             await Refresh();
             return preference;
@@ -141,6 +153,11 @@ namespace WhatsTheMove.Core.Services
         public void OnLoggedInUserChanged(object sender, Events.LoggedInUserChangeEventArgs e)
         {
             LoggedInUserChanged?.Invoke(sender, e);
+        }
+
+        public void OnActivePreferenceChanged(object sender, Events.PreferenceChangedEventArgs e)
+        {
+            ActivePreferenceChanged?.Invoke(sender, e);
         }
 
         #endregion

@@ -42,7 +42,7 @@ namespace WhatsTheMove.Data.Models
         private int? _dressCode;
 
         public DateTime DateAdded { get => _dateAdded; set => UpdateOnPropertyChanged(ref _dateAdded, value); }
-        private DateTime _dateAdded;
+        private DateTime _dateAdded = DateTime.Now;
 
     }
 }
