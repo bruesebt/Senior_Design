@@ -26,11 +26,11 @@ namespace WhatsTheMove.Data.Implementations
 
         public Task InsertPreference(Preference preference) =>
             _db.SaveData(storedProcedure: $"{Prefix}{nameof(Preference)}{Insert}",
-                            parameters: new { preference.UserId, preference.GroupSize, preference.IsFoodRequested, preference.IsDrinksRequested, preference.EnergyLevel, preference.Budget, preference.TimeOfDay, preference.DressCode });
+                            parameters: new { preference.UserId, preference.ZipCode, preference.Distance, preference.GroupSize, preference.IsFoodRequested, preference.IsDrinksRequested, preference.EnergyLevel, preference.Budget, preference.TimeOfDay, preference.DressCode, preference.DateAdded });
 
         public Task UpdatePreference(Preference preference) =>
             _db.SaveData(storedProcedure: $"{Prefix}{nameof(Preference)}{Update}",
-                            parameters: preference);
+                            parameters: new { preference.Id, preference.UserId, preference.ZipCode, preference.Distance, preference.GroupSize, preference.IsFoodRequested, preference.IsDrinksRequested, preference.EnergyLevel, preference.Budget, preference.TimeOfDay, preference.DressCode, preference.DateAdded });
 
         public Task DeletePreference(int id) =>
             _db.SaveData(storedProcedure: $"{Prefix}{nameof(Preference)}{Delete}",

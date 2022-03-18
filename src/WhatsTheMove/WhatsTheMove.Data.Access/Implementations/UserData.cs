@@ -42,11 +42,11 @@ namespace WhatsTheMove.Data.Implementations
 
         public Task InsertUser(User user) =>
             _db.SaveData(storedProcedure: $"{Prefix}{nameof(User)}{Insert}",
-                            parameters: new { user.Username, user.Email, user.FirstName, user.LastName, user.DateOfBirth, user.ZipCode, user.DateAdded });
+                            parameters: new { user.Username, user.Email, user.FirstName, user.LastName, user.DateOfBirth, user.ZipCode, user.Password, user.HashKey, user.ForgotPasswordKey, user.IsDarkModePreferred, user.DateAdded });
 
         public Task UpdateUser(User user) =>
             _db.SaveData(storedProcedure: $"{Prefix}{nameof(User)}{Update}",
-                            parameters: user);
+                            parameters: new { user.Id, user.Username, user.Email, user.FirstName, user.LastName, user.DateOfBirth, user.ZipCode, user.Password, user.HashKey, user.ForgotPasswordKey, user.IsDarkModePreferred, user.DateAdded });
 
         public Task DeleteUser(int id) =>
             _db.SaveData(storedProcedure: $"{Prefix}{nameof(User)}{Delete}",
