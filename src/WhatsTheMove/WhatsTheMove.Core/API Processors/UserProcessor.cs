@@ -39,7 +39,29 @@ namespace WhatsTheMove.Core.API
         /// <returns></returns>
         public static async Task<User> LoadUser(int id)
         {
-            using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync($"Users/{id}"))
+            using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync($"Users/UserId/{id}"))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    User user = await response.Content.ReadAsAsync<User>();
+
+                    return user;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Calls api to get user of specific username
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static async Task<User> LoadUser(string username)
+        {
+            using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync($"Users/Username/{username}"))
             {
                 if (response.IsSuccessStatusCode)
                 {
