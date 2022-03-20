@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using WhatsTheMove.Core.Services;
 using WhatsTheMove.Data.Models;
 
@@ -65,6 +66,9 @@ namespace WhatsTheMove.Core.ViewModels
 
         private async void LogUserIn(object param)
         {
+            if (!await IsUserInputValid())
+                return;
+
             bool success = await UserService.LogIn(User);
 
             if (!success)
@@ -79,6 +83,28 @@ namespace WhatsTheMove.Core.ViewModels
         private void ForgotCredentials(object param)
         {
             //OnChangeViewRequested(Enums.ViewRoute.ForgotCredentials);
+        }
+
+        private async Task<bool> IsUserInputValid()
+        {
+            string message = string.Empty;
+
+            if (string.IsNullOrEmpty(User.Username))
+                message = "Username cannot be empty.";
+            else if (string.IsNullOrEmpty(User.Password))
+                message = "Password cannot be empty.";
+            else if ((await API.UserProcessor.LoadUser(User.Username)) == null)
+                message = "No user with that username exists.";
+
+            if (!string.IsNullOrEmpty(message))
+            {
+                message += " Please enter Username and Password and try again.";
+                UserActionResponse = message;                
+                User.Password = string.Empty;
+                return false;
+            }
+
+            return true;
         }
 
         #endregion
