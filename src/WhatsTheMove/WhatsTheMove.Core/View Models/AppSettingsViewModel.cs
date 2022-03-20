@@ -23,7 +23,7 @@ namespace WhatsTheMove.Core.ViewModels
 
         public AppSettingsViewModel(IUserService userService)
         {
-            _userService = userService;
+            _userService = userService;            
         }
 
         #endregion

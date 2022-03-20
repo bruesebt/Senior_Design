@@ -1,10 +1,10 @@
 ﻿using Xamarin.Forms;
 
 namespace WhatsTheMove.UI.Themes
-{
-    public partial class DarkTheme : ResourceDictionary
+{    
+    public partial class Themes : ResourceDictionary
     {
-        public DarkTheme()
+        public Themes()
         {
             InitializeComponent();
         }

@@ -4,24 +4,13 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:uibase="clr-namespace:WhatsTheMove.UI.Common"
-    BackgroundColor="{StaticResource SecondaryBackgroundColor}">
+    BackgroundColor="{AppThemeBinding Light={StaticResource LightPrimaryBackgroundColor},
+                                      Dark={StaticResource DarkPrimaryBackgroundColor}}">
 
     <ContentPage.Content>
-        <StackLayout HorizontalOptions="Center" Orientation="Vertical">
-
-            <!--  Logo  -->
-            <Frame
-                Margin="10"
-                Padding="5"
-                BackgroundColor="{StaticResource AccentBackgroundColor}"
-                CornerRadius="10"
-                HorizontalOptions="CenterAndExpand">
-                <Image Style="{StaticResource WTMLogoFullStyle}" />
-            </Frame>
-
+        <StackLayout Style="{StaticResource MainStackLayoutStyle}">
             <StackLayout>
                 <Grid
-                    Padding="25"
                     ColumnSpacing="0"
                     RowSpacing="0"
                     VerticalOptions="StartAndExpand">
@@ -45,7 +34,6 @@
                         Grid.Row="0"
                         Grid.Column="0"
                         Grid.ColumnSpan="3"
-                        FontSize="30"
                         HorizontalTextAlignment="Center"
                         Style="{StaticResource TitleAccentLabelStyle}"
                         Text="Profile Settings" />
@@ -62,11 +50,8 @@
                         Grid.Row="1"
                         Grid.Column="1"
                         Grid.ColumnSpan="2"
-                        Margin="0"
-                        Padding="0"
-                        Style="{StaticResource AccentLabelStyle}"
-                        Text="{Binding UserService.LoggedInUser.FirstName}"
-                        TextColor="White" />
+                        Style="{StaticResource PlainTextLabelStyle}"
+                        Text="{Binding UserService.LoggedInUser.FirstName}" />
 
                     <!--  Last Name  -->
                     <Label
@@ -80,11 +65,8 @@
                         Grid.Row="2"
                         Grid.Column="1"
                         Grid.ColumnSpan="2"
-                        Margin="0"
-                        Padding="0"
-                        Style="{StaticResource AccentLabelStyle}"
-                        Text="{Binding UserService.LoggedInUser.LastName}"
-                        TextColor="White" />
+                        Style="{StaticResource PlainTextLabelStyle}"
+                        Text="{Binding UserService.LoggedInUser.LastName}" />
 
                     <!--  Email  -->
                     <Label
@@ -98,11 +80,8 @@
                         Grid.Row="3"
                         Grid.Column="1"
                         Grid.ColumnSpan="2"
-                        Margin="0"
-                        Padding="0"
-                        Style="{StaticResource AccentLabelStyle}"
-                        Text="{Binding UserService.LoggedInUser.Email}"
-                        TextColor="White" />
+                        Style="{StaticResource PlainTextLabelStyle}"
+                        Text="{Binding UserService.LoggedInUser.Email}" />
 
                     <!--  Date of Birth  -->
                     <Label
@@ -116,11 +95,8 @@
                         Grid.Row="4"
                         Grid.Column="1"
                         Grid.ColumnSpan="2"
-                        Margin="0"
-                        Padding="0"
-                        Style="{StaticResource AccentLabelStyle}"
-                        Text="{Binding UserService.LoggedInUser.DateOfBirth, StringFormat='{}{0:MM/dd/yyy}'}"
-                        TextColor="White" />
+                        Style="{StaticResource PlainTextLabelStyle}"
+                        Text="{Binding UserService.LoggedInUser.DateOfBirth, StringFormat='{}{0:MM/dd/yyy}'}" />
 
                     <!--  ZIP Code  -->
                     <Label
@@ -135,13 +111,9 @@
                         Grid.Row="5"
                         Grid.Column="1"
                         Grid.ColumnSpan="2"
-                        Margin="0"
                         Placeholder="ZipCode"
-                        PlaceholderColor="{DynamicResource TertiaryFontColor}"
-                        Style="{StaticResource AccentLabelStyle}"
-                        Text="{Binding UserService.LoggedInUser.ZipCode}"
-                        TextColor="White"
-                        VerticalOptions="Start" />
+                        Style="{StaticResource PlainTextEntryStyle}"
+                        Text="{Binding UserService.LoggedInUser.ZipCode}" />
 
                     <!--  Log Out  -->
                     <Button

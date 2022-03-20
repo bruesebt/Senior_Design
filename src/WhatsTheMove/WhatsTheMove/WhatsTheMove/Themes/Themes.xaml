@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary
+    x:Class="WhatsTheMove.UI.Themes.Themes"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!--  Colors  -->
+    <Color x:Key="SecondaryBackgroundColor">#003F63</Color>
+    <Color x:Key="AccentBackgroundColor">#F2B138</Color>
+    <Color x:Key="TransparentColor">Transparent</Color>
+    <Color x:Key="SystemBlueColor">#007AFF</Color>
+    <Color x:Key="TertiaryFontColor">#A1A5A6</Color>
+
+    <!--  Light Theme Colors  -->
+    <Color x:Key="LightPrimaryBackgroundColor">White</Color>
+    <Color x:Key="LightPrimaryFontColor">#353D40</Color>
+    <Color x:Key="LightSecondaryFontColor">#003F63</Color>
+    <Color x:Key="LightAccentFontColor">#F2B138</Color>
+
+    <!--  Dark Theme Colors  -->
+    <Color x:Key="DarkPrimaryBackgroundColor">#353D40</Color>
+    <Color x:Key="DarkPrimaryFontColor">White</Color>
+    <Color x:Key="DarkSecondaryFontColor">#F2B138</Color>
+    <Color x:Key="DarkAccentFontColor">#003F63</Color>
+
+</ResourceDictionary>

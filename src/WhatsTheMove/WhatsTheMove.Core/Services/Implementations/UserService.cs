@@ -4,6 +4,7 @@ using System.Text;
 using WhatsTheMove.Data.Models;
 using WhatsTheMove.Data.Common;
 using System.Threading.Tasks;
+using WhatsTheMove.Core.Events;
 
 namespace WhatsTheMove.Core.Services
 {
@@ -12,9 +13,11 @@ namespace WhatsTheMove.Core.Services
 
         #region Events
 
-        public event Events.LoggedInUserChangeEventHandler LoggedInUserChanged;
+        public event LoggedInUserChangeEventHandler LoggedInUserChanged;
 
-        public event Events.PreferenceChangedEventHandler ActivePreferenceChanged;
+        public event PreferenceChangedEventHandler ActivePreferenceChanged;
+
+        public event ThemeChangedEventHandler ThemeChanged;
 
         #endregion
 
@@ -37,7 +40,7 @@ namespace WhatsTheMove.Core.Services
             private set
             {
                 UpdateOnPropertyChanged(ref _loggedInUser, value);
-                OnLoggedInUserChanged(this, new Events.LoggedInUserChangeEventArgs(_loggedInUser));
+                OnLoggedInUserChanged(this, new LoggedInUserChangeEventArgs(_loggedInUser));
             }
         }
 
@@ -54,7 +57,7 @@ namespace WhatsTheMove.Core.Services
             private set
             {
                 UpdateOnPropertyChanged(ref _activePreference, value);
-                OnActivePreferenceChanged(this, new Events.PreferenceChangedEventArgs(_activePreference));
+                OnActivePreferenceChanged(this, new PreferenceChangedEventArgs(_activePreference));
             }
         }
         private Preference _activePreference;
@@ -87,6 +90,7 @@ namespace WhatsTheMove.Core.Services
                 return false;
 
             LoggedInUser = thisUser;
+            LoggedInUser.PropertyChanged += LoggedInUser_PropertyChanged;
             OnPropertyChanged(nameof(IsUserLoggedIn));
 
             return true;
@@ -152,14 +156,32 @@ namespace WhatsTheMove.Core.Services
             SavedActivities = await API.SavedActivityProcessor.LoadSavedActivities(LoggedInUser.Id);
         }
 
-        public void OnLoggedInUserChanged(object sender, Events.LoggedInUserChangeEventArgs e)
+        public void OnLoggedInUserChanged(object sender, LoggedInUserChangeEventArgs e)
         {
             LoggedInUserChanged?.Invoke(sender, e);
         }
 
-        public void OnActivePreferenceChanged(object sender, Events.PreferenceChangedEventArgs e)
+        public void OnActivePreferenceChanged(object sender, PreferenceChangedEventArgs e)
         {
             ActivePreferenceChanged?.Invoke(sender, e);
+        }
+
+        public void OnThemeChanged(object sender, ThemeChangedEventArgs e)
+        {
+            ThemeChanged?.Invoke(sender, e);
+        }
+
+        private void LoggedInUser_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            switch (e.PropertyName)
+            {
+                case nameof(User.IsDarkModePreferred):
+                    OnThemeChanged(sender, new ThemeChangedEventArgs(LoggedInUser.IsDarkModePreferred));
+                    break;
+                default:
+                    break;
+            }
+
         }
 
         #endregion

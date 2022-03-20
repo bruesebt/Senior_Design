@@ -6,7 +6,8 @@
     xmlns:comm="clr-namespace:WhatsTheMove.UI.Common"
     xmlns:enums="clr-namespace:WhatsTheMove.Core.Enums;assembly=WhatsTheMove.Core"
     xmlns:uibase="clr-namespace:WhatsTheMove.UI.Common"
-    BackgroundColor="{StaticResource SecondaryBackgroundColor}">
+    BackgroundColor="{AppThemeBinding Light={StaticResource LightPrimaryBackgroundColor},
+                                      Dark={StaticResource DarkPrimaryBackgroundColor}}">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -16,9 +17,8 @@
 
     <!--  View Content  -->
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Style="{StaticResource MainStackLayoutStyle}">
             <Label
-                Margin="10"
                 HorizontalTextAlignment="Center"
                 Style="{StaticResource TitleAccentLabelStyle}"
                 Text="What's The Move?" />
@@ -38,17 +38,15 @@
                     <Entry
                         Keyboard="Numeric"
                         Placeholder="ZIP Code"
-                        PlaceholderColor="{DynamicResource TertiaryFontColor}"
-                        Text="{Binding Preference.ZipCode}"
-                        TextColor="White" />
+                        Style="{StaticResource PlainTextEntryStyle}"
+                        Text="{Binding Preference.ZipCode}" />
 
                     <!--  Distance Radius  -->
                     <Entry
                         Keyboard="Numeric"
                         Placeholder="Distance (Miles)"
-                        PlaceholderColor="{DynamicResource TertiaryFontColor}"
-                        Text="{Binding Preference.Distance}"
-                        TextColor="White" />
+                        Style="{StaticResource PlainTextEntryStyle}"
+                        Text="{Binding Preference.Distance}" />
 
                     <!--  Group Size  -->
                     <Label
@@ -58,9 +56,8 @@
                     <Entry
                         Keyboard="Numeric"
                         Placeholder="Group Size"
-                        PlaceholderColor="{DynamicResource TertiaryFontColor}"
-                        Text="{Binding Preference.GroupSize}"
-                        TextColor="White" />
+                        Style="{StaticResource PlainTextEntryStyle}"
+                        Text="{Binding Preference.GroupSize}" />
 
                     <!--  Food Requested?  -->
                     <Grid>
@@ -75,14 +72,14 @@
                             Grid.Row="0"
                             Grid.Column="0"
                             FontSize="Body"
+                            Style="{StaticResource AccentLabelStyle}"
                             Text="Food?"
-                            TextColor="{DynamicResource AccentFontColor}"
                             VerticalTextAlignment="Center" />
                         <CheckBox
                             Grid.Row="0"
                             Grid.Column="1"
                             IsChecked="{Binding Preference.IsFoodRequested}"
-                            Color="White" />
+                            Style="{StaticResource PrimaryCheckboxStyle}" />
                     </Grid>
 
                     <!--  Drinks Requested?  -->
@@ -94,13 +91,13 @@
                         <Label
                             Grid.Column="0"
                             FontSize="Body"
+                            Style="{StaticResource AccentLabelStyle}"
                             Text="Drinks?"
-                            TextColor="{DynamicResource AccentFontColor}"
                             VerticalTextAlignment="Center" />
                         <CheckBox
                             Grid.Column="1"
                             IsChecked="{Binding Preference.IsDrinksRequested}"
-                            Color="White" />
+                            Style="{StaticResource PrimaryCheckboxStyle}" />
                     </Grid>
 
                     <!--  Energy Level  -->
@@ -113,22 +110,22 @@
                             Content="None"
                             FontSize="Body"
                             IsChecked="{Binding Preference.EnergyLevel, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:EnergyLevel.None}}"
-                            TextColor="White" />
+                            Style="{StaticResource PrimaryRadioButtonStyle}" />
                         <RadioButton
                             Content="Low"
                             FontSize="Body"
                             IsChecked="{Binding Preference.EnergyLevel, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:EnergyLevel.Low}}"
-                            TextColor="White" />
+                            Style="{StaticResource PrimaryRadioButtonStyle}" />
                         <RadioButton
                             Content="Medium"
                             FontSize="Body"
                             IsChecked="{Binding Preference.EnergyLevel, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:EnergyLevel.Medium}}"
-                            TextColor="White" />
+                            Style="{StaticResource PrimaryRadioButtonStyle}" />
                         <RadioButton
                             Content="High"
                             FontSize="Body"
                             IsChecked="{Binding Preference.EnergyLevel, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:EnergyLevel.High}}"
-                            TextColor="White" />
+                            Style="{StaticResource PrimaryRadioButtonStyle}" />
                     </StackLayout>
 
                     <!--  Budget  -->
@@ -141,27 +138,27 @@
                             Content="Free"
                             FontSize="Body"
                             IsChecked="{Binding Preference.Budget, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:Budget.Free}}"
-                            TextColor="White" />
+                            Style="{StaticResource PrimaryRadioButtonStyle}" />
                         <RadioButton
                             Content="$"
                             FontSize="Body"
                             IsChecked="{Binding Preference.Budget, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:Budget.Cheap}}"
-                            TextColor="White" />
+                            Style="{StaticResource PrimaryRadioButtonStyle}" />
                         <RadioButton
                             Content="$$"
                             FontSize="Body"
                             IsChecked="{Binding Preference.Budget, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:Budget.Cheaper}}"
-                            TextColor="White" />
+                            Style="{StaticResource PrimaryRadioButtonStyle}" />
                         <RadioButton
                             Content="$$$"
                             FontSize="Body"
                             IsChecked="{Binding Preference.Budget, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:Budget.Expensive}}"
-                            TextColor="White" />
+                            Style="{StaticResource PrimaryRadioButtonStyle}" />
                         <RadioButton
                             Content="$$$$"
                             FontSize="Body"
                             IsChecked="{Binding Preference.Budget, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:Budget.MostExpensive}}"
-                            TextColor="White" />
+                            Style="{StaticResource PrimaryRadioButtonStyle}" />
                     </StackLayout>
 
                     <!--  Time of Day  -->
@@ -185,35 +182,35 @@
                             Content="Morning"
                             FontSize="Body"
                             IsChecked="{Binding Preference.TimeOfDay, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:TimeOfDay.Morning}}"
-                            TextColor="White" />
+                            Style="{StaticResource PrimaryRadioButtonStyle}" />
                         <RadioButton
                             Grid.Row="1"
                             Grid.Column="0"
                             Content="Midday"
                             FontSize="Body"
                             IsChecked="{Binding Preference.TimeOfDay, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:TimeOfDay.Midday}}"
-                            TextColor="White" />
+                            Style="{StaticResource PrimaryRadioButtonStyle}" />
                         <RadioButton
                             Grid.Row="2"
                             Grid.Column="0"
                             Content="Afternoon"
                             FontSize="Body"
                             IsChecked="{Binding Preference.TimeOfDay, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:TimeOfDay.Afternoon}}"
-                            TextColor="White" />
+                            Style="{StaticResource PrimaryRadioButtonStyle}" />
                         <RadioButton
                             Grid.Row="0"
                             Grid.Column="1"
                             Content="Evening"
                             FontSize="Body"
                             IsChecked="{Binding Preference.TimeOfDay, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:TimeOfDay.Evening}}"
-                            TextColor="White" />
+                            Style="{StaticResource PrimaryRadioButtonStyle}" />
                         <RadioButton
                             Grid.Row="1"
                             Grid.Column="1"
                             Content="Night"
                             FontSize="Body"
                             IsChecked="{Binding Preference.TimeOfDay, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:TimeOfDay.Night}}"
-                            TextColor="White" />
+                            Style="{StaticResource PrimaryRadioButtonStyle}" />
                     </Grid>
 
                     <!--  Dress Code  -->
@@ -226,17 +223,17 @@
                             Content="None"
                             FontSize="Body"
                             IsChecked="{Binding Preference.DressCode, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:DressCode.None}}"
-                            TextColor="White" />
+                            Style="{StaticResource PrimaryRadioButtonStyle}" />
                         <RadioButton
                             Content="Casual"
                             FontSize="Body"
                             IsChecked="{Binding Preference.DressCode, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:DressCode.Casual}}"
-                            TextColor="White" />
+                            Style="{StaticResource PrimaryRadioButtonStyle}" />
                         <RadioButton
                             Content="Formal"
                             FontSize="Body"
                             IsChecked="{Binding Preference.DressCode, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:DressCode.Formal}}"
-                            TextColor="White" />
+                            Style="{StaticResource PrimaryRadioButtonStyle}" />
                     </StackLayout>
 
 

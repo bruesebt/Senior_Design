@@ -15,16 +15,21 @@ namespace WhatsTheMove
         {
             InitializeComponent();
 
-            App.Current = this;
+            App.Current = this;            
 
             // Service Dependency Injection
             DependencyService.Register<IUserService, UserService>();
             _userService = DependencyService.Get<IUserService>();
             _userService.LoggedInUserChanged += UserService_LoggedInUserChanged;
+            _userService.ThemeChanged += UserService_ThemeChanged;            
 
             // Initialize the API Helper
             ApiHelper.InitializeClient();
 
+            // Set Theme            
+            UpdateTheme();
+
+            // Set Main Page
             if (_userService.IsUserLoggedIn)
                 MainPage = new UI.AppShell();
             else
@@ -42,7 +47,28 @@ namespace WhatsTheMove
                 else
                     MainPage = new Views.LoginView();
             }
-               
+
+            UpdateTheme();
+        }
+
+        private void UserService_ThemeChanged(object sender, Core.Events.ThemeChangedEventArgs e)
+        {
+            UpdateTheme();
+        }
+
+        private void UpdateTheme()
+        {
+            if (!_userService.IsUserLoggedIn)
+                return;
+
+            OSAppTheme preferredTheme = OSAppTheme.Unspecified;
+            if (_userService.LoggedInUser.IsDarkModePreferred)
+                preferredTheme = OSAppTheme.Dark;
+            else
+                preferredTheme = OSAppTheme.Light;
+
+            if (App.Current.UserAppTheme != preferredTheme)
+                App.Current.UserAppTheme = preferredTheme;
         }
 
         protected override void OnStart()

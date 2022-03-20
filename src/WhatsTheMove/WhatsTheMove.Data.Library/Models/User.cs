@@ -8,8 +8,8 @@ using WhatsTheMove.Data.Common;
 namespace WhatsTheMove.Data.Models
 {
     public class User : NotifyPropertyChangedBase
-    {
-       
+    {       
+
         public int Id { get => _id; set => UpdateOnPropertyChanged(ref _id, value); }
         private int _id;
 
