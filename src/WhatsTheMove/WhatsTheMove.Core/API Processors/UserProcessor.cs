@@ -89,7 +89,7 @@ namespace WhatsTheMove.Core.API
                 {
                     if (response.IsSuccessStatusCode)
                     {
-                        User user = await LoadUser(2);
+                        User user = await LoadUser(newUser.Username);
 
                         return user;
                     }

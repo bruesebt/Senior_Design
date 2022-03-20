@@ -73,6 +73,9 @@ namespace WhatsTheMove.Core.Services
         {
             bool userExists = (await API.UserProcessor.LoadUser(user.Username)) != null;
 
+            // Convert Password and Assign Hash
+            user.HashKey = "123456789";
+
             if (!userExists)
                 await LogIn(await API.UserProcessor.CreateUser(user));
             else
