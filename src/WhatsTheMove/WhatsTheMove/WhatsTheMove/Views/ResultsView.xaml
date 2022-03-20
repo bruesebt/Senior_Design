@@ -7,7 +7,7 @@
     xmlns:models="clr-namespace:WhatsTheMove.Data.Models;assembly=WhatsTheMove.Data.Library"
     xmlns:uibase="clr-namespace:WhatsTheMove.UI.Common"
     xmlns:vms="clr-namespace:WhatsTheMove.Core.ViewModels;assembly=WhatsTheMove.Core"
-    BackgroundColor="{StaticResource TertiaryFontColor}">
+    BackgroundColor="{StaticResource PrimaryFontColor}">
 
     <ContentPage.Resources>
         <Style TargetType="Grid">

@@ -47,7 +47,7 @@ namespace WhatsTheMove.Core.API
                 {
                     IEnumerable<Preference> preferences = await LoadPreferences(newPreference.UserId);
 
-                    return preferences.OrderByDescending(p => p.DateAdded).FirstOrDefault();
+                    return preferences.OrderByDescending(p => p.Id).FirstOrDefault();
                 }
                 else
                 {

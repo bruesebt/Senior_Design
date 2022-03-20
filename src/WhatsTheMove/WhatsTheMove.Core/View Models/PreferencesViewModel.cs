@@ -22,6 +22,8 @@ namespace WhatsTheMove.Core.ViewModels
         // Commands for various UI events to bind to
         public Common.Command WhatsTheMoveCommand => new Common.Command(FindMoves);
 
+        public Common.Command ClearCommand => new Common.Command(ClearFields);
+
         #endregion
 
         #region Constructors
@@ -55,6 +57,11 @@ namespace WhatsTheMove.Core.ViewModels
             OnChangeViewRequested(Enums.ViewRoute.Results);
             //IEnumerable<Activity> activities = await API.ActivityProcessor.PerformNearbySearch(Preference);
             //Activity activity = activities.FirstOrDefault();
+        }
+
+        private void ClearFields(object param)
+        {
+            Preference = new Preference();
         }
 
         #endregion

@@ -46,6 +46,8 @@ namespace WhatsTheMove.Core.Services
         public IEnumerable<Preference> UserPreferences { get => _userPreferences; private set => UpdateOnPropertyChanged(ref _userPreferences, value); }
         private IEnumerable<Preference> _userPreferences;
 
+        public bool IsActivePreferenceValid => ActivePreference != null;
+
         public Preference ActivePreference 
         { 
             get => _activePreference;
@@ -55,7 +57,7 @@ namespace WhatsTheMove.Core.Services
                 OnActivePreferenceChanged(this, new Events.PreferenceChangedEventArgs(_activePreference));
             }
         }
-        private Preference _activePreference = new Preference();
+        private Preference _activePreference;
 
         public IEnumerable<SavedActivity> SavedActivities { get => _savedActivities; set => UpdateOnPropertyChanged(ref _savedActivities, value); }
         private IEnumerable<SavedActivity> _savedActivities;
@@ -109,7 +111,7 @@ namespace WhatsTheMove.Core.Services
 
             preference.UserId = LoggedInUser.Id;
 
-            preference =  await API.PreferenceProcessor.CreatePreference(preference);
+            preference =  await API.PreferenceProcessor.CreatePreference(preference); 
             await Refresh();
             return preference;
         }

@@ -243,12 +243,31 @@
                 </StackLayout>
             </ScrollView>
 
-            <!--  Find Moves  -->
-            <Button
-                Margin="10"
-                Command="{Binding WhatsTheMoveCommand}"
-                Style="{StaticResource PrimaryButtonStyle}"
-                Text="What's the Move?" />
+            <!--  Buttons  -->
+            <Grid VerticalOptions="StartAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <!--  Find Moves  -->
+                <Button
+                    Grid.Row="0"
+                    Margin="5"
+                    Command="{Binding WhatsTheMoveCommand}"
+                    HeightRequest="60"
+                    Style="{StaticResource PrimaryButtonStyle}"
+                    Text="What's the Move?" />
+
+                <!--  Clear Fields  -->
+                <Button
+                    Grid.Row="1"
+                    Margin="5"
+                    Command="{Binding ClearCommand}"
+                    Style="{StaticResource AccentButtonStyle}"
+                    Text="Clear Fields" />
+            </Grid>
+
         </StackLayout>
     </ContentPage.Content>
 </uibase:ContentPageBase>

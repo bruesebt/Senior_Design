@@ -19,6 +19,8 @@ namespace WhatsTheMove.Core.Services
 
         IEnumerable<Preference> UserPreferences { get; }
 
+        bool IsActivePreferenceValid { get; }
+
         Preference ActivePreference { get; }
 
         IEnumerable<SavedActivity> SavedActivities { get; }

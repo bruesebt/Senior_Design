@@ -64,7 +64,7 @@ namespace WhatsTheMove.Core.ViewModels
 
         private async void Refresh(object param)
         {
-            if (_userService.ActivePreference == null || _userService.ActivePreference.ZipCode == string.Empty)
+            if (!_userService.IsActivePreferenceValid)
             {
                 this.Activities = new ObservableCollection<Activity>();
                 return;
