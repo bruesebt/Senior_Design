@@ -4,7 +4,9 @@ using System.Text;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using WhatsTheMove.Core.Common;
+using WhatsTheMove.Core.Enums;
 using WhatsTheMove.Data.Models;
+using System.Linq;
 
 namespace WhatsTheMove.UI.Common
 {
@@ -13,7 +15,7 @@ namespace WhatsTheMove.UI.Common
 
         public ContentPageBase()
         {
-            
+
         }
 
         public ViewModelBase MyContext { get => _myContext; }
@@ -23,19 +25,30 @@ namespace WhatsTheMove.UI.Common
         {
             try
             {
-                await Shell.Current.GoToAsync(route);
+                switch (route)
+                {
+                    case nameof(ViewRoute.SignUp):
+                        App.Current.MainPage = new Views.SignUpView();
+                        break;
+                    case nameof(ViewRoute.Login):
+                        App.Current.MainPage = new Views.LoginView();
+                        break;
+                    default:
+                        await Shell.Current.GoToAsync(route);
+                        break;
+                }
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-        }        
+        }
 
         protected void SetContext()
         {
             _myContext = (ViewModelBase)this.BindingContext;
 
-            _myContext.ChangeViewRequested += ViewModel_ChangeViewRequested;                       
+            _myContext.ChangeViewRequested += ViewModel_ChangeViewRequested;
         }
 
         private void ViewModel_ChangeViewRequested(object sender, Core.Events.ChangeViewRequestEventArgs e)

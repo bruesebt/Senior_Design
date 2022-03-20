@@ -78,7 +78,7 @@ namespace WhatsTheMove.Core.ViewModels
 
         private void ForgotCredentials(object param)
         {
-            OnChangeViewRequested(Enums.ViewRoute.ForgotCredentials);
+            //OnChangeViewRequested(Enums.ViewRoute.ForgotCredentials);
         }
 
         #endregion

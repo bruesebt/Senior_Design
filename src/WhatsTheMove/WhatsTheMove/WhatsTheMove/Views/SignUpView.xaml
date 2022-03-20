@@ -87,12 +87,17 @@
                             PlaceholderColor="{DynamicResource TertiaryFontColor}"
                             Text="{Binding User.PasswordConfirmed}"
                             TextColor="White" />
-                        <Button
-                            Command="{Binding SignUpCommand}"
-                            Style="{StaticResource PrimaryButtonStyle}"
-                            Text="Sign up" />
+
                     </StackLayout>
                 </ScrollView>
+                <Button
+                    Command="{Binding SignUpCommand}"
+                    Style="{StaticResource PrimaryButtonStyle}"
+                    Text="Sign up" />
+                <Button
+                    Command="{Binding BackToLoginCommand}"
+                    Style="{StaticResource AccentButtonStyle}"
+                    Text="Back to Login" />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

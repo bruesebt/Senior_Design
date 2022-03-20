@@ -15,13 +15,13 @@ namespace WhatsTheMove
         {
             InitializeComponent();
 
-            App.Current = this;            
+            App.Current = this;
 
             // Service Dependency Injection
             DependencyService.Register<IUserService, UserService>();
             _userService = DependencyService.Get<IUserService>();
             _userService.LoggedInUserChanged += UserService_LoggedInUserChanged;
-            _userService.ThemeChanged += UserService_ThemeChanged;            
+            _userService.ThemeChanged += UserService_ThemeChanged;
 
             // Initialize the API Helper
             ApiHelper.InitializeClient();
@@ -39,7 +39,12 @@ namespace WhatsTheMove
         private void UserService_LoggedInUserChanged(object sender, Core.Events.LoggedInUserChangeEventArgs e)
         {
             if (_userService.IsUserLoggedIn)
-                MainPage = new UI.AppShell();
+            {
+                if (MainPage is UI.AppShell)
+                    return;
+                else
+                    MainPage = new UI.AppShell();
+            }
             else
             {
                 if (MainPage is Views.LoginView)
@@ -73,7 +78,7 @@ namespace WhatsTheMove
 
         protected override void OnStart()
         {
-                        
+
         }
 
         protected override void OnSleep()
