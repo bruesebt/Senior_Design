@@ -5,6 +5,7 @@ using WhatsTheMove.Data.Models;
 using WhatsTheMove.Data.Common;
 using System.Threading.Tasks;
 using WhatsTheMove.Core.Events;
+using WhatsTheMove.Core.Common;
 
 namespace WhatsTheMove.Core.Services
 {
@@ -32,7 +33,7 @@ namespace WhatsTheMove.Core.Services
 
         #region Properties
 
-        public bool IsUserLoggedIn => LoggedInUser != null;        
+        public bool IsUserLoggedIn => LoggedInUser != null;
 
         public User LoggedInUser
         {
@@ -51,8 +52,8 @@ namespace WhatsTheMove.Core.Services
 
         public bool IsActivePreferenceValid => ActivePreference != null;
 
-        public Preference ActivePreference 
-        { 
+        public Preference ActivePreference
+        {
             get => _activePreference;
             private set
             {
@@ -71,15 +72,10 @@ namespace WhatsTheMove.Core.Services
 
         public async Task<bool> SignUp(User user)
         {
-            bool userExists = (await API.UserProcessor.LoadUser(user.Username)) != null;
-
             // Convert Password and Assign Hash
-            user.HashKey = "123456789";
+            user = user.UpdateUserCredentials();
 
-            if (!userExists)
-                await LogIn(await API.UserProcessor.CreateUser(user));
-            else
-                return false;
+            await LogIn(await API.UserProcessor.CreateUser(user));
 
             return true;
         }
@@ -109,7 +105,7 @@ namespace WhatsTheMove.Core.Services
         {
             if (!IsUserLoggedIn || preference == null) return;
 
-            ActivePreference = await AddPreference(preference);            
+            ActivePreference = await AddPreference(preference);
         }
 
         public async Task<Preference> AddPreference(Preference preference)
@@ -118,7 +114,7 @@ namespace WhatsTheMove.Core.Services
 
             preference.UserId = LoggedInUser.Id;
 
-            preference =  await API.PreferenceProcessor.CreatePreference(preference); 
+            preference = await API.PreferenceProcessor.CreatePreference(preference);
             await Refresh();
             return preference;
         }
@@ -134,7 +130,7 @@ namespace WhatsTheMove.Core.Services
         public async Task Save()
         {
             await SaveUser();
-            await SavePreference();            
+            await SavePreference();
         }
 
         public async Task SaveUser()

@@ -56,7 +56,7 @@
                                 VerticalTextAlignment="Center" />
                             <DatePicker
                                 x:Name="userAge"
-                                BindingContext="{Binding User.DateOfBirth}"
+                                Date="{Binding User.DateOfBirth}"
                                 TextColor="White" />
                         </StackLayout>
                         <Entry
@@ -98,6 +98,14 @@
                     Command="{Binding BackToLoginCommand}"
                     Style="{StaticResource AccentButtonStyle}"
                     Text="Back to Login" />
+                <StackLayout HorizontalOptions="CenterAndExpand">
+                    <Label
+                        FontAttributes="Bold"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        Text="{Binding UserActionResponse}"
+                        TextColor="Red" />
+                </StackLayout>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

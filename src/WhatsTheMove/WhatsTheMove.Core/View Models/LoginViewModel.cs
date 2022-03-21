@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using WhatsTheMove.Core.Services;
 using WhatsTheMove.Data.Models;
+using WhatsTheMove.Core.Common;
 
 namespace WhatsTheMove.Core.ViewModels
 {
-    public class LoginViewModel : Common.ViewModelBase
+    public class LoginViewModel : ViewModelBase
     {
 
         #region Fields
@@ -85,24 +86,39 @@ namespace WhatsTheMove.Core.ViewModels
             //OnChangeViewRequested(Enums.ViewRoute.ForgotCredentials);
         }
 
+        /// <summary>
+        /// Checks to see whether the password and username input by the user are valid
+        /// </summary>
+        /// <returns></returns>
         private async Task<bool> IsUserInputValid()
         {
             string message = string.Empty;
 
+            // Validate user credentials
             if (string.IsNullOrEmpty(User.Username))
                 message = "Username cannot be empty.";
             else if (string.IsNullOrEmpty(User.Password))
                 message = "Password cannot be empty.";
-            else if ((await API.UserProcessor.LoadUser(User.Username)) == null)
-                message = "No user with that username exists.";
+            else
+            {
+                User storedUser = await API.UserProcessor.LoadUser(User.Username);
+                if (storedUser == null)
+                    message = "No user with that username exists.";
+                else if (!User.IsUser(storedUser))
+                    message = "Incorrect password.";
+            }
 
+            // If a message is added, show to user and return 
             if (!string.IsNullOrEmpty(message))
             {
-                message += " Please enter Username and Password and try again.";
+                message += " Please re-enter Username and Password and try again.";
                 UserActionResponse = message;                
                 User.Password = string.Empty;
                 return false;
             }
+
+            // reset password so plain text is not stored
+            User.Password = string.Empty;
 
             return true;
         }
