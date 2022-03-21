@@ -127,8 +127,11 @@ namespace WhatsTheMove.Core.ViewModels
             else
             {
                 User storedUser = await API.UserProcessor.LoadUser(User.Username);
+                User storedUser2 = await API.UserProcessor.LoadUser_FromEmail(User.Email);
                 if (storedUser != null)
                     message = "A user with that username already exists.";
+                else if (storedUser2 != null)
+                    message = "A user with that email already exists.";
             }
 
             // if message is not empty, display to user and return false
