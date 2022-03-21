@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Linq;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
@@ -66,9 +67,9 @@ namespace WhatsTheMove.Core.API
             {
                 if (response.IsSuccessStatusCode)
                 {
-                    SavedActivity savedActivity = await LoadSavedActivity(4);
+                    IEnumerable<SavedActivity> savedActivities = await LoadSavedActivities(newSavedActivity.UserId);
 
-                    return savedActivity;
+                    return savedActivities.OrderByDescending(sa => sa.Id).FirstOrDefault();
                 }
                 else
                 {

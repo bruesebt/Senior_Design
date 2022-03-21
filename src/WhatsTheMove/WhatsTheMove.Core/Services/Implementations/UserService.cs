@@ -127,6 +127,14 @@ namespace WhatsTheMove.Core.Services
             await Refresh();
         }
 
+        public async Task RemoveSavedActivity(SavedActivity savedActivity)
+        {
+            if (!IsUserLoggedIn || savedActivity == null) return;
+
+            await API.SavedActivityProcessor.DeleteSavedActivity(savedActivity.Id);
+            await Refresh();
+        }
+
         public async Task Save()
         {
             await SaveUser();

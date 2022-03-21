@@ -40,6 +40,8 @@ namespace WhatsTheMove.Core.Services
 
         Task AddSavedActivity(SavedActivity savedActivity);
 
+        Task RemoveSavedActivity(SavedActivity savedActivity);
+
         Task Save();
 
         Task SaveUser();
