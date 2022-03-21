@@ -60,6 +60,20 @@ namespace WhatsTheMove.Web.API.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("Email/{email}")]
+        public async Task<IActionResult> GetUser_FromEmail(string email)
+        {
+            try
+            {
+                return Ok(await _userData.GetUser_FromEmail(email));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
         [HttpPost]
         public async Task<IActionResult> InsertUser(User user)
         {

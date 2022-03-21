@@ -40,6 +40,14 @@ namespace WhatsTheMove.Data.Implementations
             return results.FirstOrDefault();
         }
 
+        public async Task<User?> GetUser_FromEmail(string email)
+        {
+            var results = await _db.LoadData<User, dynamic>(storedProcedure: $"{Prefix}{nameof(User)}{Get}_FromEmail",
+                                                                parameters: new { Email = email });
+
+            return results.FirstOrDefault();
+        }
+
         public Task InsertUser(User user) =>
             _db.SaveData(storedProcedure: $"{Prefix}{nameof(User)}{Insert}",
                             parameters: new { user.Username, user.Email, user.FirstName, user.LastName, user.DateOfBirth, user.ZipCode, user.Password, user.HashKey, user.ForgotPasswordKey, user.IsDarkModePreferred, user.DateAdded });
