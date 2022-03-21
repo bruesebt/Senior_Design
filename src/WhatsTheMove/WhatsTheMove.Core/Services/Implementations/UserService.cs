@@ -163,9 +163,11 @@ namespace WhatsTheMove.Core.Services
             SavedActivities = await API.SavedActivityProcessor.LoadSavedActivities(LoggedInUser.Id);
         }
 
-        public void OnLoggedInUserChanged(object sender, LoggedInUserChangeEventArgs e)
+        public async void OnLoggedInUserChanged(object sender, LoggedInUserChangeEventArgs e)
         {
             LoggedInUserChanged?.Invoke(sender, e);
+
+            await this.Refresh();
         }
 
         public void OnActivePreferenceChanged(object sender, PreferenceChangedEventArgs e)

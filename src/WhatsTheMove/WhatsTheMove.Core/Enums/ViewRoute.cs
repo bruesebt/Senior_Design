@@ -13,6 +13,7 @@ namespace WhatsTheMove.Core.Enums
         SetPreferences = 4,
         Results = 5,
         Home = 6,
-        ProfileSettings=7
+        ProfileSettings=7,
+        FavoriteActivities=8
     }
 }

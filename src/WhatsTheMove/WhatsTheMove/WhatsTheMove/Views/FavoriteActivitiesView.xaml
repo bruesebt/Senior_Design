@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<uibase:ContentPageBase
+    x:Class="WhatsTheMove.Views.FavoriteActivitiesView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cntrls="clr-namespace:WhatsTheMove.UI.Controls"
+    xmlns:models="clr-namespace:WhatsTheMove.Data.Models;assembly=WhatsTheMove.Data.Library"
+    xmlns:uibase="clr-namespace:WhatsTheMove.UI.Common"
+    xmlns:vms="clr-namespace:WhatsTheMove.Core.ViewModels;assembly=WhatsTheMove.Core"
+    BackgroundColor="{AppThemeBinding Light={StaticResource LightPrimaryBackgroundColor},
+                                      Dark={StaticResource DarkPrimaryBackgroundColor}}">
+
+    <ContentPage.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="{StaticResource AccentBackgroundColor}" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout Style="{StaticResource MainStackLayoutStyle}">
+            <StackLayout>
+
+                <!--  Saved Activities View  -->
+                <RefreshView
+                    Command="{Binding RefreshCommand}"
+                    IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                    Style="{StaticResource BaseRefreshView}">
+                    <CollectionView
+                        BackgroundColor="Transparent"
+                        ItemSizingStrategy="MeasureAllItems"
+                        ItemsLayout="VerticalList"
+                        ItemsSource="{Binding Activities}"
+                        RemainingItemsThreshold="1"
+                        RemainingItemsThresholdReachedCommand="{Binding DelayLoadMoreCommand}"
+                        SelectedItem="{Binding SelectedActivity, Mode=TwoWay}"
+                        SelectionMode="Single">
+                        <CollectionView.EmptyView>
+                            <StackLayout Padding="12">
+                                <Label
+                                    HorizontalOptions="Center"
+                                    Style="{StaticResource AccentLabelStyle}"
+                                    Text="No Favorite Moves" />
+                            </StackLayout>
+                        </CollectionView.EmptyView>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <SwipeView Margin="0" Padding="0">
+                                        <SwipeView.RightItems>
+                                            <SwipeItems>
+                                                <SwipeItem
+                                                    BackgroundColor="Red"
+                                                    Command="{Binding Source={RelativeSource AncestorType={x:Type vms:FavoriteActivitiesViewModel}}, Path=UnFavoriteCommand}"
+                                                    CommandParameter="{Binding .}"
+                                                    Text="UnFavorite" />
+                                            </SwipeItems>
+                                        </SwipeView.RightItems>
+                                        <cntrls:ActivityCard />
+                                    </SwipeView>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                        <CollectionView.Header>
+                            <StackLayout HorizontalOptions="Center">
+                                <Label
+                                    HorizontalOptions="Center"
+                                    HorizontalTextAlignment="Center"
+                                    Style="{StaticResource TitleAccentLabelStyle}"
+                                    Text="Your Favorite Moves" />
+                            </StackLayout>
+                        </CollectionView.Header>
+                    </CollectionView>
+                </RefreshView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</uibase:ContentPageBase>

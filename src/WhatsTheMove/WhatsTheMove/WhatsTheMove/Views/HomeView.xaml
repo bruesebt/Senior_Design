@@ -66,8 +66,14 @@
                     Command="{Binding FindTheMoveCommand}"
                     Style="{StaticResource PrimaryButtonStyle}"
                     Text="Find The Move" />
-                <Button Style="{StaticResource PrimaryButtonStyle}" Text="Previous Moves" />
-                <Button Style="{StaticResource PrimaryButtonStyle}" Text="I'm Feeling Lucky" />
+                <Button
+                    Command="{Binding MyFavoriteMovesCommand}"
+                    Style="{StaticResource PrimaryButtonStyle}"
+                    Text="My Favorite Moves" />
+                <Button
+                    Command="{Binding ShowMeMovesCommand}"
+                    Style="{StaticResource PrimaryButtonStyle}"
+                    Text="Show Me Moves" />
             </StackLayout>
         </Grid>
     </ContentPage.Content>

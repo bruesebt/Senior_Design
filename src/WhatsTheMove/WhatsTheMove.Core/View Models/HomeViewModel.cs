@@ -17,6 +17,10 @@ namespace WhatsTheMove.Core.ViewModels
 
         public Common.Command FindTheMoveCommand => new Common.Command(FindTheMove);
 
+        public Common.Command MyFavoriteMovesCommand => new Common.Command(MyFavoriteMoves);
+
+        public Common.Command ShowMeMovesCommand => new Common.Command(ShowMeMoves);
+
         #endregion
 
         #region Constructors
@@ -33,6 +37,16 @@ namespace WhatsTheMove.Core.ViewModels
         private void FindTheMove(object obj)
         {
             OnChangeViewRequested(Enums.ViewRoute.SetPreferences);
+        }
+
+        private void MyFavoriteMoves(object param)
+        {
+            OnChangeViewRequested(Enums.ViewRoute.FavoriteActivities);
+        }
+
+        private void ShowMeMoves(object param)
+        {
+
         }
 
         #endregion

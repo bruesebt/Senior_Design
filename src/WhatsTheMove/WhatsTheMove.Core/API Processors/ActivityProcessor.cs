@@ -33,7 +33,30 @@ namespace WhatsTheMove.Core.API
             {
                 throw ex;
             }
+        }
 
+        public static async Task<IEnumerable<Activity>> PerformDetailsSearch(IEnumerable<SavedActivity> savedActivities)
+        {
+            try
+            {
+                using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync($"Activities/Details?placeIdsCsv={savedActivities.Select(sa => sa.Place_Id).ToCSV()}"))
+                {
+                    if (response.IsSuccessStatusCode)
+                    {
+                        IEnumerable<Activity> activities = await response.Content.ReadAsAsync<IEnumerable<Activity>>();
+
+                        return activities;
+                    }
+                    else
+                    {
+                        throw new Exception(response.ReasonPhrase);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public static async Task<string> PerformLocationSearch(string zipCode)
