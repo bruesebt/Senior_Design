@@ -55,8 +55,6 @@ namespace WhatsTheMove.Core.ViewModels
         {
             await UserService.SetActivePreference(Preference);
             OnChangeViewRequested(Enums.ViewRoute.Results);
-            //IEnumerable<Activity> activities = await API.ActivityProcessor.PerformNearbySearch(Preference);
-            //Activity activity = activities.FirstOrDefault();
         }
 
         private void ClearFields(object param)

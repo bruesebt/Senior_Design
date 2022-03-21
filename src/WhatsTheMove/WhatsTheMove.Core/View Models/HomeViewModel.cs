@@ -1,5 +1,6 @@
 ﻿using System;
 using WhatsTheMove.Core.Services;
+using WhatsTheMove.Data.Models;
 
 namespace WhatsTheMove.Core.ViewModels
 
@@ -46,7 +47,16 @@ namespace WhatsTheMove.Core.ViewModels
 
         private void ShowMeMoves(object param)
         {
+            Preference preference = new Preference()
+            {
+                ZipCode = UserService.LoggedInUser.ZipCode,
+                Distance = 10,
+                Budget = 1,
+                IsDrinksRequested = true
+            };
 
+            UserService.SetActivePreference(preference);
+            OnChangeViewRequested(Enums.ViewRoute.Results);
         }
 
         #endregion
