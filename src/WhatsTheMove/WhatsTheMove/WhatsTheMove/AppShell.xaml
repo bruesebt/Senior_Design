@@ -44,7 +44,7 @@
         <ShellContent ContentTemplate="{DataTemplate views:ResultsView}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Moves" Icon="{x:Static cnsts:Images.WTMLogoSquareBlackOrng}">
+    <FlyoutItem Title="Favorite Moves" Icon="{x:Static cnsts:Images.IconHeart}">
         <ShellContent ContentTemplate="{DataTemplate views:FavoriteActivitiesView}" />
     </FlyoutItem>
 

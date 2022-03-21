@@ -17,5 +17,9 @@ namespace WhatsTheMove.UI.Constants
         public const string IconSettings = @"settings.png";
 
         public const string IconEdit = @"edition.png";
+
+        public const string IconHeart = @"heart.png";
+
+        public const string IconRandom = @"random.png";
     }
 }
