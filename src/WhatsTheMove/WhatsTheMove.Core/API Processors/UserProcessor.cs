@@ -117,7 +117,7 @@ namespace WhatsTheMove.Core.API
             {
                 if (response.IsSuccessStatusCode)
                 {
-                    user = await LoadUser(1);
+                    user = await LoadUser(user.Username);
 
                     return user;
                 }

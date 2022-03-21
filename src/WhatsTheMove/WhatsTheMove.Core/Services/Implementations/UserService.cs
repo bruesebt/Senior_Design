@@ -170,7 +170,7 @@ namespace WhatsTheMove.Core.Services
             ThemeChanged?.Invoke(sender, e);
         }
 
-        private void LoggedInUser_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        private async void LoggedInUser_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             switch (e.PropertyName)
             {
@@ -181,6 +181,7 @@ namespace WhatsTheMove.Core.Services
                     break;
             }
 
+            await SaveUser();
         }
 
         #endregion
