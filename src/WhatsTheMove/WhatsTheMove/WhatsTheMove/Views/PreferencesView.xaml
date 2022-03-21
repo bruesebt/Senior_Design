@@ -109,21 +109,25 @@
                         <RadioButton
                             Content="None"
                             FontSize="Body"
+                            GroupName="EnergyLevel"
                             IsChecked="{Binding Preference.EnergyLevel, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:EnergyLevel.None}}"
                             Style="{StaticResource PrimaryRadioButtonStyle}" />
                         <RadioButton
                             Content="Low"
                             FontSize="Body"
+                            GroupName="EnergyLevel"
                             IsChecked="{Binding Preference.EnergyLevel, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:EnergyLevel.Low}}"
                             Style="{StaticResource PrimaryRadioButtonStyle}" />
                         <RadioButton
                             Content="Medium"
                             FontSize="Body"
+                            GroupName="EnergyLevel"
                             IsChecked="{Binding Preference.EnergyLevel, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:EnergyLevel.Medium}}"
                             Style="{StaticResource PrimaryRadioButtonStyle}" />
                         <RadioButton
                             Content="High"
                             FontSize="Body"
+                            GroupName="EnergyLevel"
                             IsChecked="{Binding Preference.EnergyLevel, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:EnergyLevel.High}}"
                             Style="{StaticResource PrimaryRadioButtonStyle}" />
                     </StackLayout>
@@ -137,26 +141,31 @@
                         <RadioButton
                             Content="Free"
                             FontSize="Body"
+                            GroupName="Budget"
                             IsChecked="{Binding Preference.Budget, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:Budget.Free}}"
                             Style="{StaticResource PrimaryRadioButtonStyle}" />
                         <RadioButton
                             Content="$"
                             FontSize="Body"
+                            GroupName="Budget"
                             IsChecked="{Binding Preference.Budget, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:Budget.Cheap}}"
                             Style="{StaticResource PrimaryRadioButtonStyle}" />
                         <RadioButton
                             Content="$$"
                             FontSize="Body"
+                            GroupName="Budget"
                             IsChecked="{Binding Preference.Budget, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:Budget.Cheaper}}"
                             Style="{StaticResource PrimaryRadioButtonStyle}" />
                         <RadioButton
                             Content="$$$"
                             FontSize="Body"
+                            GroupName="Budget"
                             IsChecked="{Binding Preference.Budget, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:Budget.Expensive}}"
                             Style="{StaticResource PrimaryRadioButtonStyle}" />
                         <RadioButton
                             Content="$$$$"
                             FontSize="Body"
+                            GroupName="Budget"
                             IsChecked="{Binding Preference.Budget, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:Budget.MostExpensive}}"
                             Style="{StaticResource PrimaryRadioButtonStyle}" />
                     </StackLayout>
@@ -181,6 +190,7 @@
                             Grid.Column="0"
                             Content="Morning"
                             FontSize="Body"
+                            GroupName="Time"
                             IsChecked="{Binding Preference.TimeOfDay, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:TimeOfDay.Morning}}"
                             Style="{StaticResource PrimaryRadioButtonStyle}" />
                         <RadioButton
@@ -188,6 +198,7 @@
                             Grid.Column="0"
                             Content="Midday"
                             FontSize="Body"
+                            GroupName="Time"
                             IsChecked="{Binding Preference.TimeOfDay, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:TimeOfDay.Midday}}"
                             Style="{StaticResource PrimaryRadioButtonStyle}" />
                         <RadioButton
@@ -195,6 +206,7 @@
                             Grid.Column="0"
                             Content="Afternoon"
                             FontSize="Body"
+                            GroupName="Time"
                             IsChecked="{Binding Preference.TimeOfDay, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:TimeOfDay.Afternoon}}"
                             Style="{StaticResource PrimaryRadioButtonStyle}" />
                         <RadioButton
@@ -202,6 +214,7 @@
                             Grid.Column="1"
                             Content="Evening"
                             FontSize="Body"
+                            GroupName="Time"
                             IsChecked="{Binding Preference.TimeOfDay, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:TimeOfDay.Evening}}"
                             Style="{StaticResource PrimaryRadioButtonStyle}" />
                         <RadioButton
@@ -209,6 +222,7 @@
                             Grid.Column="1"
                             Content="Night"
                             FontSize="Body"
+                            GroupName="Time"
                             IsChecked="{Binding Preference.TimeOfDay, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:TimeOfDay.Night}}"
                             Style="{StaticResource PrimaryRadioButtonStyle}" />
                     </Grid>
@@ -222,16 +236,19 @@
                         <RadioButton
                             Content="None"
                             FontSize="Body"
+                            GroupName="DressCode"
                             IsChecked="{Binding Preference.DressCode, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:DressCode.None}}"
                             Style="{StaticResource PrimaryRadioButtonStyle}" />
                         <RadioButton
                             Content="Casual"
                             FontSize="Body"
+                            GroupName="DressCode"
                             IsChecked="{Binding Preference.DressCode, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:DressCode.Casual}}"
                             Style="{StaticResource PrimaryRadioButtonStyle}" />
                         <RadioButton
                             Content="Formal"
                             FontSize="Body"
+                            GroupName="DressCode"
                             IsChecked="{Binding Preference.DressCode, Converter={StaticResource ComparisonConverter}, ConverterParameter={x:Static enums:DressCode.Formal}}"
                             Style="{StaticResource PrimaryRadioButtonStyle}" />
                     </StackLayout>
