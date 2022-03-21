@@ -85,10 +85,7 @@ namespace WhatsTheMove.Core.ViewModels
             {                
                 UserActionResponse = "Error occurred when creating new account.";
                 return;
-            }
-
-            // Change views to Home page
-            OnChangeViewRequested(Enums.ViewRoute.Home);
+            }                        
         }
 
         /// <summary>

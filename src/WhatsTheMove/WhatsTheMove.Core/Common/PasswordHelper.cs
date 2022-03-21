@@ -81,7 +81,7 @@ namespace WhatsTheMove.Core.Common
         {
             string arrayStr = $"{array[0]}";
             for (int i = 1; i < array.Length; i++)
-                arrayStr += $".{i}";
+                arrayStr += $".{array[i]}";
 
             return arrayStr;
         }
