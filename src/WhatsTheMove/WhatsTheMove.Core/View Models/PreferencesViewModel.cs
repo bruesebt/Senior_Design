@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using WhatsTheMove.Data.Models;
 using WhatsTheMove.Core.Services;
+using WhatsTheMove.Core.Enums;
 
 namespace WhatsTheMove.Core.ViewModels
 {
@@ -54,7 +55,7 @@ namespace WhatsTheMove.Core.ViewModels
         private async void FindMoves(object param)
         {
             await UserService.SetActivePreference(Preference);
-            OnChangeViewRequested(Enums.ViewRoute.Results);
+            OnChangeViewRequested(ViewRoute.Results, ViewRoute.SetPreferences);
         }
 
         private void ClearFields(object param)

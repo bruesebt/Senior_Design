@@ -9,7 +9,7 @@ namespace WhatsTheMove.Core.Enums
         NotFound = 0,
         Login = 1,
         SignUp = 2,
-        ForgotCredentials = 3,
+        ApplicationSettings = 3,
         SetPreferences = 4,
         Results = 5,
         Home = 6,

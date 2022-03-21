@@ -24,7 +24,7 @@ namespace WhatsTheMove.UI
         {
             Routing.RegisterRoute($"{Core.Enums.ViewRoute.Login}", typeof(Views.LoginView));
             Routing.RegisterRoute($"{Core.Enums.ViewRoute.SignUp}", typeof(Views.SignUpView));
-            Routing.RegisterRoute($"{Core.Enums.ViewRoute.ForgotCredentials}", typeof(Views.AppSettingsView));
+            Routing.RegisterRoute($"{Core.Enums.ViewRoute.ApplicationSettings}", typeof(Views.AppSettingsView));
             Routing.RegisterRoute($"{Core.Enums.ViewRoute.SetPreferences}", typeof(Views.EditPreferencesView));
             Routing.RegisterRoute($"{Core.Enums.ViewRoute.Results}", typeof(Views.ResultsView));
             Routing.RegisterRoute($"{Core.Enums.ViewRoute.ProfileSettings}", typeof(Views.ProfileSettingsView));

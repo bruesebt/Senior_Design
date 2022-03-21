@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using WhatsTheMove.Core.Services;
 using WhatsTheMove.Data.Models;
 using WhatsTheMove.Core.Common;
+using WhatsTheMove.Core.Enums;
 
 namespace WhatsTheMove.Core.ViewModels
 {
@@ -46,7 +47,7 @@ namespace WhatsTheMove.Core.ViewModels
         /// </summary>
         public User User
         {
-            get => _user;
+            get => _user ??= new User();
             set => UpdateOnPropertyChanged(ref _user, value);
         }
         private User _user = new User();
@@ -78,12 +79,12 @@ namespace WhatsTheMove.Core.ViewModels
 
         private void CreateNewAccount(object param)
         {
-            OnChangeViewRequested(Enums.ViewRoute.SignUp);
+            OnChangeViewRequested(ViewRoute.SignUp, ViewRoute.Login);
         }
 
         private void ForgotCredentials(object param)
         {
-            //OnChangeViewRequested(Enums.ViewRoute.ForgotCredentials);
+            //OnChangeViewRequested(ViewRoute.ForgotCredentials);
         }
 
         /// <summary>

@@ -21,11 +21,11 @@ namespace WhatsTheMove.UI.Common
         public ViewModelBase MyContext { get => _myContext; }
         private ViewModelBase _myContext;
 
-        private async void ChangeView(string route)
+        private async void ChangeView(string routeTo, string routeFrom)
         {
             try
             {
-                switch (route)
+                switch (routeTo)
                 {
                     case nameof(ViewRoute.SignUp):
                         App.Current.MainPage = new Views.SignUpView();
@@ -34,9 +34,20 @@ namespace WhatsTheMove.UI.Common
                         App.Current.MainPage = new Views.LoginView();
                         break;
                     default:
-                        await Shell.Current.GoToAsync(route);
+                        await Shell.Current.GoToAsync(routeTo);
                         break;
                 }
+
+                switch (routeFrom)
+                {
+                    case nameof(ViewRoute.ProfileSettings):
+                    case nameof(ViewRoute.ApplicationSettings):
+                        MyContext.Save();
+                        break;
+                    default:
+                        break;
+                }
+
             }
             catch (Exception ex)
             {
@@ -55,7 +66,7 @@ namespace WhatsTheMove.UI.Common
         {
             try
             {
-                ChangeView($"{e.ViewRoute}");
+                ChangeView($"{e.ViewRouteTo}", $"{e.ViewRouteFrom}");
             }
             catch (Exception ex)
             {

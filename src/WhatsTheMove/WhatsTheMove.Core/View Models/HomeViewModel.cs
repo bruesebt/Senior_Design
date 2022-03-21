@@ -1,6 +1,7 @@
 ﻿using System;
 using WhatsTheMove.Core.Services;
 using WhatsTheMove.Data.Models;
+using WhatsTheMove.Core.Enums;
 
 namespace WhatsTheMove.Core.ViewModels
 
@@ -37,12 +38,12 @@ namespace WhatsTheMove.Core.ViewModels
 
         private void FindTheMove(object obj)
         {
-            OnChangeViewRequested(Enums.ViewRoute.SetPreferences);
+            OnChangeViewRequested(ViewRoute.SetPreferences, ViewRoute.Home);
         }
 
         private void MyFavoriteMoves(object param)
         {
-            OnChangeViewRequested(Enums.ViewRoute.FavoriteActivities);
+            OnChangeViewRequested(ViewRoute.FavoriteActivities, ViewRoute.Home);
         }
 
         private void ShowMeMoves(object param)
@@ -56,7 +57,7 @@ namespace WhatsTheMove.Core.ViewModels
             };
 
             UserService.SetActivePreference(preference);
-            OnChangeViewRequested(Enums.ViewRoute.Results);
+            OnChangeViewRequested(ViewRoute.Results, ViewRoute.Home);
         }
 
         #endregion

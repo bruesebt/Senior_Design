@@ -8,11 +8,14 @@ namespace WhatsTheMove.Core.Events
 
     public class ChangeViewRequestEventArgs : EventArgs
     {
-        public Enums.ViewRoute ViewRoute { get; private set; }
+        public Enums.ViewRoute ViewRouteTo { get; private set; }
 
-        public ChangeViewRequestEventArgs(Enums.ViewRoute viewRoute)
+        public Enums.ViewRoute ViewRouteFrom { get; private set; }
+
+        public ChangeViewRequestEventArgs(Enums.ViewRoute viewRouteTo, Enums.ViewRoute viewRouteFrom)
         {
-            ViewRoute = viewRoute;
+            ViewRouteTo = viewRouteTo;
+            ViewRouteFrom = viewRouteFrom;
         }
     }
 }

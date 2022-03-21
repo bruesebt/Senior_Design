@@ -44,7 +44,7 @@ namespace WhatsTheMove.Core.Services
 
         Task Save();
 
-        Task SaveUser();
+        Task SaveUser(object param);
 
         Task SavePreference();        
 
@@ -54,7 +54,7 @@ namespace WhatsTheMove.Core.Services
 
         void OnActivePreferenceChanged(object sender, Events.PreferenceChangedEventArgs e);
 
-        void OnThemeChanged(object sender, Events.ThemeChangedEventArgs e);
+        void OnThemeChanged(object sender, Events.ThemeChangedEventArgs e);        
 
     }
 }

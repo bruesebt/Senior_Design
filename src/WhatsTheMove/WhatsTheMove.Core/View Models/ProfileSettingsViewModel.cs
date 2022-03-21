@@ -38,8 +38,9 @@ namespace WhatsTheMove.Core.ViewModels
 
         #region Methods
 
-        private void LogOut(object param)
+        private async void LogOut(object param)
         {
+            await UserService.Save();
             UserService.LogOut();
         }
 

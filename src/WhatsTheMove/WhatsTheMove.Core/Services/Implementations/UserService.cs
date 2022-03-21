@@ -6,6 +6,7 @@ using WhatsTheMove.Data.Common;
 using System.Threading.Tasks;
 using WhatsTheMove.Core.Events;
 using WhatsTheMove.Core.Common;
+using System.Threading;
 
 namespace WhatsTheMove.Core.Services
 {
@@ -137,11 +138,11 @@ namespace WhatsTheMove.Core.Services
 
         public async Task Save()
         {
-            await SaveUser();
+            await SaveUser(null);
             await SavePreference();
         }
 
-        public async Task SaveUser()
+        public async Task SaveUser(object param)
         {
             if (!IsUserLoggedIn) return;
 
@@ -180,7 +181,7 @@ namespace WhatsTheMove.Core.Services
             ThemeChanged?.Invoke(sender, e);
         }
 
-        private async void LoggedInUser_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        private void LoggedInUser_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             switch (e.PropertyName)
             {
@@ -190,11 +191,10 @@ namespace WhatsTheMove.Core.Services
                 default:
                     break;
             }
-
-            await SaveUser();
-        }
-
-        #endregion
+        }              
 
     }
+
+    #endregion
+
 }

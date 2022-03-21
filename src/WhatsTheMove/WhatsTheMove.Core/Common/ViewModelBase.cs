@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using WhatsTheMove.Data.Models;
 using WhatsTheMove.Core.Services;
 using WhatsTheMove.Data.Common;
+using WhatsTheMove.Core.Enums;
 
 namespace WhatsTheMove.Core.Common
 {
@@ -22,9 +23,17 @@ namespace WhatsTheMove.Core.Common
         /// Raises Change View Request for owning view to process
         /// </summary>
         /// <param name="viewRoute"></param>
-        protected void OnChangeViewRequested(Enums.ViewRoute viewRoute)
+        protected void OnChangeViewRequested(ViewRoute viewRouteTo, ViewRoute viewRouteFrom)
         {
-            ChangeViewRequested?.Invoke(this, new Events.ChangeViewRequestEventArgs(viewRoute));
+            ChangeViewRequested?.Invoke(this, new Events.ChangeViewRequestEventArgs(viewRouteTo, viewRouteFrom));
+        }
+
+        /// <summary>
+        /// Saves the UserService behind the view model
+        /// </summary>
+        public async void Save()
+        {
+            await UserService.Save();
         }
     }
 }
