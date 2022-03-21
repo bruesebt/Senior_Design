@@ -10,5 +10,6 @@ namespace WhatsTheMove.Data.Models
         public List<string> Html_Attributions { get; set; }
         public string Photo_Reference { get; set; }
         public int Width { get; set; }
+        public byte[] PhotoArray { get; set; }
     }
 }

@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.IO;
+using System.Drawing;
 
 namespace WhatsTheMove.Web.API.Controllers
 {
@@ -25,9 +26,9 @@ namespace WhatsTheMove.Web.API.Controllers
 
         [HttpGet]
         [Route("Nearby/")]
-        public async Task<IActionResult> GetActivities_Nearby(string zipCode, 
-                                                                int? radius = null, 
-                                                                string keyword = null, 
+        public async Task<IActionResult> GetActivities_Nearby(string zipCode,
+                                                                int? radius = null,
+                                                                string keyword = null,
                                                                 string type = null,
                                                                 int? budget = null)
         {
@@ -40,6 +41,11 @@ namespace WhatsTheMove.Web.API.Controllers
                         string results = await response.Content.ReadAsStringAsync();
 
                         PlacesApiResultsRoot root = JsonConvert.DeserializeObject<PlacesApiResultsRoot>(results);
+
+                        // Update activity photos
+                        foreach (Activity activity in root.Results.Where(act => act.Photos != null && act.Photos.Any()))
+                            foreach (ActivityPhoto photo in activity.Photos)
+                                photo.PhotoArray = await GetPhoto(photo.Photo_Reference);
 
                         return Ok(root.Results);
                     }
@@ -54,7 +60,70 @@ namespace WhatsTheMove.Web.API.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
-        
+
+        [HttpGet]
+        [Route("Details/")]
+        public async Task<IActionResult> GetActivities_Details(string placeIdsCsv)
+        {
+            try
+            {
+                List<Activity> activities = new List<Activity>();
+                foreach (string placeId in placeIdsCsv.Split(','))
+                {
+                    using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync($"place/details/json?place_id={placeId}&key={_placesAccess.AccessKey}"))
+                    {
+                        if (response.IsSuccessStatusCode)
+                        {
+                            string results = await response.Content.ReadAsStringAsync();
+
+                            PlaceDetailsApiResultsRoot root = JsonConvert.DeserializeObject<PlaceDetailsApiResultsRoot>(results);
+
+                            activities.Add(root.Result);
+                        }
+                        else
+                        {
+                            throw new Exception(response.ReasonPhrase);
+                        }
+                    }
+                }
+
+                // Update activity photos
+                foreach (Activity activity in activities.Where(act => act.Photos != null && act.Photos.Any()))
+                    foreach (ActivityPhoto photo in activity.Photos)
+                        photo.PhotoArray = await GetPhoto(photo.Photo_Reference);
+
+                return Ok(activities);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("Photo/")]
+        public async Task<byte[]> GetPhoto(string photoReference)
+        {
+            try
+            {
+                using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync($"place/photo?maxwidth=400&photo_reference={photoReference}&key={_placesAccess.AccessKey}"))
+                {
+                    if (response.IsSuccessStatusCode)
+                    {
+                        return await response.Content.ReadAsByteArrayAsync();
+                    }
+                    else
+                    {
+                        throw new Exception($"Exception when getting place photo. Error message: {response.ReasonPhrase}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Exception when getting place photo. Error message: {ex.Message}");
+            }
+        }
+
         [HttpGet]
         public async Task<GeoApiResultsRoot> GetLocation(string zipCode)
         {
@@ -79,7 +148,7 @@ namespace WhatsTheMove.Web.API.Controllers
             catch (Exception ex)
             {
                 throw new Exception($"Exception when getting latitude and longitude. Error message: {ex.Message}");
-            }            
+            }
         }
 
         private async Task<string> SearchString(string zipCode,
