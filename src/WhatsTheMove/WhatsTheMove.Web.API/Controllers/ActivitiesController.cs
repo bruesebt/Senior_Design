@@ -42,6 +42,8 @@ namespace WhatsTheMove.Web.API.Controllers
 
                         PlacesApiResultsRoot root = JsonConvert.DeserializeObject<PlacesApiResultsRoot>(results);
 
+                        root.Results = await GetActivities_Details(string.Join(",", root.Results.Select(a => a.Place_Id).ToList()));
+
                         // Update activity photos
                         foreach (Activity activity in root.Results.Where(act => act.Photos != null && act.Photos.Any()))
                             foreach (ActivityPhoto photo in activity.Photos)
@@ -63,7 +65,7 @@ namespace WhatsTheMove.Web.API.Controllers
 
         [HttpGet]
         [Route("Details/")]
-        public async Task<IActionResult> GetActivities_Details(string placeIdsCsv)
+        public async Task<List<Activity>> GetActivities_Details(string placeIdsCsv)
         {
             try
             {
@@ -92,11 +94,11 @@ namespace WhatsTheMove.Web.API.Controllers
                     foreach (ActivityPhoto photo in activity.Photos)
                         photo.PhotoArray = await GetPhoto(photo.Photo_Reference);
 
-                return Ok(activities);
+                return activities;
             }
             catch (Exception ex)
             {
-                return StatusCode(500, ex.Message);
+                throw new Exception($"Exception when getting place details. Error message: {ex.Message}");
             }
         }
 
