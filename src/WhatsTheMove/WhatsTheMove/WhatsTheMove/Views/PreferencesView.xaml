@@ -29,6 +29,16 @@
                     Orientation="Vertical"
                     VerticalOptions="StartAndExpand">
 
+                    <!--  Past Preferences  -->
+                    <Label
+                        FontSize="Body"
+                        Style="{StaticResource AccentLabelStyle}"
+                        Text="Preference History" />
+                    <Picker
+                        ItemsSource="{Binding PreferenceHistoryVM.PreferenceHistory}"
+                        SelectedItem="{Binding PreferenceHistoryVM.SelectedPreferenceString}"
+                        Style="{StaticResource PrimaryPickerStyle}" />
+
                     <!--  Location  -->
                     <Label
                         FontSize="Body"
@@ -257,30 +267,20 @@
                 </StackLayout>
             </ScrollView>
 
-            <!--  Buttons  -->
-            <Grid VerticalOptions="StartAndExpand">
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
 
-                <!--  Find Moves  -->
-                <Button
-                    Grid.Row="0"
-                    Margin="5"
-                    Command="{Binding WhatsTheMoveCommand}"
-                    HeightRequest="60"
-                    Style="{StaticResource PrimaryButtonStyle}"
-                    Text="What's the Move?" />
+            <!--  Find Moves  -->
+            <Button
+                Margin="5"
+                Command="{Binding WhatsTheMoveCommand}"
+                Style="{StaticResource PrimaryButtonStyle}"
+                Text="What's the Move?" />
 
-                <!--  Clear Fields  -->
-                <Button
-                    Grid.Row="1"
-                    Margin="5"
-                    Command="{Binding ClearCommand}"
-                    Style="{StaticResource AccentButtonStyle}"
-                    Text="Clear Fields" />
-            </Grid>
+            <!--  Clear Fields  -->
+            <Button
+                Margin="5"
+                Command="{Binding ClearCommand}"
+                Style="{StaticResource AccentButtonStyle}"
+                Text="Clear Fields" />
 
         </StackLayout>
     </ContentPage.Content>

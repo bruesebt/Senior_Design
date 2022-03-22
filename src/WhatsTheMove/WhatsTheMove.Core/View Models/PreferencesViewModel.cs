@@ -33,14 +33,16 @@ namespace WhatsTheMove.Core.ViewModels
         {
             _userService = userService;
 
-            // Set default zip code
-            Preference.ZipCode = UserService.LoggedInUser?.ZipCode;
+            Initialize();
         }
 
         #endregion
 
         #region Properties
 
+        /// <summary>
+        /// The preference being edited 
+        /// </summary>
         public Preference Preference
         {
             get => _preference;
@@ -48,19 +50,68 @@ namespace WhatsTheMove.Core.ViewModels
         }
         private Preference _preference = new Preference();
 
+        /// <summary>
+        /// View model containing the user's preference history
+        /// </summary>
+        public PreferenceHistoryViewModel PreferenceHistoryVM
+        {
+            get => _preferenceHistory ??= new PreferenceHistoryViewModel(UserService);
+        }
+        private PreferenceHistoryViewModel _preferenceHistory;
+
         #endregion
 
         #region Methods
 
+        /// <summary>
+        /// Initializes preference data
+        /// </summary>
+        private void Initialize()
+        {
+            // Set default zip code
+            Preference.ZipCode = UserService.LoggedInUser?.ZipCode;
+
+            PreferenceHistoryVM.PropertyChanged += PreferenceHistoryVM_PropertyChanged;
+        }
+
+        /// <summary>
+        /// Updates active preference whenever the user selects a preference from preference history
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PreferenceHistoryVM_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            switch (e.PropertyName)
+            {
+                case nameof(PreferenceHistoryViewModel.SelectedPreference):
+                    if (PreferenceHistoryVM.SelectedPreference != null)
+                        this.Preference = PreferenceHistoryVM.SelectedPreference;
+                    else
+                        this.ClearFields(null);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// Sets the active preference of the user and changes pages to the content page
+        /// </summary>
+        /// <param name="param"></param>
         private async void FindMoves(object param)
         {
             await UserService.SetActivePreference(Preference);
             OnChangeViewRequested(ViewRoute.Results, ViewRoute.SetPreferences);
         }
 
+        /// <summary>
+        /// Clears all fields 
+        /// </summary>
+        /// <param name="param"></param>
         private void ClearFields(object param)
         {
             Preference = new Preference();
+            PreferenceHistoryVM.SelectedPreferenceString = string.Empty;
         }
 
         #endregion
