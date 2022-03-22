@@ -3,12 +3,36 @@
     x:Class="WhatsTheMove.Views.ResultsView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cnsts="clr-namespace:WhatsTheMove.UI.Constants"
     xmlns:cntrls="clr-namespace:WhatsTheMove.UI.Controls"
     xmlns:models="clr-namespace:WhatsTheMove.Data.Models;assembly=WhatsTheMove.Data.Library"
     xmlns:uibase="clr-namespace:WhatsTheMove.UI.Common"
     xmlns:vms="clr-namespace:WhatsTheMove.Core.ViewModels;assembly=WhatsTheMove.Core"
     BackgroundColor="{AppThemeBinding Light={StaticResource LightPrimaryBackgroundColor},
                                       Dark={StaticResource DarkPrimaryBackgroundColor}}">
+
+    <!--  Nav Bar Content  -->
+    <Shell.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Frame
+                Margin="5"
+                Padding="3"
+                BackgroundColor="{StaticResource SecondaryBackgroundColor}"
+                CornerRadius="10"
+                HorizontalOptions="EndAndExpand">
+                <Frame
+                    Padding="1"
+                    BackgroundColor="White"
+                    CornerRadius="10"
+                    HorizontalOptions="Center">
+                    <Image
+                        HorizontalOptions="Center"
+                        Source="{x:Static cnsts:Images.WTMLogoNoBorder}"
+                        VerticalOptions="Center" />
+                </Frame>
+            </Frame>
+        </StackLayout>
+    </Shell.TitleView>
 
     <ContentPage.Resources>
         <Style TargetType="Grid">

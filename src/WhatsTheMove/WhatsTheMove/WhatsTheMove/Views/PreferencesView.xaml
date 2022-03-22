@@ -3,6 +3,7 @@
     x:Class="WhatsTheMove.Views.EditPreferencesView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cnsts="clr-namespace:WhatsTheMove.UI.Constants"
     xmlns:comm="clr-namespace:WhatsTheMove.UI.Common"
     xmlns:enums="clr-namespace:WhatsTheMove.Core.Enums;assembly=WhatsTheMove.Core"
     xmlns:uibase="clr-namespace:WhatsTheMove.UI.Common"
@@ -14,6 +15,29 @@
             <comm:ComparisonConverter x:Key="ComparisonConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
+
+    <!--  Nav Bar Content  -->
+    <Shell.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Frame
+                Margin="5"
+                Padding="3"
+                BackgroundColor="{StaticResource SecondaryBackgroundColor}"
+                CornerRadius="10"
+                HorizontalOptions="EndAndExpand">
+                <Frame
+                    Padding="1"
+                    BackgroundColor="White"
+                    CornerRadius="10"
+                    HorizontalOptions="Center">
+                    <Image
+                        HorizontalOptions="Center"
+                        Source="{x:Static cnsts:Images.WTMLogoNoBorder}"
+                        VerticalOptions="Center" />
+                </Frame>
+            </Frame>
+        </StackLayout>
+    </Shell.TitleView>
 
     <!--  View Content  -->
     <ContentPage.Content>
