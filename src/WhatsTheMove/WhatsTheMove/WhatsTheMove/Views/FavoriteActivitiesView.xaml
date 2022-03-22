@@ -41,8 +41,6 @@
                         ItemSizingStrategy="MeasureAllItems"
                         ItemsLayout="VerticalList"
                         ItemsSource="{Binding Activities}"
-                        RemainingItemsThreshold="1"
-                        RemainingItemsThresholdReachedCommand="{Binding DelayLoadMoreCommand}"
                         SelectedItem="{Binding SelectedActivity, Mode=TwoWay}"
                         SelectionMode="Single">
                         <CollectionView.EmptyView>
