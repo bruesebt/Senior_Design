@@ -63,14 +63,17 @@
 
                 <!--  Buttons  -->
                 <Button
+                    x:Name="btnFindMoves"
                     Command="{Binding FindTheMoveCommand}"
                     Style="{StaticResource PrimaryButtonStyle}"
                     Text="Find The Move" />
                 <Button
+                    x:Name="btnFavoriteMoves"
                     Command="{Binding MyFavoriteMovesCommand}"
                     Style="{StaticResource PrimaryButtonStyle}"
                     Text="My Favorite Moves" />
                 <Button
+                    x:Name="btnShowMeMoves"
                     Command="{Binding ShowMeMovesCommand}"
                     Style="{StaticResource PrimaryButtonStyle}"
                     Text="Show Me Moves" />

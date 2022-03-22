@@ -22,5 +22,6 @@ namespace WhatsTheMove.Views
 
             SetContext();
         }
+
     }
 }

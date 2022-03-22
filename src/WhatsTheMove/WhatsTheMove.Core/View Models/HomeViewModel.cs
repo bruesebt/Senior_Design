@@ -41,12 +41,12 @@ namespace WhatsTheMove.Core.ViewModels
             OnChangeViewRequested(ViewRoute.SetPreferences, ViewRoute.Home);
         }
 
-        private void MyFavoriteMoves(object param)
+        private void MyFavoriteMoves(object obj)
         {
             OnChangeViewRequested(ViewRoute.FavoriteActivities, ViewRoute.Home);
         }
 
-        private void ShowMeMoves(object param)
+        private void ShowMeMoves(object obj)
         {
             Preference preference = new Preference()
             {
