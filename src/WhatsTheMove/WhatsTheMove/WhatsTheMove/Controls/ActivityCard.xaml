@@ -3,87 +3,40 @@
     x:Class="WhatsTheMove.UI.Controls.ActivityCard"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:comm="clr-namespace:WhatsTheMove.UI.Common"
     xmlns:models="clr-namespace:WhatsTheMove.Data.Models;assembly=WhatsTheMove.Data.Library"
     x:DataType="models:Activity">
-
-    <Grid.Resources>
-        <ResourceDictionary>
-            <comm:ByteArrayImageConverter x:Key="ByteArrayImageConverter" />
-        </ResourceDictionary>
-    </Grid.Resources>
-
-    <Frame
-        Margin="4,4"
-        Padding="10"
-        Style="{StaticResource ActivityCard}">
-        <Grid Margin="0" Padding="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
-            <Frame
-                Grid.Row="0"
-                Grid.RowSpan="5"
-                Grid.Column="0"
-                Margin="0"
-                Padding="0"
-                CornerRadius="10">
-                <Image
-                    x:Name="backgroundImage"
-                    Margin="0"
-                    AbsoluteLayout.LayoutBounds="0,0,1,1"
-                    AbsoluteLayout.LayoutFlags="All"
-                    Aspect="AspectFill"
-                    HorizontalOptions="FillAndExpand"
-                    Source="{Binding ., Converter={StaticResource ByteArrayImageConverter}}"
-                    VerticalOptions="FillAndExpand" />
-            </Frame>
-
-            <Label
-                Grid.Row="0"
-                Grid.RowSpan="2"
-                Grid.Column="1"
-                Grid.ColumnSpan="2"
-                Margin="0"
-                Padding="0"
-                FontSize="Medium"
-                Style="{StaticResource TitleAccentLabelStyle}"
-                Text="{Binding Name}"
-                VerticalOptions="Center" />
-
-            <Label
-                Grid.Row="1"
-                Grid.Column="1"
-                FontSize="Small"
-                Style="{StaticResource AccentLabelStyle}"
-                Text="{Binding Url}"
-                VerticalOptions="Center" />
-
-            <StackLayout
-                Grid.Row="4"
-                Grid.Column="1"
-                Grid.ColumnSpan="2"
-                Orientation="Horizontal">
+    <Frame Margin="8" Style="{StaticResource ActivityCard}">
+        <StackLayout Orientation="Horizontal">
+            <Image
+                x:Name="backgroundImage"
+                Margin="10"
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                Aspect="AspectFill"
+                HorizontalOptions="Start"
+                Source="{Binding Icon}"
+                VerticalOptions="FillAndExpand" />
+            <StackLayout VerticalOptions="Center">
                 <Label
-                    FontSize="Small"
-                    Style="{StaticResource AccentLabelStyle}"
-                    Text="{Binding Rating, StringFormat='{0:F1} ★'}"
+                    Style="{StaticResource TitleAccentLabelStyle}"
+                    Text="{Binding Name}"
                     VerticalOptions="Center" />
                 <Label
                     FontSize="Small"
                     Style="{StaticResource AccentLabelStyle}"
-                    Text="{Binding User_Ratings_Total, StringFormat='({0:F0})'}"
+                    Text="{Binding showAddress, StringFormat='Address: {0}'}"
+                    VerticalOptions="Center" />
+                <Label
+                    FontSize="Small"
+                    Style="{StaticResource AccentLabelStyle}"
+                    Text="{Binding Rating, StringFormat='Rating: {0:F1}'}"
+                    VerticalOptions="Center" />
+                <Label
+                    FontSize="Small"
+                    Style="{StaticResource AccentLabelStyle}"
+                    Text="{Binding User_Ratings_Total, StringFormat='Total Reviews: {0:F0}'}"
                     VerticalOptions="Center" />
             </StackLayout>
-        </Grid>
+        </StackLayout>
     </Frame>
 </Grid>
