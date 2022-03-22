@@ -8,6 +8,17 @@
     xmlns:views="clr-namespace:WhatsTheMove.Views"
     FlyoutBackgroundColor="{StaticResource AccentBackgroundColor}">
 
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="{DynamicResource AccentBackgroundColor}" />
+                <Setter Property="Shell.ForegroundColor" Value="{DynamicResource SecondaryBackgroundColor}" />
+            </Style>
+            <Style BasedOn="{StaticResource BaseStyle}" TargetType="TabBar" />
+            <Style BasedOn="{StaticResource BaseStyle}" TargetType="FlyoutItem" />
+        </ResourceDictionary>
+    </Shell.Resources>
+
     <Shell.FlyoutHeader>
         <Grid BackgroundColor="{StaticResource SecondaryBackgroundColor}">
             <Grid.ColumnDefinitions>
