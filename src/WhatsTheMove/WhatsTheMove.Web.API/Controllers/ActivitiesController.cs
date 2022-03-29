@@ -42,12 +42,9 @@ namespace WhatsTheMove.Web.API.Controllers
 
                         PlacesApiResultsRoot root = JsonConvert.DeserializeObject<PlacesApiResultsRoot>(results);
 
-                        root.Results = await GetActivities_Details(string.Join(",", root.Results.Select(a => a.Place_Id).ToList()));
-
                         // Update activity photos
                         foreach (Activity activity in root.Results.Where(act => act.Photos != null && act.Photos.Any()))
-                            foreach (ActivityPhoto photo in activity.Photos)
-                                photo.PhotoArray = await GetPhoto(photo.Photo_Reference);
+                            activity.Photos.First().PhotoArray = await GetPhoto(activity.Photos.First().Photo_Reference);
 
                         return Ok(root.Results);
                     }
