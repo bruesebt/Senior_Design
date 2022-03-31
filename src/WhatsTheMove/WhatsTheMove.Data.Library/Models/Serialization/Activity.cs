@@ -50,7 +50,8 @@ namespace WhatsTheMove.Data.Models
         public int Utc_Offset { get; set; }
         public string Vicinity { get; set; }
         public string Website { get; set; }
-        public string showAddress { get { return Address_Components[0].Long_Name + " " + Address_Components[1].Long_Name + ", " + Address_Components[2].Long_Name;}}
+        public string showAddress { get { return string.Empty; }}
+        //Address_Components[0].Long_Name + " " + Address_Components[1].Long_Name + ", " + Address_Components[2].Long_Name;
     }
 
 }
