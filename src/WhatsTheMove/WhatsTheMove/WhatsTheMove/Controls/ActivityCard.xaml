@@ -60,7 +60,8 @@
                 Text="{Binding Name}"
                 VerticalOptions="Center" />
 
-            <Label
+            <!--  NOTE: Get rid of website and address for now, calls to the google places api is too expensive to do this  -->
+            <!--<Label
                 Grid.Row="2"
                 Grid.Column="1"
                 Grid.ColumnSpan="2"
@@ -83,7 +84,7 @@
                 Text="{Binding showAddress, StringFormat='{0}'}"
                 TextColor="White"
                 TextDecorations="Underline"
-                VerticalOptions="Center" />
+                VerticalOptions="Center" />-->
 
             <StackLayout
                 Grid.Row="4"
