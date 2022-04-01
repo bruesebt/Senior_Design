@@ -16,7 +16,11 @@ namespace WhatsTheMove.Views
     {
         public ForgotCredentialsView()
         {
+            this.BindingContext = new ForgotCredentialsViewModel(DependencyService.Get<IUserService>());
+
             InitializeComponent();
+
+            SetContext();
         }
     }
 }

@@ -14,6 +14,7 @@ namespace WhatsTheMove.Core.Enums
         Results = 5,
         Home = 6,
         ProfileSettings=7,
-        FavoriteActivities=8
+        FavoriteActivities=8,
+        ForgotCredentials=9
     }
 }

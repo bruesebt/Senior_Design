@@ -30,6 +30,7 @@ namespace WhatsTheMove.UI
             Routing.RegisterRoute($"{Core.Enums.ViewRoute.ProfileSettings}", typeof(Views.ProfileSettingsView));
             Routing.RegisterRoute($"{Core.Enums.ViewRoute.Home}", typeof(Views.HomeView));
             Routing.RegisterRoute($"{Core.Enums.ViewRoute.FavoriteActivities}", typeof(Views.FavoriteActivitiesView));
+            Routing.RegisterRoute($"{Core.Enums.ViewRoute.ForgotCredentials}", typeof(Views.ForgotCredentialsView));
         }
     }
 }

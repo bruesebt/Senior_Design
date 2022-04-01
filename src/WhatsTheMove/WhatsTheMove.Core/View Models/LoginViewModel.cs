@@ -84,7 +84,7 @@ namespace WhatsTheMove.Core.ViewModels
 
         private void ForgotCredentials(object param)
         {
-            //OnChangeViewRequested(ViewRoute.ForgotCredentials);
+            OnChangeViewRequested(ViewRoute.ForgotCredentials, ViewRoute.Login);
         }
 
         /// <summary>

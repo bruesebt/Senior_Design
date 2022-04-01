@@ -33,6 +33,9 @@ namespace WhatsTheMove.UI.Common
                     case nameof(ViewRoute.Login):
                         App.Current.MainPage = new Views.LoginView();
                         break;
+                    case nameof(ViewRoute.ForgotCredentials):
+                        App.Current.MainPage = new Views.ForgotCredentialsView();
+                        break;
                     default:
                         await Shell.Current.GoToAsync(routeTo);
                         break;
