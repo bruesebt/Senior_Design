@@ -74,7 +74,7 @@ namespace WhatsTheMove.Core.Services
         public async Task<bool> SignUp(User user)
         {
             // Convert Password and Assign Hash
-            user = user.UpdateUserCredentials();
+            user = user.CreateUserCredentials();
 
             await LogIn(await API.UserProcessor.CreateUser(user));
 

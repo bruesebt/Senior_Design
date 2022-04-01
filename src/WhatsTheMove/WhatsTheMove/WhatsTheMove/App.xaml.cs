@@ -23,8 +23,8 @@ namespace WhatsTheMove
             _userService.LoggedInUserChanged += UserService_LoggedInUserChanged;
             _userService.ThemeChanged += UserService_ThemeChanged;
 
-            // Initialize the API Helper
-            ApiHelper.InitializeClient();
+            // Initialize helper classes
+            Initialize();
 
             // Set Theme            
             UpdateTheme();
@@ -34,6 +34,12 @@ namespace WhatsTheMove
                 MainPage = new UI.AppShell();
             else
                 MainPage = new Views.LoginView();
+        }
+
+        private async void Initialize()
+        {
+            ApiHelper.InitializeClient();
+            await DevSupport.InitializeDeveloper();
         }
 
         private void UserService_LoggedInUserChanged(object sender, Core.Events.LoggedInUserChangeEventArgs e)

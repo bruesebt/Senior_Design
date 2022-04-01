@@ -4,6 +4,7 @@ using System.Text;
 using System.Security.Cryptography;
 using WhatsTheMove.Data.Models;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace WhatsTheMove.Core.Common
 {
@@ -36,13 +37,75 @@ namespace WhatsTheMove.Core.Common
         /// </summary>
         /// <param name="inputUser"></param>
         /// <returns></returns>
-        public static User UpdateUserCredentials(this User inputUser)
+        public static User CreateUserCredentials(this User inputUser)
         {
             inputUser.HashKey = ByteArrayToString(CreateSalt());
             inputUser.Password = ByteArrayToString(CreateHash(inputUser.Password, StringToByteArray(inputUser.HashKey)));
             inputUser.PasswordConfirmed = ByteArrayToString(CreateHash(inputUser.PasswordConfirmed, StringToByteArray(inputUser.HashKey)));
 
             return inputUser;
+        }
+
+        /// <summary>
+        /// Updates the password and password confirmed of the user being updated (should be a current user)
+        /// </summary>
+        /// <param name="inputUser"></param>
+        /// <returns></returns>
+        public static User UpdateUserCredentials(this User inputUser)
+        {
+            inputUser.Password = ByteArrayToString(CreateHash(inputUser.Password, StringToByteArray(inputUser.HashKey)));
+            inputUser.PasswordConfirmed = ByteArrayToString(CreateHash(inputUser.PasswordConfirmed, StringToByteArray(inputUser.HashKey)));
+
+            return inputUser;
+        }
+
+        /// <summary>
+        /// Generates a password reset key for the user, emails it to the user, and saves hashed version
+        /// </summary>
+        /// <param name="inputUser"></param>
+        /// <returns></returns>
+        public async static Task<User> NotifyPasswordResetRequest(this User inputUser)
+        {
+            // generate password key, plain
+            string resetKey = GenerateResetKey();
+
+            // email key to user
+            string html = EmailHelper.GetResetHtml(resetKey, inputUser.Username);
+            EmailHelper.SendEmail(inputUser.Email, html, "What's The Move? Password Reset 1-Time Code");
+
+            // hash key and store in db
+            inputUser.ForgotPasswordKey = ByteArrayToString(CreateHash(resetKey, StringToByteArray(inputUser.HashKey)));
+            inputUser = await API.UserProcessor.UpdateUser(inputUser);
+
+            return inputUser;
+        }
+
+        /// <summary>
+        /// Sends an email to user notifying them of email being reset, and updates database with new data
+        /// </summary>
+        /// <param name="inputUser"></param>
+        /// <returns></returns>
+        public async static Task<User> NotifyPasswordReset(this User inputUser)
+        {
+            inputUser = await API.UserProcessor.UpdateUser(inputUser);
+
+            string html = EmailHelper.GetResetNotifyHtml(inputUser.Username);
+            EmailHelper.SendEmail(inputUser.Email, html, "What's The Move? Account Password Reset");
+
+            return inputUser;
+        }
+
+        /// <summary>
+        /// Checks to see if the input reset key matches what is stored for the user in the database
+        /// </summary>
+        /// <param name="inputUser"></param>
+        /// <param name="resetKey"></param>
+        /// <returns></returns>
+        public static bool IsResetKeyValid(this User inputUser, string resetKey)
+        {
+            string hashedKey = ByteArrayToString(CreateHash(resetKey, StringToByteArray(inputUser.HashKey)));
+
+            return hashedKey.Equals(inputUser.ForgotPasswordKey);
         }
 
         /// <summary>
@@ -73,11 +136,22 @@ namespace WhatsTheMove.Core.Common
         }
 
         /// <summary>
+        /// Generates a random string to be used as a key to reset password for a user
+        /// </summary>
+        /// <returns></returns>
+        public static string GenerateResetKey()
+        {
+            RNGCryptoServiceProvider provider = new RNGCryptoServiceProvider();
+
+            return provider.GetHashCode().ToString();
+        }
+
+        /// <summary>
         /// Converts byte array to string
         /// </summary>
         /// <param name="array"></param>
         /// <returns></returns>
-        private static string ByteArrayToString(byte[] array)
+        public static string ByteArrayToString(byte[] array)
         {
             string arrayStr = $"{array[0]}";
             for (int i = 1; i < array.Length; i++)
@@ -91,7 +165,7 @@ namespace WhatsTheMove.Core.Common
         /// </summary>
         /// <param name="arrayStr"></param>
         /// <returns></returns>
-        private static byte[] StringToByteArray(string arrayStr)
+        public static byte[] StringToByteArray(string arrayStr)
         {
             byte[] array = new byte[SALT_SIZE];
             int index = 0;
