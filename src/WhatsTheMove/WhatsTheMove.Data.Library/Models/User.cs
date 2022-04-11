@@ -49,5 +49,14 @@ namespace WhatsTheMove.Data.Models
         public DateTime DateAdded { get => _dateAdded; set => UpdateOnPropertyChanged(ref _dateAdded, value); }
         private DateTime _dateAdded;
 
+        public override bool Equals(object obj)
+        {
+            User user = (User)obj;
+            return this.Id.Equals(user.Id)
+                    && this.Username.Equals(user.Username)
+                    && this.FirstName.Equals(user.FirstName)
+                    && this.LastName.Equals(user.LastName)
+                    && this.Email.Equals(user.Email);
+        }
     }
 }
