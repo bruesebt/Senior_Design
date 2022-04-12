@@ -96,11 +96,6 @@
                     Command="{Binding MyFavoriteMovesCommand}"
                     Style="{StaticResource PrimaryButtonStyle}"
                     Text="My Favorite Moves" />
-                <Button
-                    x:Name="btnShowMeMoves"
-                    Command="{Binding ShowMeMovesCommand}"
-                    Style="{StaticResource PrimaryButtonStyle}"
-                    Text="Show Me Moves" />
             </StackLayout>
         </Grid>
     </ContentPage.Content>

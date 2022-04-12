@@ -23,5 +23,16 @@ namespace WhatsTheMove.Views
             SetContext();
         }
 
+        private void btnShowMeMoves_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                ((HomeViewModel)this.MyContext).ShowMeMovesCommand.Execute(sender);
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
     }
 }
