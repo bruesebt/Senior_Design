@@ -44,5 +44,20 @@ namespace WhatsTheMove.Data.Models
         public DateTime DateAdded { get => _dateAdded; set => UpdateOnPropertyChanged(ref _dateAdded, value); }
         private DateTime _dateAdded = DateTime.Now;
 
+        public override bool Equals(object obj)
+        {
+            Preference pref = (Preference)obj;
+            return this.Id == pref.Id
+                    && this.UserId == pref.UserId
+                    && this.ZipCode == pref.ZipCode
+                    && this.Distance == pref.Distance
+                    && this.GroupSize == pref.GroupSize
+                    && this.IsFoodRequested == pref.IsFoodRequested
+                    && this.IsDrinksRequested == pref.IsDrinksRequested
+                    && this.EnergyLevel == pref.EnergyLevel
+                    && this.Budget == pref.Budget
+                    && this.TimeOfDay == pref.TimeOfDay
+                    && this.DressCode == pref.DressCode;
+        }
     }
 }
