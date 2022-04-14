@@ -1,7 +1,7 @@
 #### Project Budget
 
 ###### Expenses to Date
-At this point in time, there have been no project expenses. We also do not anticipate having any expenses in the future. 
+To host our web API on Azure, there are some costs, but they were all covered by free credit received under a student trial. The same is true regarding the Google Places API.
 
 ###### Donated Items
-We also have not received any donated items, and have not taken anything from any donation sources.
+We received free credits through Microsoft Azure and Google API based on free student trials.
