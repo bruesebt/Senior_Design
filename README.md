@@ -28,20 +28,22 @@ The front-end of the application will consist of a modern UI to display and inte
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Task List](Documentation/Task-List.md)   
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Timeline and Effort Matrix](Documentation/Milestones.md)      
 5. Fall Semester Presentation   
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Google Slides](https://docs.google.com/presentation/d/1L_1f9lOlB5nPj0PPP4NEtKFIyT6Iy_RIXhF9OfD9IlE/edit?usp=sharing)   
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [YouTube](https://youtu.be/lQ2fAUUdPx4)
-6. Mid-Year Self-Assessment Essays   
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [PowerPoint](https://docs.google.com/presentation/d/1L_1f9lOlB5nPj0PPP4NEtKFIyT6Iy_RIXhF9OfD9IlE/edit?usp=sharing)   
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Recorded Video](https://youtu.be/lQ2fAUUdPx4)
+6. Initial Self-Assessment Essays   
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Brad](Assignments/Individual-Capstone-Assessments/Bruesewitz-Capstone-Assessment.md), [Caleb](Assignments/Individual-Capstone-Assessments/Cargill-Capstone-Assessment.md), [Nate](Assignments/Individual-Capstone-Assessments/Dumford-Capstone-Assessment.md), [John](Assignments/Individual-Capstone-Assessments/Lemon-Capstone-Assessment.md)
 7. Professional Biographies   
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Brad](Assignments/Member-Biographies/Bruesewitz-Professional-Biography.md), [Caleb](Assignments/Member-Biographies/Cargill-Professional-Biography.md), [Nate](Assignments/Member-Biographies/Dumford-Professional-Biography.md), [John](Assignments/Member-Biographies/Lemon-Professional-Biography.md)
 8. [Budget](Documentation/Budget.md)
 9. [Test Plans](Documentation/Test-Cases/Test-Cases.pdf)
 10. [User Manual Documentation](Documentation/User-Manual.md)
-11. [Kanban](https://miro.com/app/board/uXjVOOPJRq8=/?share_link_id=641635121443)
-12. Final Presentation  
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Google Slides](https://docs.google.com/presentation/d/1MyOs55YSTDSGCRIGcMJKcp6u0-c5tJknqJls2OzLu7Y/edit?usp=sharing)   
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [YouTube](https://youtu.be/bY2JpouuEpk)
-13. [Project Poster](https://docs.google.com/presentation/d/1f3lbqAK5bJ2sxbZSiOr3dT6rVSCBIE3CiMvxItT6J2w/edit?usp=sharing)
-14. End of Year Self-Assessment Essays   
+11. [User Interface Specification](Documentation/Wireframes/Wireframes.pdf)
+12. [Kanban](https://miro.com/app/board/uXjVOOPJRq8=/?share_link_id=641635121443)
+13. Final Presentation  
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [PowerPoint](https://docs.google.com/presentation/d/1MyOs55YSTDSGCRIGcMJKcp6u0-c5tJknqJls2OzLu7Y/edit?usp=sharing)   
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Recorded Video](https://youtu.be/bY2JpouuEpk)
+14. [Final Expo Poster](https://docs.google.com/presentation/d/1f3lbqAK5bJ2sxbZSiOr3dT6rVSCBIE3CiMvxItT6J2w/edit?usp=sharing)
+15. Final Self-Assessment Essays   
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9900; [Brad](Assignments/End-of-Year-Individual-Capstone-Assessments/Bruesewitz-EoY-Capstone-Assessment.md), [Caleb](Assignments/End-of-Year-Individual-Capstone-Assessments/Cargill-EoY-Capstone-Assessment.md), [Nate](Assignments/End-of-Year-Individual-Capstone-Assessments/Dumford-EoY-Capstone-Assessment.md), [John](Assignments/End-of-Year-Individual-Capstone-Assessments/Lemon-EoY-Capstone-Assessment.md)
-15. [Appendix](Documentation/Appendix.md)
+16. [Summary of Hours](Documentation/Summary-Hours.md)
+17. [Appendix](Documentation/Appendix.md)
