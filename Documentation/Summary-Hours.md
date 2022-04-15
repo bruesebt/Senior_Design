@@ -1,11 +1,11 @@
 #### Breakdown of Hours
 | Term              | Brad              | Caleb             | Nate              | John              |
 | :---              | :---              | :---              | :---              | :---              |
-| Fall Semester     | 40                | 45                | 40                | 40                |
-| Spring Semester   | 50                | 90                | 50                | 50                |
-| Year Total        | 90                | 135               | 90                | 90                |
+| Fall Semester     | 45                | 45                | 45                | 45                |
+| Spring Semester   | 60                | 90                | 60                | 60                |
+| Year Total        | 105               | 135               | 105               | 105               |
 
-| Project Total: 405 Hours     |
+| Project Total: 450 Hours     |
 | :---                         |
 
 #### Justification of Hours
